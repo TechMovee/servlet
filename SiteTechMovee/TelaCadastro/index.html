@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Cadastro</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form sign-up">
+            <form>
+                <h1>Criando Conta</h1>
+                <span> ou use seu email registrado</span>
+                <input type="text" placeholder="Nome">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Senha">
+                <button>Cadastrar</button>
+            </form>
+        </div>
+        <div class="form sign-in">
+            <form>
+                <h1>Entrar na Conta</h1>
+
+                <span> ou use seu email password</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Senha">
+                <p>Esqueceu sua Senha?</p>
+                <button>Entrar</button>
+            </form>
+        </div>
+        <div class="alternar-container">
+            <div class="alternar">
+                <div class="alternar-painel alternar-direita">
+                    <h1>Bem Vindo de Volta!</h1>
+                    <p>Insira seus dados pessoais para usar todos os recursos do site</p>
+                    <br>
+                    <p class="cadastro">Ainda não tem conta?</p>
+                    <button class="oculto" id="registro">Cadastra-se</button>
+                </div>
+                <div class="alternar-painel alternar-esquerda">
+                    <h1>Ola!</h1>
+                    <p>Registre seus dados pessoais para usar todos os recursos do site</p>
+                    <br>
+                    <p class="cadastro">Já tem conta?</p>
+                    <button class="oculto" id="login">Entrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script >
+        const container = document.getElementById('container');
+        const registerBtn = document.getElementById('registro');
+        const loginBtn = document.getElementById('login');
+
+        registerBtn.addEventListener('click', () =>{
+            container.classList.add("active");
+        })
+        loginBtn.addEventListener('click', () =>{
+            container.classList.remove("active");
+        })
+    </script>
+</body>
+</html>
