@@ -1,0 +1,295 @@
+/* Estilizações Universais */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Inter, sans-serif;
+    box-sizing: border-box;
+}
+
+section{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 100%;
+    align-items: center;
+    gap: 10%;
+    min-height: 500px;
+    max-width: 100%;
+}
+
+section div{
+    max-height: 100%;
+}
+
+body{
+    color: #21445B;
+    height: 2300px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+button{
+    width: 50%;
+    background-color: #FAB744;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+button:hover{
+    background-color: #0276B2;
+    transition: all 0.5s ease;
+}
+
+/* NavBar */
+
+nav{
+    background-color: #21445B;
+    color: #FAB744;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+}
+
+nav div{
+    margin: 0 5% 0 5%;
+}
+
+#ImagemNav{
+    display: flex;
+    align-items: center;
+    max-height: 43px;
+    font-weight: 100;
+    font-size: 25px;
+}
+
+#ImagemNav img{
+    height: 100%;
+    width: 18%;
+}
+
+.buttons{
+    display: flex;
+    min-width: 37%;
+    min-height: 37.5px;
+    gap: 5%;
+}
+
+#ButtonLogin{
+    background-color: transparent;
+    border: 2px solid #FAB744;
+    color: #FAB744 
+}
+
+
+#ButtonLogin:hover{
+    background-color: #0276B2;
+    border-color: transparent;
+    transition: all 0.3s ease;
+    color: #ffffff;
+}
+
+/* Primeira Seção - Bem Vindos */
+
+#BemVindos img{
+    height: 655px;
+    transform: translateY(20%) translateX(10px);
+    max-width: 100%;
+}
+
+.text{
+    margin-left: 20%;
+}
+
+.text h3{
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.text h3 span{
+    font-weight: 100;
+}
+
+.text p{
+    font-size: 25px;
+}
+
+.text button{
+    height: 53px;
+    font-size: 20px;
+    margin-top: 20px;
+    width: 80%;
+}
+
+#LaranjaSeção1{
+    background-color: #FAB744;
+    position: absolute;
+    rotate: -49deg;
+    height: 600px;
+    width: 700px;
+    right: -350px;
+    top: 320px;
+    z-index: -1000;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    overflow: hidden;
+}
+
+/* Seção 2 - ODS 11 */
+
+#ODS11{
+    grid-template-columns: 55% 45%;
+    background-color: #FAB744;
+    align-items: end;
+}
+
+#ODS11 .text{
+    margin-bottom: 20%;
+}
+
+#ODS11 .text a{
+    text-decoration: none;
+}
+
+#ODS11 img{
+    width: 45%;
+    margin-left: 10%;
+}
+
+/* Seção 3 - Tipo de Cadastros */
+
+#TipoCadastro{
+    gap: 0;
+}
+
+#TipoCadastro div{
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    font-size: 25px;
+    text-align: center;
+    padding: 0 20px 0 20px;
+    color: #ffffff;
+}
+
+#TipoCadastro i{
+    color: #ffffff;
+    margin-top: 10%;
+    font-size: 10rem;
+}
+
+#TipoCadastro p{
+    margin: 0% 15% 5% 15%;
+}
+
+#TipoCadastro button{
+    width: 60%;
+    height: 10%;
+}
+
+#Responsáveis{
+    background-color: #247098;
+}
+
+#Responsáveis i{
+    font-size: 130px;
+}
+
+.ri-team-fill{
+    height: 160px;
+    width: 160px;
+}
+
+#Transportadores{
+    background-color: #21445B;
+}
+
+#Transportadores p{
+    margin: 0 10% 5% 10%;
+}
+
+/* Seção 4 - Funcionalidades */
+
+#tituloFunctions{
+    margin: 5% 0 5% 10%;
+    font-size: 40px;
+}
+
+#tituloFunctions span{
+    font-weight: 100;
+}
+
+#SectFunctions{
+    display: flex;
+    flex-flow: column;
+}
+
+#Functions{
+    display: grid;
+    grid-template-columns: repeat(4, 241.2px);
+    gap: 12%;
+    text-align: center;
+    margin: 3% 17% 0 0;
+}
+
+#textoFunctions{
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    gap: 10.5%;
+}
+
+#textoFunctions p{
+    width: 200px;
+}
+
+.functions{
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 62.2%;
+    height: 150px;
+    background-color: #21445B;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.functions i{
+    font-size: 6rem;
+    color: #ffffff;
+}
+
+/* Footer */
+
+footer{
+    background-color: #1C1C1C;
+    display: grid;
+    grid-template-columns: repeat(5,10%);
+    height: 100px;
+    padding-left: 10%;
+    gap: 10%;
+
+}
+
+footer img{
+    position: absolute;
+    width: 330px;
+    transform: scaleX(-1) translateY(-60%) translateX(-25%);
+}
+
+.listras{
+    color: transparent;
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 100%;
+    height: 10px;
+    margin-top: 35%;
+}
