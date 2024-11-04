@@ -10,12 +10,17 @@ COPY . .
 # Executa o comando Maven para construir o projeto
 RUN mvn clean package -DskipTests
 
-FROM openjdk:17
+# Etapa 2: Imagem de execução com Tomcat
+FROM tomcat:10.0.12-jdk17-openjdk-slim
 
-WORKDIR /app
+# Remove o aplicativo padrão do Tomcat
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-COPY --from=build /app/target/*.jar app.jar
+# Copia o arquivo WAR do build para o diretório webapps do Tomcat
+COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
 
+# Exponha a porta padrão do Tomcat
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Inicia o Tomcat
+CMD ["catalina.sh", "run"]
