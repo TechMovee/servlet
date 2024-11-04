@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/Administrador/areaRestritaAdmin.jsp" value="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/Administrador" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/Login/LoginAreaRestrita.jsp" value="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/Login" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/TelaInicial/areaRestrita.html" value="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/TelaInicial" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/TelaInicial/areaRestrita.jsp" value="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/TelaInicial" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/ErrorPage/error.jsp" value="file://$PROJECT_DIR$/src/main/webapp/ErrorPage" />
+      </map>
+    </option>
+  </component>
+</project>

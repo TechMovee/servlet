@@ -5,31 +5,33 @@
     box-sizing: border-box;
 }
 
-section{
+/* Sections  -- */
+section {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     width: 100%;
     align-items: center;
     gap: 10%;
-    min-height: 500px;
-    max-width: 100%;
+    min-height: 700px;
+    width: 100%;
 }
 
-section div{
+section div {
     max-height: 100%;
 }
 
-body{
-    color: #21445B;
+
+/* Body -- */
+body {
     height: 2300px;
     max-width: 100%;
     overflow-x: hidden;
     background-color: #ffffff;
 }
 
-button{
+/* NavBar */
+button {
     width: 50%;
-    background-color: #21445B;
     border: 2px solid transparent;
     border-radius: 5px;
     color: #ffffff;
@@ -37,456 +39,1200 @@ button{
     transition: all 0.5s ease;
 }
 
-/* NavBar */
 
-nav{
-    background-color: #21445B;
-    color: #FAB744;
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 70px;
     width: 100%;
+
 }
 
-nav div{
-    margin: 0 5% 0 5%;
-}
 
-#ImagemNav{
+#ImagemNav {
     display: flex;
     align-items: center;
     max-height: 43px;
-    font-weight: 100;
-    font-size: 25px;
+    font-size: 30px;
 }
 
-
-#ImagemNav img{
-    height: 100%;
-    width: 70px;
+#ImagemNav {
+    margin-left: 50px;
+    color: #0056b3;
 }
 
-.buttons{
-    display: flex;
-    min-width: 37%;
-    min-height: 37.5px;
-    gap: 5%;
-}
-
-#ButtonLogin{
+#buttonAdm {
     background-color: transparent;
-    border: 2px solid #FAB744;
-    color: #F5B818 
+    border: 2px solid #0056b3;
+    color: #0056b3;
+    width: 15%;
+    height: 50%;
+    margin-right: 50px;
+    display: flex;
 }
 
 
-#ButtonLogin:hover{
-    background-color: #0276B2;
+#buttonAdm:hover {
+    background-color: #0056b3;
     border-color: transparent;
     transition: all 0.3s ease;
     color: #ffffff;
 }
 
+#buttonAdm p {
+    font-size: 14px;
+    margin-left: 70px;
+    margin-top: 7px;
+    text-align: center;
+}
+
+#buttonAdm img {
+    width: 15px;
+    margin-right: 7px;
+    margin-left: 7px;
+    margin-top: 6px;
+}
+
 /* Primeira Seção - Bem Vindos */
 
-#BemVindos img{
-    height: 655px;
-    transform: translateY(20%) translateX(10px);
-    max-width: 100%;
+#BemVindos img {
+    position: relative;
+    right: 0;
+    transform: translateX(-27.5%) translateY(30%);
+    width: 150%;
+    height: 100%;
+    z-index: -1;
 }
 
-.text{
-    margin-left: 20%;
+#BemVindos {
+    grid-template-columns: 60% 30%;
 }
 
-.text h3{
+.text {
+    margin-left: 5%;
+    text-align: center;
+    color: black;
+}
+
+#BemVindos .text {
+    margin: auto;
+    width: 70%;
+}
+
+.text h3 {
     font-size: 40px;
     font-weight: 600;
-    margin-bottom: 30px;
+    margin-bottom: 45px;
 }
 
-.text h3 span{
+.text h3 span {
     font-weight: 100;
 }
 
-.text p{
-    font-size: 25px;
-}
 
-.text button{
-    height: 53px;
+.text p {
     font-size: 20px;
-    margin-top: 20px;
-    width: 80%;
 }
 
-#LaranjaSeção1{
-    background-color: #F5B818;
-    position: absolute;
-    rotate: -49deg;
-    height: 600px;
-    width: 700px;
-    right: -350px;
-    top: 320px;
-    z-index: -1000;
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-    overflow: hidden;
+#BemVindos .text button {
+    float: left;
+    padding: 5px;
+    gap: 10px;
+    margin-top: 30px;
+    margin-left: 2px;
+    background-color: transparent;
+    border: 2px solid #0276B2;
+    color: #0276B2;
 }
+
+#BemVindos .text button:hover {
+    background-color: #0056b3;
+    border-color: transparent;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+
+.buttons {
+    display: flex;
+    min-width: 37%;
+    min-height: 37.5px;
+    gap: 5%;
+    ;
+    height: 70px;
+
+}
+
 
 /* Seção 2 - ODS 11 */
 
-#ODS11{
+#ODS11 {
     grid-template-columns: 55% 45%;
-    background-color: #F5B818;
-    align-items: end;
-}
-
-#ODS11 .text{
-    margin-bottom: 20%;
-}
-
-#ODS11 .text a{
-    text-decoration: none;
-}
-
-#ODS11 img{
-    width: 45%;
-    margin-left: 10%;
-}
-
-/* Seção 3 - Tipo de Cadastros */
-
-#TipoCadastro{
-    gap: 0;
-}
-
-#TipoCadastro div{
+    background-color: #FFB950;
     align-items: center;
+    height: 32%;
+}
+
+#ODS11 .text {
+    margin-bottom: 5%;
+    margin-left: 5%;
+}
+
+#ODS11 .text h3 {
+    margin-bottom: 150px;
+    color: black
+}
+
+#ODS11 .text a {
+    text-decoration: underline;
+}
+
+#ODS11 .text a:hover {
+    color: #256BE5;
+    transition: all 0.3s ease;
+}
+
+#ODS11 img {
+    width: 75%;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+/* Seção 3 - Sobre nós */
+
+#h2Sobre {
+    text-align: center;
+    color: #256BE5;
+    font-size: 45px;
+    margin-top: 120px;
+}
+
+#Sobrenos p {
+    text-align: center;
+    color: black;
+    font-size: 23px;
+    margin-right: 100px;
+}
+
+#Sobrenos img {
+    width: 100%;
+    margin-left: 100px;
+    border-radius: 25px;
+}
+
+/* Seção 4 - Tipo de Cadastros */
+
+#TipoCadastro {
+    gap: 0;
+    height: 32%;
+}
+
+#TipoCadastro div {
+    align-items: center;
+    justify-content: center;
     display: flex;
     flex-flow: column;
     height: 100%;
     font-size: 25px;
     text-align: center;
-    padding: 0 20px 0 20px;
+    padding: 0 10px 0 10px;
     color: #ffffff;
 }
 
-#TipoCadastro i{
+#TipoCadastro i {
     color: #ffffff;
     margin-top: 10%;
     font-size: 10rem;
 }
 
-#TipoCadastro p{
-    margin: 0% 15% 5% 15%;
+#TipoCadastro p {
+    margin: 0% 10% 5% 10%;
 }
 
-#TipoCadastro button{
-    width: 60%;
-    height: 10%;
-}
-
-#Responsáveis{
+#Responsáveis {
     background-color: #247098;
 }
 
-#Responsáveis i{
+#Responsáveis i {
     font-size: 130px;
 }
 
-.ri-team-fill{
+.ri-team-fill {
     height: 160px;
     width: 160px;
 }
 
-#Transportadores{
-    background-color: #21445B;
+#Transportadores {
+    background-color: #2C4D86;
 }
 
-#Transportadores p{
+#Transportadores p {
     margin: 0 10% 5% 10%;
 }
 
-/* Seção 4 - Funcionalidades */
+/* Seção 5 - Funcionalidades */
 
-#tituloFunctions{
+#tituloFunctions {
     margin: 5% 0 5% 10%;
     font-size: 40px;
+    color: black;
 }
 
-#tituloFunctions span{
+
+#tituloFunctions strong {
     font-weight: 100;
+    color: #FFB950;
 }
 
-#SectFunctions{
-    display: flex;
-    flex-flow: column;
+#tituloFunctions i {
+    font-weight: 100;
+    color: #256BE5;
 }
 
-#Functions{
+#SectFunctions {
     display: grid;
-    grid-template-columns: repeat(4, 241.2px);
-    gap: 12%;
-    text-align: center;
-    margin: 3% 17% 0 0;
-}
-
-#textoFunctions{
-    margin-top: 2%;
-    display: flex;
+    grid-template-columns: repeat(4, 1fr);
     justify-content: center;
-    width: 100%;
+    align-items: start;
     text-align: center;
-    gap: 10.5%;
+    width: 75%;
+    margin: auto;
 }
 
-#textoFunctions p{
-    width: 200px;
-}
 
-.functions{
+.functions {
     display: flex;
     flex-flow: column;
-    height: 100%;
-    width: 62.2%;
-    height: 150px;
+    width: 80%;
+    height: 160px;
     background-color: #21445B;
     border-radius: 50%;
     align-items: center;
     justify-content: center;
+    margin: auto auto 20px auto;
+
 }
 
-.functions i{
+.functions i {
     font-size: 6rem;
     color: #ffffff;
 }
 
 /* Footer */
 
-footer{
+footer {
     background-color: #1C1C1C;
-    display: grid;
-    grid-template-columns: repeat(5,10%);
-    height: 100px;
-    padding-left: 10%;
-    gap: 10%;
-
-}
-
-footer img{
-    position: absolute;
-    width: 330px;
-    transform: scaleX(-1) translateY(-60%) translateX(-25%);
-}
-
-.listras{
-    color: transparent;
-    background-color: #ffffff;
-    border-radius: 10px;
-    width: 100%;
-    height: 10px;
-    margin-top: 35%;
-}
-
-#vazio{
-    cursor:auto;
-}
-
-#imgEspc{
-    width: 20px;
-}
-
-#copy{
+    color: white;
+    padding: 20px;
     text-align: center;
 }
 
-.ImagemPrincipal {
-    position: relative;
-    z-index: -1; 
-    top: -28px;    
+.footer-content {
+    display: flex;
+    gap: 43px;
+    flex-direction: column;
+    align-items: center;
 }
 
-.img{
-    margin-top: 50px;
+.icons {
+    margin-bottom: 25px;
 }
 
-@media (max-width: 500px){
-    nav {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
-    }
-    
-    #ImagemNav {
-        font-size: 20px;
-    }
-    
-    .buttons {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        justify-content: center;
-    }
-    
+.icons a {
+    color: #007bff;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.icons a:hover {
+    color: #0056b3;
+    background-color: #FFB950;
+    transition: 0.299s;
+    border-radius: 10px;
+}
+
+footer p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#copy {
+    text-align: center;
+}
+
+
+#redesSociais {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: -10px;
+    background-color: #1C1C1C;
+    image-rendering: auto;
+}
+
+.imagem-estrada {
+    width: 100%;
+    height: 100%;
+    transform: translateY(5%);
+}
+
+
+/* RESPONSIVIDADE */
+
+@media screen and (max-width: 600px) {
+
     section {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 5%;
-    }
-    
-    .text {
-        margin-left: 0;
-    }
-    
-    #BemVindos img {
-        height: auto;
+        display: grid;
         width: 100%;
-        transform: translateY(0);
-    }
-    
-    #ODS11 {
-        grid-template-columns: 1fr;
         align-items: center;
+        gap: 10%;
+        min-height: 700px;
+        max-width: 100%;
+    }
+
+    section div {
+        max-height: 100%;
+    }
+
+    /* NavBar */
+    button {
+        width: 50%;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.5s ease;
+    }
+
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+        width: 100%;
+    }
+
+
+    #ImagemNav {
+        display: flex;
+        align-items: center;
+        max-height: 43px;
+        font-size: 30px;
+        margin-left: 20px;
+    }
+
+    #ImagemNav {
+        color: #0056b3;
+    }
+
+    #buttonAdm {
+        background-color: transparent;
+        border: 2px solid #0056b3;
+        color: #0056b3;
+        width: 20%;
+        height: 60%;
+        margin-right: 10px;
+        display: flex;
+        margin-right: 20px;
+    }
+
+    #buttonAdm:hover {
+        background-color: #0056b3;
+        border-color: transparent;
+        transition: all 0.3s ease;
+        color: #ffffff;
+    }
+
+    #buttonAdm p {
+        font-size: 14px;
+        margin-left: 0;
+        margin-top: 0px;
         text-align: center;
     }
-    
-    #ODS11 img {
-        width: 100%;
-        margin-left: 0;
+
+    #buttonAdm img {
+        width: 15px;
+        margin-right: 7px;
+        margin-left: 7px;
+        margin-top: 6px;
     }
-    
-    #TipoCadastro div {
-        padding: 10px;
-        font-size: 20px;
-    }
-    
-    #TipoCadastro i {
-        font-size: 80px;
-        margin-top: 5%;
-    }
-    
-    #Functions {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    #Functions .functions {
-        width: 80%;
-        margin: 0 auto;
-        height: auto;
-    }
-    
-    #textoFunctions {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    footer {
-        grid-template-columns: 1fr;
-        height: auto;
-        padding: 20px;
-    }
-    
-    footer img {
+
+    /* Primeira Seção - Bem Vindos */
+
+    #BemVindos img {
         display: none;
     }
-    
-    .listras {
-        margin-top: 10px;
-    }
-    
-    #copy {
-        font-size: 12px;
-    }
-}
 
-@media (max-width: 600px) {
-    nav {
-        flex-direction: column;
-        height: auto;
-        justify-content: center;
-        padding: 10px;
-    }
-
-    #ImagemNav {
-        font-size: 20px;
-    }
-
-    .buttons {
-        min-width: 100%;
-        justify-content: space-around;
-    }
-
-    section {
-        grid-template-columns: 1fr;
-        gap: 5%;
-    }
-
-    #BemVindos img {
-        height: 300px;
-        transform: none;
-        margin-top: 20px;
+    #BemVindos {
+        grid-template-columns: 100%;
     }
 
     .text {
-        margin-left: 10%;
+        margin-left: 35%;
+        text-align: center;
+        color: black;
     }
 
-    #ODS11 img {
+    #BemVindos .text {
+        margin: auto;
         width: 70%;
     }
 
-    #Functions {
-        grid-template-columns: 1fr;
-        gap: 10%;
+    .text h3 {
+        font-size: 40px;
+        font-weight: 600;
+        margin-bottom: 45px;
     }
 
-    footer {
-        grid-template-columns: 1fr;
-        height: auto;
-        padding-left: 5%;
+    .text h3 span {
+        font-weight: 100;
     }
 
-    .listras {
-        margin-top: 10px;
-    }
-}
 
-@media (min-width: 600px) and (max-width: 768px) {
-    nav {
-        padding: 10px;
+    .text p {
+        font-size: 20px;
     }
 
+    #BemVindos .text button {
+        float: left;
+        padding: 5px;
+        gap: 10px;
+        margin-top: 30px;
+        margin-left: 2px;
+        background-color: transparent;
+        border: 2px solid #0276B2;
+        color: #0276B2;
+    }
+
+    #BemVindos .text button:hover {
+        background-color: #0056b3;
+        border-color: transparent;
+        transition: all 0.3s ease;
+        color: white;
+    }
     .buttons {
-        min-width: 50%;
-    }
-
-    section {
-        grid-template-columns: 1fr;
+        display: flex;
+        min-width: 37%;
+        min-height: 37.5px;
         gap: 5%;
+        ;
+        height: 70px;
+
     }
 
-    #BemVindos img {
-        height: 450px;
-        transform: translateY(10%);
+
+
+    /* Seção 2 - ODS 11 */
+
+    #ODS11 {
+        grid-template-columns: 70% 20%;
+        background-color: #FFB950;
+        align-items: center;
+        height: 32%;
     }
 
-    .text {
-        margin-left: 15%;
+    #ODS11 .text i{
+        width: 100%;
+    }
+
+    #ODS11 .text {
+        margin-left: 40%;
+        margin-bottom: 80%;
+        text-align: center;
+    }
+
+    #ODS11 .text h3 {
+        margin-bottom: 150px;
+        color: black
+    }
+
+    #ODS11 .text a {
+        text-decoration: underline;
+    }
+
+    #ODS11 .text a:hover {
+        color: #256BE5;
+        transition: all 0.3s ease;
+    }
+
+    #ODS11 .text p {
+        text-align: center;
+        margin-top: -120px;
+        width: 150%;
+        margin-left: -20%;
     }
 
     #ODS11 img {
-        width: 50%;
+        width: 200%;
+        margin-top: 500px;
+        margin-left: -250%;
     }
 
-    #Functions {
+    /* Seção 3 - Sobre nós */
+
+    #h2Sobre {
+        text-align: center;
+        color: #256BE5;
+        font-size: 45px;
+        margin-top: 100px;
+    }
+
+    #Sobrenos {
+        display: grid;
+        grid-template-columns: 100%;
+    }
+
+    #Sobrenos p {
+        font-size: 18px;
+        margin: -35% 10% 5% 10%;
+    }
+
+    #Sobrenos img {
+        width: 90%;
+        margin-left: 18px;
+        border-radius: 25px;
+    }
+
+    /* Seção 4 - Tipo de Cadastros */
+
+    #TipoCadastro {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #TipoCadastro div {
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        height: 100%;
+        width: 100%;
+        color: #ffffff;
+
+    }
+
+    #TipoCadastro i {
+        color: #ffffff;
+        margin-top: 10%;
+        font-size: 10rem;
+    }
+
+    #TipoCadastro p {
+        margin: 0% 10% 5% 10%;
+    }
+
+    #Responsáveis {
+        background-color: #247098;
+    }
+
+    #Responsáveis i {
+        font-size: 130px;
+    }
+
+    .ri-team-fill {
+        height: 160px;
+        width: 160px;
+    }
+
+    #Transportadores {
+        background-color: #2C4D86;
+    }
+
+    #Transportadores p {
+        margin: 0 10% 5% 10%;
+    }
+
+    /* Seção 5 - Funcionalidades */
+
+    #tituloFunctions {
+        font-size: 40px;
+        color: black;
+    }
+
+
+    #tituloFunctions strong {
+        font-weight: 100;
+        color: #FFB950;
+    }
+
+    #SectFunctions {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        margin-left: 23%;
+        height: 100%;
+        width: 55%;
+        margin-top: -550px;
+    }
+
+    .functions {
+        height: 150px;
+        background-color: #21445B;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Footer */
+
+    footer {
+        margin: 0;
+        background-color: transparent;
+        color: white;
+        padding: 0px;
+        text-align: center;
+        margin-top: -300px;
+    }
+
+    .footer-content {
+        background-color: #1C1C1C;
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        height: 100%;
+    }
+
+    .icons {
+        margin-bottom: 25px;
+    }
+
+    .icons a {
+        color: #007bff;
+        font-size: 24px;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+        text-decoration: none;
+    }
+
+    .icons a:hover {
+        color: #0056b3;
+        background-color: #FFB950;
+        transition: 0.299s;
+        border-radius: 10px;
+    }
+
+    footer p {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+
+    #copy {
+        text-align: center;
+    }
+
+    #redesSociais {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: -5px;
+        image-rendering: auto;
+    }
+
+    .imagem-estrada {
+        width: 100%;
+        height: 100%;
+        transform: translateY(15%);
+    }
+
+    #final {
+        background-color: #1C1C1C;
+        height: 5%;
+    }
+}
+
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: Inter, sans-serif;
+        box-sizing: border-box;
+    }
+
+    /* Sections  -- */
+    section {
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        align-items: center;
+        gap: 25%;
+        min-height: 700px;
+        max-width: 100%;
+    }
+
+    section div {
+        max-height: 100%;
+    }
+
+
+    /* Body -- */
+    body {
+        height: 2300px;
+        max-width: 100%;
+        overflow-x: hidden;
+        background-color: #ffffff;
+    }
+
+    /* NavBar */
+    button {
+        width: 50%;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.5s ease;
+    }
+
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+        width: 100%;
+
+    }
+
+
+    #ImagemNav {
+        display: flex;
+        align-items: center;
+        max-height: 43px;
+        font-size: 30px;
+    }
+
+    #ImagemNav {
+        margin-left: 50px;
+        color: #0056b3;
+    }
+
+    #buttonAdm {
+        background-color: transparent;
+        border: 2px solid #0056b3;
+        color: #0056b3;
+        width: 15%;
+        height: 50%;
+        margin-right: 50px;
+        display: flex;
+    }
+
+
+    #buttonAdm:hover {
+        background-color: #0056b3;
+        border-color: transparent;
+        transition: all 0.3s ease;
+        color: #ffffff;
+    }
+
+    #buttonAdm p {
+        font-size: 14px;
+        margin-left: 15px;
+        margin-top: 7px;
+        text-align: center;
+    }
+
+    #buttonAdm img {
+        width: 15px;
+        margin-right: 7px;
+        margin-left: 7px;
+        margin-top: 6px;
+    }
+
+    /* Primeira Seção - Bem Vindos */
+
+    #BemVindos {
+        grid-template-columns: 45% 30%;
+    }
+
+    #BemVindos img{
+        transform: translateX(-33%) translateY(20%);
+        z-index: -1;
+    }
+
+    .text {
+        margin-left: 5%;
+        text-align: center;
+        color: black;
+    }
+
+    #BemVindos .text {
+        margin: auto;
+        width: 70%;
+    }
+
+    .text h3 {
+        font-size: 40px;
+        font-weight: 600;
+        margin-bottom: 45px;
+    }
+
+    .text h3 span {
+        font-weight: 100;
+    }
+
+
+    .text p {
+        font-size: 20px;
+    }
+
+    #BemVindos .text button {
+        float: left;
+        padding: 5px;
+        gap: 10px;
+        margin-top: 30px;
+        margin-left: 2px;
+        background-color: transparent;
+        border: 2px solid #0276B2;
+        color: #0276B2;
+    }
+
+    #BemVindos .text button:hover {
+        background-color: #0056b3;
+        border-color: transparent;
+        transition: all 0.3s ease;
+        color: white;
+    }
+
+  
+
+    .buttons {
+        display: flex;
+        min-width: 37%;
+        min-height: 37.5px;
         gap: 5%;
+        ;
+        height: 70px;
+
+    }
+
+
+
+    /* Seção 2 - ODS 11 */
+
+    #ODS11 {
+        grid-template-columns: 25% 45%;
+        background-color: #FFB950;
+        align-items: center;
+        height: 32%;
+    }
+
+    #ODS11 .text {
+        margin-bottom: 5%;
+        margin-left: 5%;
+    }
+
+    #ODS11 .text h3 {
+        margin-bottom: 150px;
+        color: black
+    }
+
+    #ODS11 .text a {
+        text-decoration: underline;
+    }
+
+    #ODS11 .text a:hover {
+        color: #256BE5;
+        transition: all 0.3s ease;
+    }
+
+    #ODS11 img {
+        width: 80%;
+        margin-top: 30px;
+        margin-left: -103px;
+
+    }
+
+    /* Seção 3 - Sobre nós */
+
+    #h2Sobre {
+        text-align: center;
+        color: #256BE5;
+        font-size: 45px;
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+
+    #Sobrenos {
+        display: grid;
+        grid-template-columns: 100%;
+    }
+
+    #Sobrenos p {
+        font-size: 18px;
+        margin: -20% 10% 5% 10%;
+    }
+
+    #Sobrenos img {
+        width: 90%;
+        margin-left: 50px;
+        border-radius: 25px;
+    }
+
+    /* Seção 4 - Tipo de Cadastros */
+
+    #TipoCadastro {
+        gap: 0;
+        height: 32%;
+    }
+
+    #TipoCadastro div {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+        font-size: 25px;
+        text-align: center;
+        padding: 0 10px 0 10px;
+        color: #ffffff;
+    }
+
+    #TipoCadastro i {
+        color: #ffffff;
+        margin-top: 10%;
+        font-size: 10rem;
+    }
+
+    #TipoCadastro p {
+        margin: 0% 10% 5% 10%;
+    }
+
+    #Responsáveis {
+        background-color: #247098;
+    }
+
+    #Responsáveis i {
+        font-size: 130px;
+    }
+
+    .ri-team-fill {
+        height: 160px;
+        width: 160px;
+    }
+
+    #Transportadores {
+        background-color: #2C4D86;
+    }
+
+    #Transportadores p {
+        margin: 0% 10% 5% 10%;
+    }
+
+    /* Seção 5 - Funcionalidades */
+
+    #tituloFunctions {
+        margin: 5% 0 5% 10%;
+        font-size: 40px;
+        color: black;
+    }
+
+
+    #tituloFunctions strong {
+        font-weight: 100;
+        color: #FFB950;
+    }
+
+    #tituloFunctions i {
+        font-weight: 100;
+        color: #256BE5;
+    }
+
+    #SectFunctions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 70px);
+        justify-content: center;
+        align-items: start;
+        text-align: center;
+        width: 70%;
+        margin: auto;
+
+    }
+
+
+    .functions {
+        display: flex;
+        flex-flow: column;
+        width: 80%;
+        height: 160px;
+        background-color: #21445B;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        margin: auto auto 20px auto;
+
+    }
+
+    .functions i {
+        font-size: 6rem;
+        color: #ffffff;
+    }
+
+    /* Footer */
+
+    footer {
+        background-color: transparent;
+        color: white;
+        padding: 0px;
+        text-align: center;
+        margin: 0;
+    }
+
+    .footer-content {
+        background-color: #1C1C1C;
+        display: flex;
+        gap: 43px;
+        flex-direction: column;
+        align-items: center;
+    }
+    #bus {
+        position: absolute;
+        transform: scaleX(-100%);
+        width: 25%;
+        margin-top: -80px;
+    }
+
+    .estrada .listra {
+        width: 50px;
+        height: 10px;
+        margin: 0 30px 0 70px;
+        border-radius: 10px;
+    }
+
+    .icons {
+        margin-bottom: 25px;
+    }
+
+    .icons a {
+        color: #007bff;
+        font-size: 24px;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+        text-decoration: none;
+    }
+
+    .icons a:hover {
+        color: #0056b3;
+        background-color: #FFB950;
+        transition: 0.299s;
+        border-radius: 10px;
+    }
+
+    footer p {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    footer .bus-image {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+
+    #copy {
+        text-align: center;
+    }
+
+    #redesSociais {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: -10px;
+        background-color: #1C1C1C;
+        image-rendering: auto;
+    }
+
+
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+
+    #buttonAdm p{
+        margin-left: 15px;
+    }
+
+    #ODS11 {
+        grid-template-columns: 45% 45%;
+    }
+
+    #ODS11  p{
+        width: 70%;
+        margin-left: 60px;
+    }
+
+    #Sobrenos {
+        gap: 250px;
+        background-color: transparent;
+    }
+
+    #Sobrenos img{
+        width: 80%;
+        margin-left: 100px;
+    }
+
+    #SectFunctions {
+        width: 80%;
+        gap: 200px;
+    
+    }
+}
+
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    #buttonAdm p{
+        margin-left: 35px;
+    }
+
+    #ODS11 {
+        grid-template-columns: 45% 45%;
+    }
+
+    #Sobrenos img{
+        margin-left: 20px;
     }
 
     footer {
-        grid-template-columns: repeat(3, 1fr);
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .footer-content {
+        background-color: #1C1C1C;
+    }
+
+    #SectFunctions {
+        margin-top: 100px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 70px);
+        justify-content: center;
+        align-items: start;
+        text-align: center;
+        width: 65%;
+        gap: 250px;
+        margin: auto;
     }
 }
- 
+
+@media only screen and (min-width: 1200px) {
+    #ODS11 {
+        grid-template-columns: 45% 45%;
+    }
+
+    footer {
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .footer-content {
+        background-color: #1C1C1C;
+    }
+}

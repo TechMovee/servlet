@@ -3,18 +3,30 @@ package org.example.projecttechmovee.ClasseTabelas;
 public class Admin {
     private int id;
     private String name;
-    private String password;
+    private String email;
+    private String senha;
 
     //  Construtor
-    public Admin(int id, String name, String password) {
+    public Admin(int id, String name,String email, String senha) {
         this.id = id;
         this.name = name;
-        this.password = password;
+        this.email = email;
+        this.senha = senha;
+    }
+
+    public Admin(String name,String email, String senha) {
+        this.id = -1;
+        this.name = name;
+        this.email = email;
+        this.senha = senha;
+    }
+
+    public Admin() {
     }
 
     //    GETTERS
-    public String getPassword() {
-        return this.password;
+    public String getSenha() {
+        return this.senha;
     }
     public String getName() {
         return this.name;
@@ -22,6 +34,7 @@ public class Admin {
     public int getId() {
         return this.id;
     }
+    public String getEmail() {return email;}
 
     //    SETTERS
     public void setId(int id) {
@@ -30,13 +43,20 @@ public class Admin {
     public void setName(String name) {
         this.name = name;
     }
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
+    public void setEmail(String email) {this.email = email;}
+
 
     //    toString
+
     @Override
     public String toString() {
-        return "\nAdmin: " + "\nId: " + this.id + "\nNome: " + this.name + "\nPassword: " + this.password;
+        return "Admin{" +
+                "id=" + this.id +
+                ", nome='" + this.name + '\'' +
+                ", email='" + this.email + '\'' +
+                '}';
     }
 }

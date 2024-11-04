@@ -1,8 +1,8 @@
-package org.example.projecttechmovee.Principal;
+package org.example.projecttechmovee.DbConexao;
 
 import java.sql.*;
-
 public class Conexao {
+
     private Connection conexao;
     private PreparedStatement pstmt;
     private ResultSet rs;
@@ -10,11 +10,14 @@ public class Conexao {
     public boolean conectar() {
 
         try {
+            String dbUrl = System.getenv("DB_URL");
+            String dbUser = System.getenv("DB_USER");
+            String dbPassword = System.getenv("DB_PASSWORD");
             Class.forName("org.postgresql.Driver");
             conexao = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/postgres",
-                    "postgres",
-                    "1234"
+                    dbUrl,
+                    dbUser,
+                    dbPassword
             );
             return true;
         } catch (ClassNotFoundException cnfe) {
@@ -35,6 +38,13 @@ public class Conexao {
         return false;
     }
     public Connection getConexao(){
-        return conexao;
+        if (this.conexao!=null) {
+            return this.conexao;
+        }else {
+            if (conectar()){
+                return this.conexao;
+            }
+            return null;
+        }
     }
 }
