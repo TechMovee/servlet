@@ -62,7 +62,7 @@ nav {
     color: #0056b3;
 }
 
-#buttonAdm {
+#botaoAdm {
     background-color: transparent;
     border: 2px solid #0056b3;
     color: #0056b3;
@@ -73,26 +73,27 @@ nav {
 }
 
 
-#buttonAdm:hover {
+#botaoAdm:hover {
     background-color: #0056b3;
     border-color: transparent;
     transition: all 0.3s ease;
     color: #ffffff;
 }
 
-#buttonAdm p {
+#botaoAdm p {
     font-size: 14px;
     margin-left: 70px;
     margin-top: 7px;
     text-align: center;
 }
 
-#buttonAdm img {
+#botaoAdm img {
     width: 15px;
     margin-right: 7px;
     margin-left: 7px;
     margin-top: 6px;
 }
+
 
 /* Primeira Seção - Bem Vindos */
 
@@ -109,94 +110,70 @@ nav {
     grid-template-columns: 60% 30%;
 }
 
-.text {
+.mensagem {
     margin-left: 5%;
     text-align: center;
     color: black;
+    transform: translateY(-50%);
 }
 
-#BemVindos .text {
+#BemVindos .mensagem {
     margin: auto;
     width: 70%;
 }
 
-.text h3 {
-    font-size: 40px;
+.mensagem h2 {
+    font-size: 30px;
     font-weight: 600;
     margin-bottom: 45px;
 }
 
-.text h3 span {
+.mensagem h3 span {
     font-weight: 100;
 }
 
 
-.text p {
+.mensagem p {
     font-size: 20px;
 }
 
-#BemVindos .text button {
-    float: left;
-    padding: 5px;
-    gap: 10px;
-    margin-top: 30px;
-    margin-left: 2px;
-    background-color: transparent;
-    border: 2px solid #0276B2;
-    color: #0276B2;
-}
-
-#BemVindos .text button:hover {
-    background-color: #0056b3;
-    border-color: transparent;
-    transition: all 0.3s ease;
-    color: white;
-}
-
-
-.buttons {
-    display: flex;
-    min-width: 37%;
-    min-height: 37.5px;
-    gap: 5%;
-    ;
-    height: 70px;
-
-}
 
 
 /* Seção 2 - ODS 11 */
 
 #ODS11 {
-    grid-template-columns: 55% 45%;
+    grid-template-columns: 60% 30% !important;
     background-color: #FFB950;
     align-items: center;
+    text-align: center;
+    font-size: 20px;
     height: 32%;
 }
 
-#ODS11 .text {
+#ODS11 .ideia {
     margin-bottom: 5%;
-    margin-left: 5%;
+    margin-left: 15%;
+    width: 70%;
 }
 
-#ODS11 .text h3 {
-    margin-bottom: 150px;
+#ODS11 .ideia h2 {
+    margin-bottom: 45px;
     color: black
 }
 
-#ODS11 .text a {
+#ODS11 .ideia a {
     text-decoration: underline;
 }
 
-#ODS11 .text a:hover {
+#ODS11 .ideia a:hover {
     color: #256BE5;
     transition: all 0.3s ease;
 }
 
 #ODS11 img {
-    width: 75%;
+    width: 100%;
     margin-top: 30px;
-    margin-left: 50px;
+    margin-left: -100px;
 }
 
 /* Seção 3 - Sobre nós */
@@ -298,6 +275,7 @@ nav {
     text-align: center;
     width: 75%;
     margin: auto;
+    margin-top: 10%;
 }
 
 
@@ -326,6 +304,7 @@ footer {
     color: white;
     padding: 20px;
     text-align: center;
+
 }
 
 .footer-content {
@@ -333,6 +312,8 @@ footer {
     gap: 43px;
     flex-direction: column;
     align-items: center;
+
+
 }
 
 .icons {
@@ -377,6 +358,8 @@ footer p {
     width: 100%;
     height: 100%;
     transform: translateY(5%);
+    margin-top: -100%;
+
 }
 
 
@@ -429,7 +412,7 @@ footer p {
         color: #0056b3;
     }
 
-    #buttonAdm {
+    #botaoAdm {
         background-color: transparent;
         border: 2px solid #0056b3;
         color: #0056b3;
@@ -440,27 +423,26 @@ footer p {
         margin-right: 20px;
     }
 
-    #buttonAdm:hover {
+    #botaoAdm:hover {
         background-color: #0056b3;
         border-color: transparent;
         transition: all 0.3s ease;
         color: #ffffff;
     }
 
-    #buttonAdm p {
+    #botaoAdm p {
         font-size: 14px;
         margin-left: 0;
         margin-top: 0px;
         text-align: center;
     }
 
-    #buttonAdm img {
+    #botaoAdm img {
         width: 15px;
         margin-right: 7px;
         margin-left: 7px;
         margin-top: 6px;
     }
-
     /* Primeira Seção - Bem Vindos */
 
     #BemVindos img {
@@ -471,33 +453,34 @@ footer p {
         grid-template-columns: 100%;
     }
 
-    .text {
+    .mensagem {
         margin-left: 35%;
         text-align: center;
         color: black;
+        transform: translateY(1%);
     }
 
-    #BemVindos .text {
+    #BemVindos .mensagem {
         margin: auto;
         width: 70%;
     }
 
-    .text h3 {
+    .mensagem h3 {
         font-size: 40px;
         font-weight: 600;
         margin-bottom: 45px;
     }
 
-    .text h3 span {
+    .mensagem h3 span {
         font-weight: 100;
     }
 
 
-    .text p {
+    .mensagem p {
         font-size: 20px;
     }
 
-    #BemVindos .text button {
+    #BemVindos .mensagem button {
         float: left;
         padding: 5px;
         gap: 10px;
@@ -508,18 +491,19 @@ footer p {
         color: #0276B2;
     }
 
-    #BemVindos .text button:hover {
+    #BemVindos .mensagem button:hover {
         background-color: #0056b3;
         border-color: transparent;
         transition: all 0.3s ease;
         color: white;
     }
+
     .buttons {
         display: flex;
         min-width: 37%;
         min-height: 37.5px;
         gap: 5%;
-        ;
+    ;
         height: 70px;
 
     }
@@ -529,47 +513,47 @@ footer p {
     /* Seção 2 - ODS 11 */
 
     #ODS11 {
-        grid-template-columns: 70% 20%;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: 100% !important;
         background-color: #FFB950;
         align-items: center;
+        text-align: center;
         height: 32%;
+        gap: 10px;
     }
 
-    #ODS11 .text i{
+    #ODS11 .ideia i{
         width: 100%;
     }
 
-    #ODS11 .text {
-        margin-left: 40%;
-        margin-bottom: 80%;
-        text-align: center;
+    #ODS11 .ideia {
+        width: 70%;
+        margin: auto;
     }
 
-    #ODS11 .text h3 {
+    #ODS11 .ideia h2 {
         margin-bottom: 150px;
+        text-align: center;
         color: black
     }
 
-    #ODS11 .text a {
+    #ODS11 .ideia a {
         text-decoration: underline;
     }
 
-    #ODS11 .text a:hover {
+    #ODS11 .ideia a:hover {
         color: #256BE5;
         transition: all 0.3s ease;
     }
 
-    #ODS11 .text p {
-        text-align: center;
+    #ODS11 .ideia p {
         margin-top: -120px;
-        width: 150%;
-        margin-left: -20%;
+        width: 100%;
     }
 
     #ODS11 img {
-        width: 200%;
-        margin-top: 500px;
-        margin-left: -250%;
+        width: 80%;
+        margin: auto;
     }
 
     /* Seção 3 - Sobre nós */
@@ -593,7 +577,7 @@ footer p {
 
     #Sobrenos img {
         width: 90%;
-        margin-left: 18px;
+        margin-left: 20px;
         border-radius: 25px;
     }
 
@@ -648,7 +632,7 @@ footer p {
     /* Seção 5 - Funcionalidades */
 
     #tituloFunctions {
-        font-size: 40px;
+        font-size: 30px;
         color: black;
     }
 
@@ -659,13 +643,11 @@ footer p {
     }
 
     #SectFunctions {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(1 ,1fr);
         gap: 50px;
-        margin-left: 23%;
-        height: 100%;
-        width: 55%;
-        margin-top: -550px;
+        margin-left: 30%;
+        width: 45%;
     }
 
     .functions {
@@ -676,6 +658,8 @@ footer p {
         justify-content: center;
     }
 
+
+
     /* Footer */
 
     footer {
@@ -684,7 +668,8 @@ footer p {
         color: white;
         padding: 0px;
         text-align: center;
-        margin-top: -300px;
+        margin-top: -135%;
+
     }
 
     .footer-content {
@@ -736,12 +721,10 @@ footer p {
         width: 100%;
         height: 100%;
         transform: translateY(15%);
+        margin-top: 610px;
     }
 
-    #final {
-        background-color: #1C1C1C;
-        height: 5%;
-    }
+
 }
 
 
@@ -810,7 +793,7 @@ footer p {
         color: #0056b3;
     }
 
-    #buttonAdm {
+    #botaoAdm {
         background-color: transparent;
         border: 2px solid #0056b3;
         color: #0056b3;
@@ -821,21 +804,21 @@ footer p {
     }
 
 
-    #buttonAdm:hover {
+    #botaoAdm:hover {
         background-color: #0056b3;
         border-color: transparent;
         transition: all 0.3s ease;
         color: #ffffff;
     }
 
-    #buttonAdm p {
+    #botaoAdm p {
         font-size: 14px;
         margin-left: 15px;
         margin-top: 7px;
         text-align: center;
     }
 
-    #buttonAdm img {
+    #botaoAdm img {
         width: 15px;
         margin-right: 7px;
         margin-left: 7px;
@@ -849,67 +832,36 @@ footer p {
     }
 
     #BemVindos img{
-        transform: translateX(-33%) translateY(20%);
+        transform: translateX(-33.5%) translateY(20%);
         z-index: -1;
     }
 
-    .text {
+    .mensagem {
         margin-left: 5%;
         text-align: center;
         color: black;
+        transform: translateY(5%);
     }
 
-    #BemVindos .text {
+    #BemVindos .mensagem {
         margin: auto;
         width: 70%;
     }
 
-    .text h3 {
+    .mensagem h3 {
         font-size: 40px;
         font-weight: 600;
         margin-bottom: 45px;
     }
 
-    .text h3 span {
+    .mensagem h3 span {
         font-weight: 100;
     }
 
 
-    .text p {
+    .mensagem p {
         font-size: 20px;
     }
-
-    #BemVindos .text button {
-        float: left;
-        padding: 5px;
-        gap: 10px;
-        margin-top: 30px;
-        margin-left: 2px;
-        background-color: transparent;
-        border: 2px solid #0276B2;
-        color: #0276B2;
-    }
-
-    #BemVindos .text button:hover {
-        background-color: #0056b3;
-        border-color: transparent;
-        transition: all 0.3s ease;
-        color: white;
-    }
-
-  
-
-    .buttons {
-        display: flex;
-        min-width: 37%;
-        min-height: 37.5px;
-        gap: 5%;
-        ;
-        height: 70px;
-
-    }
-
-
 
     /* Seção 2 - ODS 11 */
 
@@ -920,21 +872,21 @@ footer p {
         height: 32%;
     }
 
-    #ODS11 .text {
-        margin-bottom: 5%;
+    #ODS11 .ideia {
         margin-left: 5%;
     }
 
-    #ODS11 .text h3 {
+    #ODS11 .ideia h3 {
         margin-bottom: 150px;
-        color: black
+        color: black;
+        margin-left: 5%;
     }
 
-    #ODS11 .text a {
+    #ODS11 .ideia a {
         text-decoration: underline;
     }
 
-    #ODS11 .text a:hover {
+    #ODS11 .ideia a:hover {
         color: #256BE5;
         transition: all 0.3s ease;
     }
@@ -942,7 +894,7 @@ footer p {
     #ODS11 img {
         width: 80%;
         margin-top: 30px;
-        margin-left: -103px;
+        margin-left: -100px;
 
     }
 
@@ -962,13 +914,13 @@ footer p {
     }
 
     #Sobrenos p {
-        font-size: 18px;
+        font-size: 16px;
         margin: -20% 10% 5% 10%;
     }
 
     #Sobrenos img {
         width: 90%;
-        margin-left: 50px;
+        transform: translateX(-2%);
         border-radius: 25px;
     }
 
@@ -1058,7 +1010,7 @@ footer p {
         display: flex;
         flex-flow: column;
         width: 80%;
-        height: 160px;
+        /* height: 160px; */
         background-color: #21445B;
         border-radius: 50%;
         align-items: center;
@@ -1153,14 +1105,13 @@ footer p {
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
 
-    #buttonAdm p{
+    #botaoAdm p{
         margin-left: 15px;
     }
 
     #ODS11 {
         grid-template-columns: 45% 45%;
     }
-
     #ODS11  p{
         width: 70%;
         margin-left: 60px;
@@ -1179,18 +1130,26 @@ footer p {
     #SectFunctions {
         width: 80%;
         gap: 200px;
-    
+
     }
 }
 
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-    #buttonAdm p{
-        margin-left: 35px;
+
+    #BemVindos img{
+        transform: translateX(-33.5%) translateY(20%);
     }
 
+    #botaoAdm p{
+        margin-left: 35px;
+    }
     #ODS11 {
         grid-template-columns: 45% 45%;
+    }
+
+    .mensagem .ideia{
+        transform: translateY(5%);
     }
 
     #Sobrenos img{
@@ -1222,6 +1181,10 @@ footer p {
 }
 
 @media only screen and (min-width: 1200px) {
+
+    #BemVindos img{
+        transform: translateX(-33.5%) translateY(20%);
+    }
     #ODS11 {
         grid-template-columns: 45% 45%;
     }

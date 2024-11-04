@@ -1,14 +1,7 @@
-var botaoPlay = document.getElementById("ButtonPlayStore");
-var botaoApp = document.getElementById("ButtonAppStore");
-var botaoMenu = document.getElementById("buttonAdm");
+// Criando uma varíavel para o botão
+const botaoMenu = document.getElementById("botaoAdm");
 
-botaoPlay.addEventListener("click", function () {
-    window.open("https://play.google.com", "_blank");
-});
-
-botaoApp.addEventListener("click", function () {
-    window.open("https://apple.com/app-store/", "_blank");
-});
+// Funcionalidade do botão
 
 botaoMenu.addEventListener("click", function () {
     window.location.replace("AreaRestrita/Login/LoginAreaRestrita.jsp");
