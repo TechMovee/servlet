@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="org.example.projecttechmovee.ClasseTabelas.Transportador" %>
+<%@ page import="org.example.projecttechmovee.ClasseTabelas.Telefone" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -15,17 +16,17 @@
 
     <section>
 
-            <!--  Sidebar  -->
+        <!--  Sidebar  -->
 
         <div class="sidebar">
             <a href="Admin">Administrador</a>
             <a href="Respon">Responsável</a>
-            <a class="selecionado" href="Transp">Transportador</a>
-            <a href="Telefone">Telefone</a>
+            <a href="Transp">Transportador</a>
+            <a class="selecionado" href="Telefone">Telefone</a>
             <a href="Escola">Escola</a>
         </div>
 
-                <!-- Conteúdo -->
+        <!-- Conteúdo -->
         <%
             String erro = (String) request.getAttribute("erro");
             if (null == erro){
@@ -33,24 +34,29 @@
         <div class="table-container">
             <table>
                 <thead>
-                    <tr>
-                        <th class="cabeçalho">Nome Completo</th>
-                        <th class="cabeçalho">Email</th>
-                        <th class="cabeçalho">Data de Nascimento</th>
-                        <th class="cabeçalho">Foto</th>
-                    </tr>
+                <tr>
+                    <th class="cabeçalho">ID</th>
+                    <th class="cabeçalho">Número</th>
+                    <th class="cabeçalho">Tipo de usuário</th>
+                    <th class="cabeçalho">CNH ou CPF</th>
+                </tr>
                 </thead>
                 <%
-                    List<Transportador> transportadores = (List<Transportador>) request.getAttribute("transp");// Obtém a lista do servlet
-                    if (transportadores != null && !transportadores.isEmpty()) {
-                        for (Transportador transportador : transportadores) {
+                    List<Telefone> telefones = (List<Telefone>) request.getAttribute("telefones");// Obtém a lista do servlet
+                    if (telefones != null && !telefones.isEmpty()) {
+                        for (Telefone telefone : telefones) {
                 %>
                 <!-- Conteúdo dentro da div -->
                 <tr class="item">
-                    <td><%= transportador.getNome() %></td>
-                    <td><%= transportador.getEmail() %></td>
-                    <td><%= transportador.getDtNascimento() %></td>
-                    <td><%= transportador.getFoto() %></td>
+                    <td><%= telefone.getId() %></td>
+                    <td><%= telefone.getNumero() %></td>
+                    <% if (telefone.getId_resp() == null) {%>
+                        <td>Transportador</td>
+                        <td><%= telefone.getId_transp() %></td>
+                    <%}else{%>
+                        <td>Responsável</td>
+                        <td><%= telefone.getId_resp()%></td>
+                    <%}%>
                 </tr>
                 <%
                         }
@@ -68,13 +74,13 @@
             %>
         </div>
 
-            <!-- Opções para o CRUD -->
+        <!-- Opções para o CRUD -->
 
         <div class="botoes">
-            <a href="AreaRestrita/Transportador/areaRestritaTranspId.jsp"><button>Buscar por ID</button></a>
-            <a href="AreaRestrita/Transportador/areaRestritaTranspInserir.jsp"><button>Adicionar</button></a>
-            <a href="AreaRestrita/Transportador/areaRestritaTranspAtualizar.jsp"><button>Mostras todos Admins</button></a>
-            <a href="AreaRestrita/Transportador/areaRestritaTranspDeletar.jsp"><button>Deletar Admin</button></a>
+            <a href="AreaRestrita/Telefone/areaRestritaTelefoneId.jsp"><button>Buscar por ID</button></a>
+            <a href="AreaRestrita/Telefone/areaRestritaTelefoneInserir.jsp"><button>Adicionar</button></a>
+            <a href="AreaRestrita/Telefone/areaRestritaTelefoneAtualizar.jsp"><button>Atualizar</button></a>
+            <a href="AreaRestrita/Telefone/areaRestritaTelefoneDeletar.jsp"><button>Deletar</button></a>
         </div>
     </section>
 
@@ -94,4 +100,4 @@
         </div>
     </footer>
 </body>
-</html>  
+</html>

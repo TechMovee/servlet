@@ -10,7 +10,7 @@
 </head>
 <body>
     <nav>
-        <a href="index.html"><img id="backAreaRestrita" src="../../Imagens/icons8-back-arrow-50.png" alt=""></a>
+        <a href="index.html"><img id="backAreaRestrita" src="Imagens/icons8-back-arrow-50.png" alt=""></a>
     </nav>
 
     <section>

@@ -33,7 +33,7 @@
             <a href="../../Admin">Administrador</a>
             <a href="../../Respon">Responsável</a>
             <a href="../../Transp">Transportador</a>
-            <a href="../../Telefone">Plano</a>
+            <a href="../../Telefone">Telefone</a>
             <a href="../../Escola">Escola</a>
         </div>
         <%
@@ -43,7 +43,7 @@
             <a href="Admin">Administrador</a>
             <a href="Respon">Responsável</a>
             <a href="Transp">Transportador</a>
-            <a href="Telefone">Plano</a>
+            <a href="Telefone">Telefone</a>
             <a href="Escola">Escola</a>
         </div>
         <%

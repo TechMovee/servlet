@@ -1,0 +1,254 @@
+/* =====================
+   Variáveis de Cores
+===================== */
+:root {
+    --primary-bg-color: #eceaea;
+    --secondary-bg-color: #D9D7D7;
+    --highlight-color: #ffb950;
+    --button-color: #fac66e;
+    --button-hover-color: rgb(56, 90, 194);
+    --footer-bg-color: #1C1C1C;
+    --text-color: #666;
+    --header-font-color: #FFA500;
+}
+
+/* =====================
+   Estilo Base e Reset
+===================== */
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: var(--header-font-color);
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+
+p {
+    font-size: 1.2em;
+    color: var(--text-color);
+}
+
+/* =====================
+   NAVBAR
+===================== */
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-bg-color);
+    width: 100%;
+    height: 70px;
+    z-index: 10;
+}
+
+nav img {
+    width: 50px;
+    height: 50px;
+    margin: 10px 0 0 50px;
+    cursor: pointer;
+}
+
+/* =====================
+   Layout Principal
+===================== */
+section {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.sidebar {
+    margin: 100px -10px 0;
+    background-color: var(--secondary-bg-color);
+    height: 100%;
+    width: 70%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+/* Links da Sidebar */
+.sidebar a {
+    display: block;
+    background-color: #eceaec;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: normal;
+    color: black;
+    text-decoration: none;
+    line-height: 9vh;
+    width: 80%;
+    height: 10%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar a.active,
+.sidebar a:hover,
+.sidebar a.selecionado {
+    background-color: var(--highlight-color);
+    color: white;
+}
+
+/* =====================
+   Formulário
+===================== */
+
+form {
+    display: flex;
+    flex-flow: column wrap;
+    max-height: 60%;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    background-color: #fbdaa2;
+    border-radius: 5px;
+    padding: 1.5rem;
+}
+
+form label {
+    position: relative;
+    width: 75%;
+}
+
+/* Input de Formulário */
+form label .input {
+    width: 100%;
+    height: 3rem;
+    padding-left: 10px;
+    border: 1px solid rgba(105, 105, 105, 0.4);
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+form label .input + span {
+    position: absolute;
+    top: 0.75em;
+    left: 15px;
+    color: grey;
+    font-size: 1em;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+form label .input:focus + span,
+form label .input:valid + span {
+    top: -1.3em;
+    font-size: 1.1em;
+    color: royalblue;
+}
+
+form label .input:focus {
+    border-color: royalblue;
+}
+
+/* Botão de Envio */
+.submit {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #FAB744;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.6s ease;
+}
+
+.submit:hover {
+    background-color: var(--button-hover-color);
+}
+
+/*Mensagem de Erro*/
+
+#erro{
+    color: #ff1e1e;
+    text-align: center;
+    width: 75%;
+    height: auto;
+    font-size: 1.3rem;
+    background-color: #f8b3b3;
+    margin: -15px;
+    border: 1px solid red;
+}
+
+/* =====================
+   Botões
+===================== */
+.botoes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    height: 55%;
+}
+
+.botoes button {
+    width: 80%;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    background-color: var(--button-color);
+    border: 2px solid var(--button-color);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botoes button:hover {
+    background-color: var(--button-hover-color);
+    border-color: var(--button-hover-color);
+    transition: all 0.3s ease;
+}
+
+/* =====================
+   Footer
+===================== */
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--footer-bg-color);
+    color: white;
+    width: 100%;
+    height: 50px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: -20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+}
+
+#bus {
+    position: absolute;
+    bottom: 40px;
+    transform: scaleX(-100%) translateX(-80%);
+    width: 18%;
+}
+
+.estrada {
+    display: flex;
+    gap: 10px;
+    height: 42px;
+    width: 100%;
+}
+
+.estrada .listra {
+    width: 120px;
+    height: 10px;
+    margin: 0 30px 0 70px;
+    border-radius: 10px;
+}
