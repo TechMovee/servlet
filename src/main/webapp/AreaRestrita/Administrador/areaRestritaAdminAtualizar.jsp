@@ -87,7 +87,7 @@
     </form>
     <!-- Opções para o CRUD -->
     <div class="botoes">
-        <a href="/../../Admin">
+        <a href="../../Admin">
             <button>Mostras todos Admins</button>
         </a>
         <%

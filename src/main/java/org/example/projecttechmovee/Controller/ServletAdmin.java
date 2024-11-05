@@ -15,12 +15,8 @@ import java.util.List;
 
 @WebServlet(name = "Admin", value = "/Admin")
 public class ServletAdmin extends HttpServlet {
-<<<<<<< Updated upstream
 
     private final AdminDAO crudAdmin = new AdminDAO(new Conexao());
-=======
-    private AdminDAO crudAdmin = new AdminDAO(new Conexao());
->>>>>>> Stashed changes
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
         if (id==null || id.isEmpty()) {

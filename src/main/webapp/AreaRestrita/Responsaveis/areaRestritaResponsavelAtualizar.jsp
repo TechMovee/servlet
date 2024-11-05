@@ -58,34 +58,6 @@
 
     <!-- Conteúdo -->
     <form class="form" action="../../Respon" method="post">
-        <%
-            if (request.getAttribute("erro") != null) {
-        %>
-<<<<<<< Updated upstream
-            <div class="sidebar">
-                <a href="../../Admin">Administrador</a>
-                <a class="selecionado" href="../../Respon">Responsável</a>
-                <a href="../../Transp">Transportador</a>
-                <a href="../../Telefone">Telefone</a>
-                <a href="../../Escola">Escola</a>
-            </div>
-        <%
-        }else{
-        %>
-            <div class="sidebar">
-                <a href="Admin">Administrador</a>
-                <a class="selecionado"  href="Respon">Responsável</a>
-                <a href="Transp">Transportador</a>
-                <a href="Telefone">Telefone</a>
-                <a href="Escola">Escola</a>
-            </div>
-=======
-        <h3 id="erro"><%= request.getAttribute("erro")%>
-        </h3>
->>>>>>> Stashed changes
-        <%
-            }
-        %>
         <input style="display: none;" type="text" name="method" value="put">
         <label>
             <input required placeholder="" type="text" name="cpfAtualizar" class="input">

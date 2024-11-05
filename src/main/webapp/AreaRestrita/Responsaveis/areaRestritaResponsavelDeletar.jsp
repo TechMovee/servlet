@@ -75,7 +75,7 @@
     <!-- Opções para o CRUD -->
     <div class="botoes">
         <a href="../../Respon">
-            <button>Mostras todos Admins</button>
+            <button>Mostrar todos responsáveis</button>
         </a>
         <%
             if (request.getAttribute("erro") == null) {
