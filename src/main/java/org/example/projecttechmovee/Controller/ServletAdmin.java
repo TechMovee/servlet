@@ -21,6 +21,7 @@ public class ServletAdmin extends HttpServlet {
         String id = req.getParameter("id");
         if (id==null || id.isEmpty()) {
             List<Admin> admins = this.crudAdmin.listarAdmins();
+
             if (admins != null) {
                 req.setAttribute("admins", admins);
             }else{
@@ -106,8 +107,6 @@ public class ServletAdmin extends HttpServlet {
         }
         req.getRequestDispatcher("/AreaRestrita/Administrador/areaRestritaAdminAtualizar.jsp").forward(req, resp);
     }
-
-
 
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idDeletar = req.getParameter("idDeletar");

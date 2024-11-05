@@ -9,89 +9,107 @@
     <link rel="icon" href="/Imagens/logos2.png">
 </head>
 <body>
-    <nav>
-        <a href="index.html"><img id="backAreaRestrita" src="Imagens/icons8-back-arrow-50.png" alt=""></a>
-    </nav>
+<nav>
+    <a href="index.html"><img id="backAreaRestrita" src="Imagens/icons8-back-arrow-50.png" alt=""></a>
+</nav>
 
-    <section>
+<section>
 
-            <!--  Sidebar  -->
+    <!--  Sidebar  -->
 
-        <div class="sidebar">
-            <a href="Admin">Administrador</a>
-            <a href="Respon">Responsável</a>
-            <a class="selecionado" href="Transp">Transportador</a>
-            <a href="Telefone">Telefone</a>
-            <a href="Escola">Escola</a>
-        </div>
+    <div class="sidebar">
+        <a href="Admin">Administrador</a>
+        <a href="Respon">Responsável</a>
+        <a href="Transp" class="selecionado">Transportador</a>
+        <a href="Telefone">Telefone</a>
+        <a href="Escola">Escola</a>
+        <a class="bi">Gráficos</a>
+    </div>
 
-                <!-- Conteúdo -->
-        <%
-            String erro = (String) request.getAttribute("erro");
-            if (null == erro){
-        %>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th class="cabeçalho">Nome Completo</th>
-                        <th class="cabeçalho">Email</th>
-                        <th class="cabeçalho">Data de Nascimento</th>
-                        <th class="cabeçalho">Foto</th>
-                    </tr>
-                </thead>
-                <%
-                    List<Transportador> transportadores = (List<Transportador>) request.getAttribute("transp");// Obtém a lista do servlet
-                    if (transportadores != null && !transportadores.isEmpty()) {
-                        for (Transportador transportador : transportadores) {
-                %>
-                <!-- Conteúdo dentro da div -->
-                <tr class="item">
-                    <td><%= transportador.getNome() %></td>
-                    <td><%= transportador.getEmail() %></td>
-                    <td><%= transportador.getDtNascimento() %></td>
-                    <td><%= transportador.getFoto() %></td>
-                </tr>
-                <%
-                        }
-                    }
-                %>
-            </table>
+    <!-- Conteúdo -->
+    <%
+        String erro = (String) request.getAttribute("erro");
+        if (null == erro) {
+    %>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th class="cabeçalho">Nome Completo</th>
+                <th class="cabeçalho">Email</th>
+                <th class="cabeçalho">Data de Nascimento</th>
+                <th class="cabeçalho">Foto</th>
+            </tr>
+            </thead>
             <%
-            }else{
+                List<Transportador> transportadores = (List<Transportador>) request.getAttribute("transp");// Obtém a lista do servlet
+                if (transportadores != null && !transportadores.isEmpty()) {
+                    for (Transportador transportador : transportadores) {
             %>
-            <div>
-                <h1><%=erro%></h1>
-            </div>
+            <!-- Conteúdo dentro da div -->
+            <tr class="item">
+                <td><%= transportador.getNome() %>
+                </td>
+                <td><%= transportador.getEmail() %>
+                </td>
+                <td><%= transportador.getDtNascimento() %>
+                </td>
+                <td><%= transportador.getFoto() %>
+                </td>
+            </tr>
             <%
+                    }
                 }
             %>
+        </table>
+        <%
+        } else {
+        %>
+        <div>
+            <h1><%=erro%>
+            </h1>
         </div>
+        <%
+            }
+        %>
+    </div>
 
-            <!-- Opções para o CRUD -->
+    <!-- Opções para o CRUD -->
+    <div class="botoes">
+        <a href="AreaRestrita/Transportador/areaRestritaTranspId.jsp">
+            <button>Buscar</button>
+        </a>
+        <a href="AreaRestrita/Transportador/areaRestritaTranspInserir.jsp">
+            <button>Adicionar</button>
+        </a>
+        <a href="AreaRestrita/Transportador/areaRestritaTranspAtualizar.jsp">
+            <button>Atualizar</button>
+        </a>
+        <a href="AreaRestrita/Transportador/areaRestritaTranspDeletar.jsp">
+            <button>Deletar</button>
+        </a></div>
+</section>
 
-        <div class="botoes">
-            <a href="AreaRestrita/Transportador/areaRestritaTranspId.jsp"><button>Buscar</button></a>
-            <a href="AreaRestrita/Transportador/areaRestritaTranspInserir.jsp"><button>Adicionar</button></a>
-            <a href="AreaRestrita/Transportador/areaRestritaTranspAtualizar.jsp"><button>Atualizar</button></a>
-            <a href="AreaRestrita/Transportador/areaRestritaTranspDeletar.jsp"><button>Deletar</button></a>
+<footer>
+    <div class="footer-content">
+        <img id="bus" src="Imagens/ImagemOnibusFooter.png" alt="">
+        <div class="estrada">
+            <img class="listra" src="Imagens/listra.png" alt="">
+            <img class="listra" src="Imagens/listra.png" alt="">
+            <img class="listra" src="Imagens/listra.png" alt="">
+            <img class="listra" src="Imagens/listra.png" alt="">
+            <img class="listra" src="Imagens/listra.png" alt="">
+            <img class="listra" src="Imagens/listra.png" alt="">
+            <img class="listra" src="Imagens/listra.png" alt="">
+            <img class="listra" src="Imagens/listra.png" alt="">
         </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <img id="bus" src="Imagens/ImagemOnibusFooter.png" alt="">
-            <div class="estrada">
-                <img class="listra" src="Imagens/listra.png" alt="">
-                <img class="listra" src="Imagens/listra.png" alt="">
-                <img class="listra" src="Imagens/listra.png" alt="">
-                <img class="listra" src="Imagens/listra.png" alt="">
-                <img class="listra" src="Imagens/listra.png" alt="">
-                <img class="listra" src="Imagens/listra.png" alt="">
-                <img class="listra" src="Imagens/listra.png" alt="">
-                <img class="listra" src="Imagens/listra.png" alt="">
-            </div>
-        </div>
-    </footer>
+    </div>
+</footer>
+<script>
+    const bi = document.getElementsByClassName("bi")[0]
+    bi.addEventListener('click', () => {
+        window.location.replace("BI");
+    })
+</script>
 </body>
 </html>  

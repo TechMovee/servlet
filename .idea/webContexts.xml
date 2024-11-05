@@ -4,11 +4,13 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/Administrador/areaRestritaAdmin.jsp" value="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/Administrador" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/Graficos/graficos.jsp" value="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/Graficos" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/Login/LoginAreaRestrita.jsp" value="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/Login" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/TelaInicial/areaRestrita.html" value="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/TelaInicial" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/TelaInicial/areaRestrita.jsp" value="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/TelaInicial" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/Transportador/areaRestritaTranspInserir.jsp" value="file://$PROJECT_DIR$/src/main/webapp/AreaRestrita/Transportador" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/ErrorPage/error.jsp" value="file://$PROJECT_DIR$/src/main/webapp/ErrorPage" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/index.html" value="file://$PROJECT_DIR$/src/main/webapp" />
       </map>
     </option>
   </component>
