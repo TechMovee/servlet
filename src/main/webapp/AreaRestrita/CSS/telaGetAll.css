@@ -42,7 +42,7 @@ section{
     box-sizing: border-box;
 }
 .sidebar a {
-    line-height: 9vh;
+    line-height: 5vh;
     display: block;
     background-color: #eceaec;
     margin-bottom: 10px;
@@ -53,9 +53,10 @@ section{
     font-weight: normal;
     font-size: 15px;
     padding: 15px;
-    height: 10%;
+    height: 5%;
     width: 80%;
     margin: 10px auto;
+    cursor: pointer;
 }
 
 .sidebar a:hover {

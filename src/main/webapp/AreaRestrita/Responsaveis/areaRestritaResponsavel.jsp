@@ -9,87 +9,115 @@
     <link rel="icon" href="Imagens/logos2.png">
 </head>
 <body>
-    <nav>
-        <a href="index.html"><img id="backAreaRestrita" src="Imagens/icons8-back-arrow-50.png" alt=""></a>
-    </nav>
+<nav>
+    <a href="index.html"><img id="backAreaRestrita" src="Imagens/icons8-back-arrow-50.png" alt=""></a>
+</nav>
 
-    <section>
-        <div class="sidebar">
-            <a href="Admin">Administrador</a>
-            <a class="selecionado"  href="Respon">Responsável</a>
-            <a href="Transp">Transportador</a>
-            <a href="Telefone">Telefone</a>
-            <a href="Escola">Escola</a>
-        </div>
+<section>
+    <div class="sidebar">
+        <a href="Admin">Administrador</a>
+        <a class="selecionado" href="Respon">Responsável</a>
+        <a href="Transp">Transportador</a>
+        <a href="Telefone">Telefone</a>
+        <a href="Escola">Escola</a>
+        <a class="bi">Gráficos</a>
+    </div>
 
-        <!-- Conteúdo -->
+    <!-- Conteúdo -->
 
-        <%
-            String erro = (String) request.getAttribute("erro");
-            if (erro == null){
-        %>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th class="cabeçalho">Nome Completo</th>
-                        <th class="cabeçalho">Email</th>
-                        <th class="cabeçalho">Data de Nascimento</th>
-                        <th class="cabeçalho">Foto</th>
-                    </tr>
-                </thead>
-                <%
-                    List<Responsaveis> responsaveis = (List<Responsaveis>) request.getAttribute("resps");// Obtém a lista do servlet
-                    if (responsaveis != null && !responsaveis.isEmpty()) {
-                        for (Responsaveis responsavel : responsaveis) {
-                %>
-                <!-- Conteúdo dentro da div -->
-                <tr class="item">
-                    <td><%= responsavel.getNome() %></td>
-                    <td><%= responsavel.getEmail() %></td>
-                    <td><%= responsavel.getDtNascimento() %></td>
-                    <td><%= responsavel.getFoto() %></td>
-                </tr>
-                <%
-                        }
-                    }
-                %>
-            </table>
+    <%
+        String erro = (String) request.getAttribute("erro");
+        if (erro == null) {
+    %>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th class="cabeçalho">Nome Completo</th>
+                <th class="cabeçalho">Email</th>
+                <th class="cabeçalho">Data de Nascimento</th>
+                <th class="cabeçalho">Foto</th>
+            </tr>
+            </thead>
             <%
-            }else{
+                List<Responsaveis> responsaveis = (List<Responsaveis>) request.getAttribute("resps");// Obtém a lista do servlet
+                if (responsaveis != null && !responsaveis.isEmpty()) {
+                    for (Responsaveis responsavel : responsaveis) {
             %>
-            <div>
-                <h1><%=erro%></h1>
-            </div>
+            <!-- Conteúdo dentro da div -->
+            <tr class="item">
+                <td><%= responsavel.getNome() %>
+                </td>
+                <td><%= responsavel.getEmail() %>
+                </td>
+                <td><%= responsavel.getDtNascimento() %>
+                </td>
+                <td><%= responsavel.getFoto() %>
+                </td>
+            </tr>
             <%
+                    }
                 }
             %>
+        </table>
+        <%
+        } else {
+        %>
+        <div>
+            <h1><%=erro%>
+            </h1>
         </div>
+        <%
+            }
+        %>
+    </div>
 
-        <!-- Opções para o CRUD -->
+    <!-- Opções para o CRUD -->
 
+<<<<<<< Updated upstream
         <div class="botoes">
             <a href="AreaRestrita/Responsaveis/areaRestritaResponsavelId.jsp"><button>Buscar</button></a>
             <a href="AreaRestrita/Responsaveis/areaRestritaResponsavelInserir.jsp"><button>Adicionar</button></a>
             <a href="AreaRestrita/Responsaveis/areaRestritaResponsavelAtualizar.jsp"><button>Atualizar</button></a>
             <a href="AreaRestrita/Responsaveis/areaRestritaResponsavelDeletar.jsp"><button>Deletar</button></a>
-        </div>
-    </section>
+=======
+    <div class="botoes">
+        <a href="AreaRestrita/Responsaveis/areaRestritaResponsavelId.jsp">
+            <button>Buscar por ID</button>
+        </a>
+        <a href="AreaRestrita/Responsaveis/areaRestritaResponsavelInserir.jsp">
+            <button>Adicionar</button>
+        </a>
+        <a href="AreaRestrita/Responsaveis/areaRestritaResponsavelAtualizar.jsp">
+            <button>Atualiza</button>
+        </a>
+        <a href="AreaRestrita/Responsaveis/areaRestritaResponsavelDeletar.jsp">
+            <button>Deletar Admin</button>
+        </a>
+    </div>
+</section>
 
-    <footer>
-        <div class="footer-content">
-            <img id="bus" src="Imagens/ImagemOnibusFooter.png" alt="">
-            <div class="estrada">
-                <img class="listra" src="Imagens/listra.png" alt="">
-                <img class="listra" src="Imagens/listra.png" alt="">
-                <img class="listra" src="Imagens/listra.png" alt="">
-                <img class="listra" src="Imagens/listra.png" alt="">
-                <img class="listra" src="Imagens/listra.png" alt="">
-                <img class="listra" src="Imagens/listra.png" alt="">
-                <img class="listra" src="Imagens/listra.png" alt="">
-                <img class="listra" src="Imagens/listra.png" alt="">
-            </div>
+<footer>
+    <div class="footer-content">
+        <img id="bus" src="Imagens/ImagemOnibusFooter.png" alt="">
+        <div class="estrada">
+            <img class="listra" src="Imagens/listra.png" alt="">
+            <img class="listra" src="Imagens/listra.png" alt="">
+            <img class="listra" src="Imagens/listra.png" alt="">
+            <img class="listra" src="Imagens/listra.png" alt="">
+            <img class="listra" src="Imagens/listra.png" alt="">
+            <img class="listra" src="Imagens/listra.png" alt="">
+            <img class="listra" src="Imagens/listra.png" alt="">
+            <img class="listra" src="Imagens/listra.png" alt="">
+>>>>>>> Stashed changes
         </div>
-    </footer>
+    </div>
+</footer>
+<script>
+    const bi = document.getElementsByClassName("bi")[0]
+    bi.addEventListener('click', () => {
+        window.location.replace("BI");
+    })
+</script>
 </body>
 </html>
