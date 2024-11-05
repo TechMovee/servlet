@@ -32,9 +32,9 @@
         }
     %>
 
-    <form class="form" action="/ProjectTechMovee_war_exploded/loginAdm" method="post">
-        <p class="title" id="title">Área do Admin</p>
-        <p class="message">Faça seu login para acessar a Área do Admin.</p>
+    <form class="formulario" action="/ProjectTechMovee_war_exploded/loginAdm" method="post">
+        <p class="tituloFormulario" id="title">Área do Admin</p>
+        <p class="mensagem">Faça seu login para acessar a Área do Admin.</p>
 
         <%
             if (request.getAttribute("erro") != null){
@@ -53,7 +53,7 @@
                     <input required placeholder="" type="password" name="password" class="input">
                     <span>Senha</span>
                 </label>
-                <input type="submit" class="submit" value="Entrar">
+                <input type="submit" class="enviar" value="Entrar">
         </div>
     </form>
 

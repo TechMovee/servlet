@@ -8,6 +8,7 @@
         if (request.getAttribute("erro") == null){
     %>
     <link rel="stylesheet" type="text/css" href="../CSS/telaCrud.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/telaGetAll.css">
     <link rel="icon" href="../../Imagens/logos2.png">
     <%
     }else{
@@ -38,6 +39,7 @@
             <a class="selecionado" href="../../Transp">Transportador</a>
             <a href="../../Telefone">Telefone</a>
             <a href="../../Escola">Escola</a>
+            <a href="../../BI">Gráficos</a>
         </div>
         <%
         }else{
@@ -48,6 +50,7 @@
             <a class="selecionado" href="Transp">Transportador</a>
             <a href="Telefone">Telefone</a>
             <a href="Escola">Escola</a>
+            <a class="bi">Gráficos</a>
         </div>
         <%
             }
@@ -55,7 +58,7 @@
 
 
         <!-- Conteúdo -->
-        <form class="form" action="/ProjectTechMovee_war_exploded/Transp" method="post">
+        <form class="form" action="../../Transp" method="post">
             <%
                 if (request.getAttribute("erro") != null){
             %>
@@ -63,6 +66,7 @@
             <%
                 }
             %>
+            <input style="display: none;" type="text" name="method" value="put">
             <label>
                 <input required placeholder="" type="text" name="cnhAtualizar" class="input">
                 <span>CNH</span>
@@ -95,7 +99,7 @@
         </form>
         <!-- Opções para o CRUD -->
         <div class="botoes">
-            <a href="/ProjectTechMovee_war_exploded/Transp"><button>Mostrar todos Transportadores</button></a>
+            <a href="../../Transp"><button>Mostrar todos Transportadores</button></a>
             <%
                 if (request.getAttribute("erro") == null){
             %>
@@ -148,6 +152,12 @@
             %>
         </div>
     </footer>
+    <script>
+        const bi = document.getElementsByClassName("bi")[0]
+        bi.addEventListener('click', () => {
+            window.location.replace("BI");
+        })
+    </script>
 
 </body>
 </html>

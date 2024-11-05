@@ -40,7 +40,7 @@ nav img {
     cursor: pointer;
 }
 
-.form {
+.formulario {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -59,7 +59,7 @@ nav img {
 
 
 
-.title {
+.tituloFormulario {
     font-size: 28px;
     color: royalblue;
     font-weight: 600;
@@ -68,7 +68,7 @@ nav img {
 }
 
 
-.message, .signin {
+.mensagem {
     color: rgba(88, 87, 87, 0.822);
     font-size: 14px;
     margin-bottom: 40px;
@@ -81,12 +81,12 @@ nav img {
     margin-right: 15px;
 }
 
-.form label {
+.formulario label {
     position: relative;
     width: 325px;
 }
 
-.form label .input {
+.formulario label .input {
     width: 93%;
     padding: 10px;
     outline: none;
@@ -94,7 +94,7 @@ nav img {
     border-radius: 10px;
 }
 
-.form label .input + span {
+.formulario label .input + span {
     position: absolute;
     left: 10px;
     top: 10px;
@@ -103,23 +103,23 @@ nav img {
     transition: 0.3s ease;
 }
 
-.form label .input:placeholder-shown + span {
+.formulario label .input:placeholder-shown + span {
     font-size: 0.9em;
 }
 
-.form label .input:focus + span,
-.form label .input:valid + span {
+.formulario label .input:focus + span,
+.formulario label .input:valid + span {
     top: -20px;
     font-size: 0.8em;
     font-weight: 600;
     color: royalblue;
 }
 
-.form label .input:focus{
+.formulario label .input:focus{
     border-color: royalblue;
 }
 
-.submit {
+.enviar {
     border: none;
     outline: none;
     background-color: #FAB744;
