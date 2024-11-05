@@ -30,7 +30,6 @@ public class ServletLoginAdmin extends HttpServlet {
             Admin admin = crudAdmin.buscarAdmin(email);
             if (admin != null && admin.getSenha().equals(password)) {
                 //            Redireciona o usuário para a Área Restrita
-                req.setAttribute("nome", admin.getName());
                 req.setAttribute("passouPorServlet", "Passou pelo Servlet.");
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/AreaRestrita/TelaInicial/areaRestrita.jsp");
                 dispatcher.forward(req, resp);
