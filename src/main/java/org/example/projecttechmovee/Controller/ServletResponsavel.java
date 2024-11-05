@@ -101,8 +101,6 @@ public class ServletResponsavel extends HttpServlet {
         req.getRequestDispatcher("/AreaRestrita/Responsaveis/areaRestritaResponsavelAtualizar.jsp").forward(req, resp);
     }
 
-
-
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String cpf = req.getParameter("cpfDeletar");
 
