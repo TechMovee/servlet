@@ -71,10 +71,10 @@
                 <!-- Opções para o CRUD -->
 
             <div class="botoes">
-                <a href="AreaRestrita/Administrador/areaRestritaAdminId.jsp"><button>Buscar por ID</button></a>
+                <a href="AreaRestrita/Administrador/areaRestritaAdminId.jsp"><button>Buscar</button></a>
                 <a href="AreaRestrita/Administrador/areaRestritaAdminInserir.jsp"><button>Adicionar</button></a>
-                <a href="AreaRestrita/Administrador/areaRestritaAdminAtualizar.jsp"><button>Atualizar por ID</button></a>
-                <a href="AreaRestrita/Administrador/areaRestritaAdminDeletar.jsp"><button>Deletar Admin</button></a>
+                <a href="AreaRestrita/Administrador/areaRestritaAdminAtualizar.jsp"><button>Atualizar</button></a>
+                <a href="AreaRestrita/Administrador/areaRestritaAdminDeletar.jsp"><button>Deletar</button></a>
             </div>
         </section>
 

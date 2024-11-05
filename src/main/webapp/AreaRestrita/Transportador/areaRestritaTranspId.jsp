@@ -58,7 +58,7 @@
                 }
             %>
             <label>
-                <input required placeholder="" type="number" name="cnh" class="input" min="1">
+                <input required placeholder="" type="number" name="cnh" class="input">
                 <span>CNH</span>
             </label>
             <input type="submit" class="submit" value="Procurar">

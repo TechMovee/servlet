@@ -63,6 +63,7 @@
             <%
                 }
             %>
+            <input style="display: none;" type="text" name="method" value="put">
             <label>
                 <input required placeholder="" type="text" name="cnhAtualizar" class="input">
                 <span>CNH</span>

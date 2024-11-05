@@ -19,10 +19,10 @@ import java.util.List;
 @WebServlet(name = "Telefone", value = "/Telefone")
 public class ServletTelefone extends HttpServlet {
 
-    private TelefoneDAO crudTelefone = new TelefoneDAO(new Conexao());
-    private ResponsavelDAO crudResponsavel = new ResponsavelDAO(new Conexao());
-    private TransportadorDAO crudTransportador = new TransportadorDAO(new Conexao());
-    private Regex validation = new Regex();
+    private final TelefoneDAO crudTelefone = new TelefoneDAO(new Conexao());
+    private final ResponsavelDAO crudResponsavel = new ResponsavelDAO(new Conexao());
+    private final TransportadorDAO crudTransportador = new TransportadorDAO(new Conexao());
+    private final Regex validation = new Regex();
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
         if (id == null || id.isEmpty()) {
