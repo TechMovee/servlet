@@ -32,7 +32,7 @@
         }
     %>
 
-    <form class="formulario" action="/ProjectTechMovee_war_exploded/loginAdm" method="post">
+    <form class="formulario" action="../../loginAdm" method="post">
         <p class="tituloFormulario" id="title">Área do Admin</p>
         <p class="mensagem">Faça seu login para acessar a Área do Admin.</p>
 
