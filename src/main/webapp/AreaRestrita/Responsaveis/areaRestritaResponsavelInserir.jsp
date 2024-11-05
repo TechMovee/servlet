@@ -95,8 +95,8 @@
     </form>
     <!-- Opções para o CRUD -->
     <div class="botoes">
-        <a href="../../Admin">
-            <button>Mostrar todos Admins</button>
+        <a href="../../Respon">
+            <button>Mostrar todos os responsáveis</button>
         </a>
         <%
             if (request.getAttribute("erro") == null) {

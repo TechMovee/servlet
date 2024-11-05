@@ -75,7 +75,7 @@
     <!-- Opções para o CRUD -->
     <div class="botoes">
         <a href="../../Escola">
-            <button>Mostrar todos Admins</button>
+            <button>Mostrar todos escolas</button>
         </a>
         <%
             if (request.getAttribute("erro") == null) {

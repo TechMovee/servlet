@@ -87,7 +87,7 @@
     </form>
     <!-- Opções para o CRUD -->
     <div class="botoes">
-        <a href="/ProjectTechMovee_war_exploded/Admin">
+        <a href="../../Admin">
             <button>Mostrar todos Admins</button>
         </a>
         <%

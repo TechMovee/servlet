@@ -75,7 +75,6 @@
 
     <!-- Opções para o CRUD -->
 
-<<<<<<< Updated upstream
             <div class="botoes">
                 <a href="AreaRestrita/Administrador/areaRestritaAdminId.jsp"><button>Buscar</button></a>
                 <a href="AreaRestrita/Administrador/areaRestritaAdminInserir.jsp"><button>Adicionar</button></a>
@@ -83,7 +82,6 @@
                 <a href="AreaRestrita/Administrador/areaRestritaAdminDeletar.jsp"><button>Deletar</button></a>
             </div>
         </section>
-=======
     <div class="botoes">
         <a href="AreaRestrita/Administrador/areaRestritaAdminId.jsp">
             <button>Buscar por ID</button>
@@ -99,8 +97,6 @@
         </a>
     </div>
 </section>
->>>>>>> Stashed changes
-
 <footer>
     <div class="footer-content">
         <img id="bus" src="Imagens/ImagemOnibusFooter.png" alt="">

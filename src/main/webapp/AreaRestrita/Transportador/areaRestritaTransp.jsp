@@ -75,28 +75,19 @@
     </div>
 
     <!-- Opções para o CRUD -->
-
-<<<<<<< Updated upstream
-        <div class="botoes">
-            <a href="AreaRestrita/Transportador/areaRestritaTranspId.jsp"><button>Buscar</button></a>
-            <a href="AreaRestrita/Transportador/areaRestritaTranspInserir.jsp"><button>Adicionar</button></a>
-            <a href="AreaRestrita/Transportador/areaRestritaTranspAtualizar.jsp"><button>Atualizar</button></a>
-            <a href="AreaRestrita/Transportador/areaRestritaTranspDeletar.jsp"><button>Deletar</button></a>
-=======
     <div class="botoes">
         <a href="AreaRestrita/Transportador/areaRestritaTranspId.jsp">
-            <button>Buscar por ID</button>
+            <button>Buscar</button>
         </a>
         <a href="AreaRestrita/Transportador/areaRestritaTranspInserir.jsp">
             <button>Adicionar</button>
         </a>
         <a href="AreaRestrita/Transportador/areaRestritaTranspAtualizar.jsp">
-            <button>Mostras todos transportadores</button>
+            <button>Atualizar</button>
         </a>
         <a href="AreaRestrita/Transportador/areaRestritaTranspDeletar.jsp">
-            <button>Deletar Admin</button>
-        </a>
-    </div>
+            <button>Deletar</button>
+        </a></div>
 </section>
 
 <footer>
@@ -111,7 +102,6 @@
             <img class="listra" src="Imagens/listra.png" alt="">
             <img class="listra" src="Imagens/listra.png" alt="">
             <img class="listra" src="Imagens/listra.png" alt="">
->>>>>>> Stashed changes
         </div>
     </div>
 </footer>
