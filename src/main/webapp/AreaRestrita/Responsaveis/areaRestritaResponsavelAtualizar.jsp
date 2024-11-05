@@ -38,10 +38,10 @@
         }else{
         %>
             <div class="sidebar">
-                <a class="selecionado" href="Admin">Administrador</a>
-                <a href="Respon">Responsável</a>
+                <a href="Admin">Administrador</a>
+                <a class="selecionado"  href="Respon">Responsável</a>
                 <a href="Transp">Transportador</a>
-                <a href="Telefone">Plano</a>
+                <a href="Telefone">Telefone</a>
                 <a href="Escola">Escola</a>
             </div>
         <%

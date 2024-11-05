@@ -87,7 +87,7 @@
         </form>
             <!-- Opções para o CRUD -->
         <div class="botoes">
-            <a href="/ProjectTechMovee_war_exploded/Admin"><button>Mostrar todos Admins</button></a>
+            <a href="/ProjectTechMovee_war_exploded/Respon"><button>Mostrar todos Admins</button></a>
             <%
                 if (request.getAttribute("erro") == null){
             %>

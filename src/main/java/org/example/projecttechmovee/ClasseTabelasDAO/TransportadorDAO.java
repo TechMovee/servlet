@@ -63,7 +63,7 @@ public class TransportadorDAO {
                     pstmt.setString(2, transportador.getCep());
                     pstmt.setString(3, transportador.getEmail());
                     pstmt.setString(4, transportador.getSenha());
-                    pstmt.setDate(6, Date.valueOf(LocalDate.parse(transportador.getDtNascimento(), formatoData)));
+                    pstmt.setDate(5, Date.valueOf(LocalDate.parse(transportador.getDtNascimento(), formatoData)));
                     pstmt.setString(6, transportador.getFoto());
                     pstmt.setString(7, transportador.getCnh());
 

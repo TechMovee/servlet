@@ -65,10 +65,10 @@
                 <!-- Opções para o CRUD -->
 
             <div class="botoes">
-                <a href="AreaRestrita/Escola/areaRestritaEscolaId.jsp"><button>Buscar por ID</button></a>
+                <a href="AreaRestrita/Escola/areaRestritaEscolaId.jsp"><button>Buscar</button></a>
                 <a href="AreaRestrita/Escola/areaRestritaEscolaInserir.jsp"><button>Adicionar</button></a>
                 <a href="AreaRestrita/Escola/areaRestritaEscolaAtualizar.jsp"><button>Atualizar</button></a>
-                <a href="AreaRestrita/Escola/areaRestritaEscolaDeletar.jsp"><button>Deletar Admin</button></a>
+                <a href="AreaRestrita/Escola/areaRestritaEscolaDeletar.jsp"><button>Deletar</button></a>
             </div>
         </section>
 

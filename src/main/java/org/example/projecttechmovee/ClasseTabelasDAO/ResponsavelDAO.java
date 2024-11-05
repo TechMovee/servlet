@@ -11,7 +11,7 @@ import java.util.List;
 
 
 public class ResponsavelDAO {
-    private Conexao conexao;
+    private final Conexao conexao;
 
     //    Construtor
     public ResponsavelDAO(Conexao connection) {
@@ -31,7 +31,7 @@ public class ResponsavelDAO {
                     );
                     pstmt.setString(1, responsavel.getCpf());
                     pstmt.setString(2, responsavel.getNome());
-                    pstmt.setDate(6, Date.valueOf(LocalDate.parse(responsavel.getDtNascimento(), formatoData)));
+                    pstmt.setDate(3, Date.valueOf(LocalDate.parse(responsavel.getDtNascimento(), formatoData)));
                     pstmt.setString(4, responsavel.getFoto());
                     pstmt.setString(5, responsavel.getSenha());
                     pstmt.setString(6, responsavel.getEmail());
@@ -58,7 +58,7 @@ public class ResponsavelDAO {
                             "UPDATE Responsaveis SET nome = ?, dt_nascimento = ?, foto = ?, senha = ?, email = ? WHERE cpf_resp = ?"
                     );
                     pstmt.setString(1, responsavel.getNome());
-                    pstmt.setDate(6, Date.valueOf(LocalDate.parse(responsavel.getDtNascimento(), formatoData)));
+                    pstmt.setDate(2, Date.valueOf(LocalDate.parse(responsavel.getDtNascimento(), formatoData)));
                     pstmt.setString(3, responsavel.getFoto());
                     pstmt.setString(4, responsavel.getSenha());
                     pstmt.setString(5, responsavel.getEmail());

@@ -8,26 +8,21 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.example.projecttechmovee.ClasseTabelas.Admin;
 import org.example.projecttechmovee.ClasseTabelasDAO.AdminDAO;
 import org.example.projecttechmovee.DbConexao.Conexao;
-import org.example.projecttechmovee.Regex.Regex;
 
 import java.io.IOException;
-
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 @WebServlet(name = "Admin", value = "/Admin")
 public class ServletAdmin extends HttpServlet {
 
-    private AdminDAO crudAdmin = new AdminDAO(new Conexao());
+    private final AdminDAO crudAdmin = new AdminDAO(new Conexao());
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
         if (id==null || id.isEmpty()) {
             List<Admin> admins = this.crudAdmin.listarAdmins();
             if (admins != null) {
                 req.setAttribute("admins", admins);
-                req.getRequestDispatcher("AreaRestrita/Administrador/areaRestritaAdmin.jsp").forward(req, resp);
             }else{
                 req.setAttribute("erro", "Não tem nenhum administrador.");
             }
@@ -37,7 +32,6 @@ public class ServletAdmin extends HttpServlet {
                 if (this.crudAdmin.buscarAdmin(Integer.parseInt(id)) != null) {
                     admins.add(this.crudAdmin.buscarAdmin(Integer.parseInt(id)));
                     req.setAttribute("admins", admins);
-                    req.getRequestDispatcher("/AreaRestrita/Administrador/areaRestritaAdmin.jsp").forward(req, resp);
                 } else {
                     req.setAttribute("erro", "Não tem nenhum administrador com esse ID.");
                 }
@@ -116,13 +110,13 @@ public class ServletAdmin extends HttpServlet {
 
 
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String idOuEmail = req.getParameter("idOuEmail");
+        String idDeletar = req.getParameter("idDeletar");
         int resultado;
 
         try {
             // Verifica se é um número válido (ID)
-            if (Integer.parseInt(idOuEmail) > 0) {
-                resultado = this.crudAdmin.deletarAdmin(Integer.parseInt(idOuEmail));
+            if (Integer.parseInt(idDeletar) > 0) {
+                resultado = this.crudAdmin.deletarAdmin(Integer.parseInt(idDeletar));
                 if (resultado>0){
                     doGet(req, resp);
                 }else if (resultado == 0){
@@ -135,13 +129,8 @@ public class ServletAdmin extends HttpServlet {
             }
         }
         catch (NumberFormatException nfe) {
-            // Caso não seja número, verifica se é um e-mail válido
-            if (this.crudAdmin.buscarAdmin(idOuEmail) != null) {
-                resultado = this.crudAdmin.deletarAdmin(idOuEmail);
-            }else{
-                req.setAttribute("erro","Não existe um administrador com esse email.");
-                }
-            }
+            req.setAttribute("erro", "O ID deve ser um número.");
+        }
         req.getRequestDispatcher("/AreaRestrita/Administrador/areaRestritaAdminDeletar.jsp").forward(req, resp);
     }
 }

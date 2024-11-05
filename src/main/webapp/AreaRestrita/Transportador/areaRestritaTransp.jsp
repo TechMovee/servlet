@@ -71,10 +71,10 @@
             <!-- Opções para o CRUD -->
 
         <div class="botoes">
-            <a href="AreaRestrita/Transportador/areaRestritaTranspId.jsp"><button>Buscar por ID</button></a>
+            <a href="AreaRestrita/Transportador/areaRestritaTranspId.jsp"><button>Buscar</button></a>
             <a href="AreaRestrita/Transportador/areaRestritaTranspInserir.jsp"><button>Adicionar</button></a>
-            <a href="AreaRestrita/Transportador/areaRestritaTranspAtualizar.jsp"><button>Mostras todos Admins</button></a>
-            <a href="AreaRestrita/Transportador/areaRestritaTranspDeletar.jsp"><button>Deletar Admin</button></a>
+            <a href="AreaRestrita/Transportador/areaRestritaTranspAtualizar.jsp"><button>Atualizar</button></a>
+            <a href="AreaRestrita/Transportador/areaRestritaTranspDeletar.jsp"><button>Deletar</button></a>
         </div>
     </section>
 

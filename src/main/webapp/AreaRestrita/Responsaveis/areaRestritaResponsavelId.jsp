@@ -58,14 +58,14 @@
                 }
             %>
             <label>
-                <input required placeholder="" type="number" name="cpf" class="input" min="1">
+                <input required placeholder="" type="text" name="cpf" class="input">
                 <span>CPF</span>
             </label>
             <input type="submit" class="submit" value="Procurar">
         </form>
         <!-- Opções para o CRUD -->
         <div class="botoes">
-            <a href="/ProjectTechMovee_war_exploded/Admin"><button>Mostrar todos Admins</button></a>
+            <a href="/ProjectTechMovee_war_exploded/Respon"><button>Mostrar todos Admins</button></a>
             <%
                 if (request.getAttribute("erro") == null){
             %>

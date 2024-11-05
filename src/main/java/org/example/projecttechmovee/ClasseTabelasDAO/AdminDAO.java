@@ -2,7 +2,6 @@ package org.example.projecttechmovee.ClasseTabelasDAO;
 
 import org.example.projecttechmovee.ClasseTabelas.Admin;
 import org.example.projecttechmovee.DbConexao.Conexao;
-import org.postgresql.util.PSQLException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminDAO {
-    private Conexao conexao;
+    private final Conexao conexao;
 
     //    Construtor
     public AdminDAO(Conexao conexao) {
@@ -25,7 +24,7 @@ public class AdminDAO {
             Connection connection = conexao.getConexao();
             try {
                 if (connection != null) {
-                    PreparedStatement pstmt = null;
+                    PreparedStatement pstmt;
                     pstmt = connection.prepareStatement("INSERT INTO Admins (nome, email, senha) VALUES (?, ?, ?)");
                     pstmt.setString(1, admin.getName());
                     pstmt.setString(2, admin.getEmail());
@@ -105,8 +104,7 @@ public class AdminDAO {
                     pstmt.setString(1, email);
                     ResultSet rs = pstmt.executeQuery();
                     if (rs.next()) {
-                        Admin temp = new Admin(rs.getInt("id"), rs.getString("nome"), rs.getString("email"), rs.getString("senha"));
-                        return temp;
+                        return new Admin(rs.getInt("id"), rs.getString("nome"), rs.getString("email"), rs.getString("senha"));
                     }
                 }
             } catch (SQLException se) {
@@ -148,25 +146,6 @@ public class AdminDAO {
                 if (connection != null) {
                     PreparedStatement pstmt = connection.prepareStatement("DELETE FROM Admins WHERE id = ?");
                     pstmt.setInt(1, id);
-                    return pstmt.executeUpdate();
-                }
-            } catch (SQLException se) {
-                se.printStackTrace();
-            } finally {
-                conexao.desconectar();
-            }
-        }
-        return -1;
-    }
-
-//    Deletar Admin pelo Email
-    public int deletarAdmin(String email){
-        if (conexao.conectar()) {
-            Connection connection = conexao.getConexao();
-            try {
-                if (connection != null) {
-                    PreparedStatement pstmt = connection.prepareStatement("DELETE FROM Admins WHERE email = ?");
-                    pstmt.setString(1, email);
                     return pstmt.executeUpdate();
                 }
             } catch (SQLException se) {
