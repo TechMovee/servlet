@@ -8,82 +8,85 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.example.projecttechmovee.ClasseTabelas.Admin;
 import org.example.projecttechmovee.ClasseTabelasDAO.AdminDAO;
 import org.example.projecttechmovee.DbConexao.Conexao;
-import org.example.projecttechmovee.Regex.Regex;
 
 import java.io.IOException;
-
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 @WebServlet(name = "Admin", value = "/Admin")
 public class ServletAdmin extends HttpServlet {
 
-    private AdminDAO crudAdmin = new AdminDAO(new Conexao());
+    private final AdminDAO crudAdmin = new AdminDAO(new Conexao());
+
+    // Lida com requisições GET para listar ou buscar admins por ID
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
-        if (id==null || id.isEmpty()) {
-            List<Admin> admins = this.crudAdmin.listarAdmins();
-            if (admins != null) {
-                req.setAttribute("admins", admins);
-                req.getRequestDispatcher("AreaRestrita/Administrador/areaRestritaAdmin.jsp").forward(req, resp);
-            }else{
-                req.setAttribute("erro", "Não tem nenhum administrador.");
-            }
-        }else{
-            List<Admin> admins = new ArrayList<>();
+
+        // Se não houver ID, lista todos os admins
+        if (id == null || id.isEmpty()) {
+            List<Admin> admins = crudAdmin.listarAdmins();
+            req.setAttribute("admins", admins != null ? admins : new ArrayList<>());
+            if (admins == null) req.setAttribute("erro", "Não tem nenhum administrador.");
+
+            req.getRequestDispatcher("AreaRestrita/Administrador/areaRestritaAdmin.jsp").forward(req, resp);
+
+        } else {
+            // Busca admin específico pelo ID
             try {
-                if (this.crudAdmin.buscarAdmin(Integer.parseInt(id)) != null) {
-                    admins.add(this.crudAdmin.buscarAdmin(Integer.parseInt(id)));
-                    req.setAttribute("admins", admins);
-                    req.getRequestDispatcher("/AreaRestrita/Administrador/areaRestritaAdmin.jsp").forward(req, resp);
+                Admin admin = crudAdmin.buscarAdmin(Integer.parseInt(id));
+                if (admin != null) {
+                    req.setAttribute("admins", List.of(admin));
                 } else {
                     req.setAttribute("erro", "Não tem nenhum administrador com esse ID.");
                 }
-            }catch (NumberFormatException nfe){
+            } catch (NumberFormatException e) {
                 req.setAttribute("erro", "O ID deve ser um número.");
             }
+
+            req.getRequestDispatcher("/AreaRestrita/Administrador/areaRestritaAdminId.jsp").forward(req, resp);
         }
-        req.getRequestDispatcher("/AreaRestrita/Administrador/areaRestritaAdmin.jsp").forward(req, resp);
     }
 
+    // Lida com requisições POST para inserir ou executar métodos PUT/DELETE conforme "method"
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int resultado;
         String method = req.getParameter("method");
+
+        // Se "method" for delete ou put, chama os métodos respectivos
         if (method != null) {
-            if (method.equals("delete")) {
+            if ("delete".equals(method)) {
                 doDelete(req, resp);
-            } else if (method.equals("put")) {
+            } else if ("put".equals(method)) {
                 doPut(req, resp);
             }
-        }else{
-
-//      Pegando os valores de email e password enviado pelo o usuário no formulário da requisição.
+        } else {
+            // Inserção de um novo administrador
             String nome = req.getParameter("nome");
             String email = req.getParameter("email");
             String password = req.getParameter("senha");
             String confirmar = req.getParameter("confirmar");
+
+            // Verifica se a senha e a confirmação correspondem
             if (password.equals(confirmar)) {
-                System.out.println(this.crudAdmin.buscarAdmin(email));
-                if (this.crudAdmin.buscarAdmin(email) == null) {
+                // Verifica se já existe um admin com o email fornecido
+                if (crudAdmin.buscarAdmin(email) == null) {
                     Admin adminAdicionado = new Admin(nome, email, password);
-                    resultado = this.crudAdmin.adicionarAdmin(adminAdicionado);
-                    if (resultado > 0) {
-                        doGet(req, resp);
+                    if (crudAdmin.adicionarAdmin(adminAdicionado) > 0) {
+                        doGet(req, resp); // Redireciona para listagem após inserção bem-sucedida
                     } else {
-                        req.setAttribute("erro", "Não foi possivel inserir um administrador.");
+                        req.setAttribute("erro", "Não foi possível inserir um administrador.");
                     }
-                }else{
+                } else {
                     req.setAttribute("erro", "Já existe um administrador com esse email.");
                 }
             } else {
                 req.setAttribute("erro", "A senha deve ser a mesma da anterior.");
             }
+
             req.getRequestDispatcher("/AreaRestrita/Administrador/areaRestritaAdminInserir.jsp").forward(req, resp);
         }
     }
 
+    // Lida com requisições PUT para atualizar dados do administrador
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("idAtualizar");
         String nome = req.getParameter("nome");
@@ -91,38 +94,39 @@ public class ServletAdmin extends HttpServlet {
         String senha = req.getParameter("senha");
 
         try {
-            Admin adminAtualizado = this.crudAdmin.buscarAdmin(Integer.parseInt(id));
+            // Busca admin pelo ID e atualiza os dados
+            Admin adminAtualizado = crudAdmin.buscarAdmin(Integer.parseInt(id));
             if (adminAtualizado != null) {
-                    adminAtualizado.setEmail(email);
-                    adminAtualizado.setName(nome);
-                    adminAtualizado.setSenha(senha);
-                    int retornoLinhas = this.crudAdmin.atualizarAdmin(adminAtualizado);
-                    if (retornoLinhas > 0) {
-                        doGet(req, resp);
-                    } else {
-                        req.setAttribute("erro", "Não foi possivel atualizar o administrador.");
-                    }
-            }else{
-                    req.setAttribute("erro", "Não foi possivel achar um administrador com esse ID.");
+                adminAtualizado.setEmail(email);
+                adminAtualizado.setName(nome);
+                adminAtualizado.setSenha(senha);
+
+                // Executa atualização e verifica o resultado
+                if (crudAdmin.atualizarAdmin(adminAtualizado) > 0) {
+                    doGet(req, resp);
+                } else {
+                    req.setAttribute("erro", "Não foi possível atualizar o administrador.");
                 }
-            req.setAttribute("erro", "Informações incorretas.");
+            } else {
+                req.setAttribute("erro", "Não foi possível achar um administrador com esse ID.");
+            }
+        } catch (NumberFormatException e) {
+            req.setAttribute("erro", "O ID deve ser um número.");
         }
-        catch (NumberFormatException nfe){
-            req.setAttribute("erro", "O ID deve ser um número");
-        }
+
         req.getRequestDispatcher("/AreaRestrita/Administrador/areaRestritaAdminAtualizar.jsp").forward(req, resp);
     }
 
-
-
+    // Lida com requisições DELETE para remover um admin por ID
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String idOuEmail = req.getParameter("idOuEmail");
+        String idDeletar = req.getParameter("idDeletar");
         int resultado;
 
         try {
             // Verifica se é um número válido (ID)
-            if (Integer.parseInt(idOuEmail) > 0) {
-                resultado = this.crudAdmin.deletarAdmin(Integer.parseInt(idOuEmail));
+            if (Integer.parseInt(idDeletar) > 0) {
+                resultado = this.crudAdmin.deletarAdmin(Integer.parseInt(idDeletar));
+                // Verifica o resultado da exclusão
                 if (resultado>0){
                     doGet(req, resp);
                 }else if (resultado == 0){
@@ -135,13 +139,8 @@ public class ServletAdmin extends HttpServlet {
             }
         }
         catch (NumberFormatException nfe) {
-            // Caso não seja número, verifica se é um e-mail válido
-            if (this.crudAdmin.buscarAdmin(idOuEmail) != null) {
-                resultado = this.crudAdmin.deletarAdmin(idOuEmail);
-            }else{
-                req.setAttribute("erro","Não existe um administrador com esse email.");
-                }
-            }
+            req.setAttribute("erro", "O ID deve ser um número.");
+        }
         req.getRequestDispatcher("/AreaRestrita/Administrador/areaRestritaAdminDeletar.jsp").forward(req, resp);
     }
 }

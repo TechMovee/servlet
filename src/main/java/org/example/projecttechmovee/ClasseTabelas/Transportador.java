@@ -3,7 +3,7 @@ package org.example.projecttechmovee.ClasseTabelas;
 public class Transportador {
 
     // Atributos privados da classe Transportador
-    private String cnh; // Atributo Identificador do Transportador
+    private String cnh; // Atributo identificador do Transportador
     private String nome; // Nome do Transportador
     private String cep; // CEP do Transportador
     private String email; // E-mail do Transportador

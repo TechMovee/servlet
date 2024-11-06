@@ -12,7 +12,7 @@
 </head>
 <body>
 <nav>
-    <a href="index.html"><img id="backAreaRestrita" src="Imagens/icons8-back-arrow-50.png" alt=""></a>
+    <a href="index.html"><img id="backAreaRestrita" src="Imagens/setaAzul.png" alt=""></a>
 </nav>
 <section class="conteudo">
 
@@ -28,74 +28,66 @@
     </div>
 
     <!-- Conteúdo -->
-
-    <%
-        String erro = (String) request.getAttribute("erro");
-        if (null == erro) {
-    %>
-    <div class="table-container">
-        <table>
-            <thead>
-            <tr>
-                <th class="cabeçalho">ID</th>
-                <th class="cabeçalho">Nome Completo</th>
-                <th class="cabeçalho">Email</th>
-            </tr>
-            </thead>
-            <%
-                List<Admin> admins = (List<Admin>) request.getAttribute("admins");// Obtém a lista do servlet
-                if (admins != null && !admins.isEmpty()) {
-                    for (Admin admin : admins) {
-            %>
-            <!-- Conteúdo dentro da div -->
-            <tr class="item">
-                <td><%= admin.getId() %>
-                </td>
-                <td><%= admin.getName() %>
-                </td>
-                <td><%= admin.getEmail() %>
-                </td>
-            </tr>
-            <%
-                    }
-                }
-            %>
-        </table>
-        <%
-        } else {
-        %>
-        <div>
-            <h1><%=erro%>
-            </h1>
+    <div class="content">
+        <div class="botoes">
+            <a href="AreaRestrita/Administrador/areaRestritaAdminId.jsp">
+                <button>Buscar</button>
+            </a>
+            <a href="AreaRestrita/Administrador/areaRestritaAdminInserir.jsp">
+                <button>Inserir</button>
+            </a>
+            <a href="AreaRestrita/Administrador/areaRestritaAdminAtualizar.jsp">
+                <button class="BotãoSelecionado">Atualizar</button>
+            </a>
+            <a href="AreaRestrita/Administrador/areaRestritaAdminDeletar.jsp">
+                <button >Deletar</button>
+            </a>
         </div>
         <%
-            }
+            String erro = (String) request.getAttribute("erro");
+            if (null == erro) {
         %>
-    </div>
-
-    <!-- Opções para o CRUD -->
-
-            <div class="botoes">
-                <a href="AreaRestrita/Administrador/areaRestritaAdminId.jsp"><button>Buscar</button></a>
-                <a href="AreaRestrita/Administrador/areaRestritaAdminInserir.jsp"><button>Adicionar</button></a>
-                <a href="AreaRestrita/Administrador/areaRestritaAdminAtualizar.jsp"><button>Atualizar</button></a>
-                <a href="AreaRestrita/Administrador/areaRestritaAdminDeletar.jsp"><button>Deletar</button></a>
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th class="cabeçalho">ID</th>
+                    <th class="cabeçalho">Nome Completo</th>
+                    <th class="cabeçalho">Email</th>
+                </tr>
+                </thead>
+                <%
+                    List<Admin> admins = (List<Admin>) request.getAttribute("admins");// Obtém a lista do servlet
+                    if (admins != null && !admins.isEmpty()) {
+                        for (Admin admin : admins) {
+                %>
+                <!-- Conteúdo dentro da div -->
+                <tr class="item">
+                    <td><%= admin.getId() %>
+                    </td>
+                    <td><%= admin.getName() %>
+                    </td>
+                    <td><%= admin.getEmail() %>
+                    </td>
+                </tr>
+                <%
+                        }
+                    }
+                %>
+            </table>
+            <%
+            } else {
+            %>
+            <div>
+                <h1><%=erro%>
+                </h1>
             </div>
-        </section>
-    <div class="botoes">
-        <a href="AreaRestrita/Administrador/areaRestritaAdminId.jsp">
-            <button>Buscar por ID</button>
-        </a>
-        <a href="AreaRestrita/Administrador/areaRestritaAdminInserir.jsp">
-            <button>Adicionar</button>
-        </a>
-        <a href="AreaRestrita/Administrador/areaRestritaAdminAtualizar.jsp">
-            <button>Atualizar por ID</button>
-        </a>
-        <a href="AreaRestrita/Administrador/areaRestritaAdminDeletar.jsp">
-            <button>Deletar Admin</button>
-        </a>
+            <%
+                }
+            %>
+        </div>
     </div>
+
 </section>
 <footer>
     <div class="footer-content">

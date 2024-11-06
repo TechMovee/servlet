@@ -8,7 +8,6 @@
         if (request.getAttribute("erro") == null) {
     %>
     <link rel="stylesheet" type="text/css" href="../CSS/telaCrud.css">
-    <link rel="stylesheet" type="text/css" href="../CSS/telaGetAll.css">
     <link rel="icon" href="../../Imagens/logos2.png">
     <%
     } else {
@@ -23,8 +22,8 @@
 <nav>
     <a <%if(request.getAttribute("erro") == null){%>href="../TelaInicial/areaRestrita.jsp"
        <%}else{%>href="AreaRestrita/TelaInicial/areaRestrita.jsp"<%}%>><img id="backAreaRestrita"
-                                                                            <% if (request.getAttribute("erro") == null){%>src="../../Imagens/icons8-back-arrow-50.png"<%}else{%>
-                                                                            src="Imagens/icons8-back-arrow-50.png"
+                                                                            <% if (request.getAttribute("erro") == null){%>src="../../Imagens/setaAzul.png"<%}else{%>
+                                                                            src="Imagens/setaAzul.png"
                                                                             <%}%>alt=""></a>
 </nav>
 <section>
@@ -55,55 +54,59 @@
         }
     %>
 
-    <!-- Forms -->
-    <form class="form" action="../../Respon" method="post">
-        <%
-            if (request.getAttribute("erro") != null) {
-        %>
-        <h3 id="erro"><%= request.getAttribute("erro")%>
-        </h3>
-        <%
-            }
-        %>
-        <input style="display: none;" type="text" name="method" value="delete">
-        <label>
-            <input placeholder="" type="text" name="cpfDeletar" class="input">
-            <span>CPF</span>
-        </label>
-        <input type="submit" class="submit" value="Deletar">
-    </form>
-    <!-- Opções para o CRUD -->
-    <div class="botoes">
-        <a href="../../Respon">
-            <button>Mostrar todos responsáveis</button>
-        </a>
-        <%
-            if (request.getAttribute("erro") == null) {
-        %>
-        <a href="areaRestritaResponsavelId.jsp">
-            <button>Buscar</button>
-        </a>
-        <a href="areaRestritaResponsavelInserir.jsp">
-            <button>Inserir</button>
-        </a>
-        <a href="areaRestritaResponsavelAtualizar.jsp">
-            <button>Atualizar</button>
-        </a>
-        <%
-        } else {
-        %>
-        <a href="AreaRestrita/Responsaveis/areaRestritaResponsavelId.jsp">
-            <button>Buscar</button>
-        </a>
-        <a href="AreaRestrita/Responsaveis/areaRestritaResponsavelInserir.jsp">
-            <button>Inserir</button>
-        </a>
-        <a href="AreaRestrita/Responsaveis/areaRestritaResponsavelAtualizar.jsp">
-            <button>Atualizar</button>
-        </a>
-        <%
-            }
-        %>
+    <!-- Conteúdo -->
+    <div class="content">
+        <div class="botoes">
+            <%
+                if (request.getAttribute("erro") == null) {
+            %>
+            <a href="areaRestritaResponsavelId.jsp">
+                <button>Buscar</button>
+            </a>
+            <a href="areaRestritaResponsavelInserir.jsp">
+                <button>Inserir</button>
+            </a>
+            <a href="areaRestritaResponsavelAtualizar.jsp">
+                <button>Atualizar</button>
+            </a>
+            <a href="areaRestritaResponsavelDeletar.jsp">
+                <button class="BotãoSelecionado">Deletar</button>
+            </a>
+            <%
+            } else {
+            %>
+            <a href="AreaRestrita/Responsaveis/areaRestritaResponsavelId.jsp">
+                <button>Buscar</button>
+            </a>
+            <a href="AreaRestrita/Responsaveis/areaRestritaResponsavelInserir.jsp">
+                <button>Inserir</button>
+            </a>
+            <a href="AreaRestrita/Responsaveis/areaRestritaResponsavelAtualizar.jsp">
+                <button>Atualizar</button>
+            </a>
+            <a href="AreaRestrita/Responsaveis/areaRestritaResponsavelDeletar.jsp">
+                <button class="BotãoSelecionado">Deletar</button>
+            </a>
+            <%
+                }
+            %>
+        </div>
+        <form class="form" action="../../Respon" method="post">
+            <%
+                if (request.getAttribute("erro") != null) {
+            %>
+            <h3 id="erro"><%= request.getAttribute("erro")%>
+            </h3>
+            <%
+                }
+            %>
+            <input style="display: none;" type="text" name="method" value="delete">
+            <label>
+                <input placeholder="" type="text" name="cpfDeletar" class="input">
+                <span>CPF</span>
+            </label>
+            <input type="submit" class="submit" value="Deletar">
+        </form>
     </div>
 </section>
 

@@ -2,7 +2,7 @@ package org.example.projecttechmovee.ClasseTabelas;
 
 public class Admin {
     // Atributos privados da classe Admin
-    private int id; // Atributo único do Administrador
+    private int id; // Atributo identificador do Administrador
     private String name; // Nome do Administrador
     private String email; // E-mail do Administrador
     private String senha; // Senha do Administrador

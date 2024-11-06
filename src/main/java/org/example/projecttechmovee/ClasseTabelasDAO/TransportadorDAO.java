@@ -12,7 +12,7 @@ import java.util.List;
 
 public class TransportadorDAO {
     // Atributo que armazena a conexão com o banco de dados
-    private Conexao conexao;
+    private final Conexao conexao;
 
     // Construtor que inicializa a conexão
     public TransportadorDAO(Conexao connection) {

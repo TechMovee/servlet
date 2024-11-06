@@ -21,7 +21,7 @@
 </head>
 <body>
     <nav>
-        <a <%if(request.getAttribute("passouPorServlet") == null){%>href="../../index.html"<%}else{%>href="index.html"<%}%>><img id="backAreaRestrita" <% if (request.getAttribute("passouPorServlet") == null){%>src="../../Imagens/icons8-back-arrow-50.png"<%}else{%> src="Imagens/icons8-back-arrow-50.png"<%}%>alt="Voltar"></a>
+        <a <%if(request.getAttribute("passouPorServlet") == null){%>href="../../index.html"<%}else{%>href="index.html"<%}%>><img id="backAreaRestrita" <% if (request.getAttribute("passouPorServlet") == null){%>src="../../Imagens/setaAzul.png"<%}else{%> src="Imagens/setaAzul.png"<%}%>alt="Voltar"></a>
     </nav>
 
     <!-- Sidebar -->
@@ -35,6 +35,7 @@
             <a href="../../Transp">Transportador</a>
             <a href="../../Telefone">Telefone</a>
             <a href="../../Escola">Escola</a>
+            <a class="bi">Gráficos</a>
         </div>
         <%
         }else{
@@ -45,6 +46,7 @@
             <a href="Transp">Transportador</a>
             <a href="Telefone">Telefone</a>
             <a href="Escola">Escola</a>
+            <a class="bi">Gráficos</a>
         </div>
         <%
             }
@@ -90,6 +92,13 @@
             %>
         </div>
     </footer>
+
+    <script>
+        const bi = document.getElementsByClassName("bi")[0]
+        bi.addEventListener('click', () => {
+            window.location.replace("BI");
+        })
+    </script>
 
 </body>
 </html>

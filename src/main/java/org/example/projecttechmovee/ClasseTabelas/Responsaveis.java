@@ -3,7 +3,7 @@ package org.example.projecttechmovee.ClasseTabelas;
 public class Responsaveis {
 
     // Atributos privados da classe Responsaveis
-    private String cpf; // Atributo único do Responsável
+    private String cpf; // Atributo identificar do Responsável
     private String nome; // Nome do Responsável
     private String dtNascimento; // Data de Nascimento do Responsável
     private String foto; // Foto do Responsável

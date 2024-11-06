@@ -1,18 +1,4 @@
 /* =====================
-   Variáveis de Cores
-===================== */
-:root {
-    --primary-bg-color: #eceaea;
-    --secondary-bg-color: #D9D7D7;
-    --highlight-color: #ffb950;
-    --button-color: #fac66e;
-    --button-hover-color: rgb(56, 90, 194);
-    --footer-bg-color: #1C1C1C;
-    --text-color: #666;
-    --header-font-color: #FFA500;
-}
-
-/* =====================
    Estilo Base e Reset
 ===================== */
 body {
@@ -23,14 +9,14 @@ body {
 }
 
 h1 {
-    color: var(--header-font-color);
+    color: #FFA500;
     font-size: 3em;
     margin-bottom: 1em;
 }
 
 p {
     font-size: 1.2em;
-    color: var(--text-color);
+    color: #666;
 }
 
 /* =====================
@@ -40,7 +26,7 @@ nav {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: var(--primary-bg-color);
+    background-color: #ffb950;
     width: 100%;
     height: 70px;
     z-index: 10;
@@ -58,38 +44,91 @@ nav img {
 ===================== */
 section {
     display: grid;
-    grid-template-columns: 30% 40% 30%;
+    grid-template-columns: 30% 70%;
     align-items: center;
     width: 100%;
     height: 100vh;
 }
 
+.sidebar {
+    margin-left: -10px;
+    margin-top: 100px;
+    background-color: #D9D7D7;
+    height: 100%;
+    width: 70%;
+    position: relative;
+    left: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.sidebar a {
+    line-height: 5vh;
+    display: block;
+    background-color: #eceaea;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    font-weight: normal;
+    font-size: 15px;
+    padding: 15px;
+    height: 5%;
+    width: 80%;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+.sidebar a:hover {
+    background-color: #ffb950;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.sidebar a.active {
+    background-color: #d78217;
+    color: white;
+    font-weight: bold;
+}
+
+.sidebar .selecionado {
+    background-color: #ffb950;
+    color: white;
+    font-weight: bold;
+}
+
+.content {
+    align-items: start;
+    margin-left: -50px;
+    width: 100%;
+    height: 100%;
+}
+
 /* =====================
    Formulário
 ===================== */
-
 form {
     display: flex;
     flex-flow: column wrap;
-    max-height: 60%;
-    gap: 1.5rem;
+    gap: 1rem;
     align-items: center;
     justify-content: center;
-    max-width: 100%;
+    width: 80%;
+    margin: auto;
     background-color: #fbdaa2;
-    border-radius: 5px;
-    padding: 1.5rem;
+    border-radius: 10px;
+    padding: 1.5em 1rem;
 }
 
 form label {
     position: relative;
-    width: 75%;
+    width: 90%;
 }
 
-/* Input de Formulário */
 form label .input {
     width: 100%;
-    height: 3rem;
+    height: 2rem;
     padding-left: 10px;
     border: 1px solid rgba(105, 105, 105, 0.4);
     border-radius: 10px;
@@ -99,7 +138,7 @@ form label .input {
 
 form label .input + span {
     position: absolute;
-    top: 0.75em;
+    top: 0.50em;
     left: 15px;
     color: grey;
     font-size: 1em;
@@ -110,12 +149,12 @@ form label .input + span {
 form label .input:focus + span,
 form label .input:valid + span {
     top: -1.3em;
-    font-size: 1.1em;
+    font-size: 1em;
     color: royalblue;
 }
 
 form label .input:focus {
-    border-color: royalblue;
+    border: 2px solid royalblue;
 }
 
 /* Botão de Envio */
@@ -123,6 +162,7 @@ form label .input:focus {
     width: 60%;
     padding: 10px;
     font-size: 16px;
+    margin-top: -20px;
     color: #fff;
     background-color: #FAB744;
     border-radius: 10px;
@@ -132,12 +172,11 @@ form label .input:focus {
 }
 
 .submit:hover {
-    background-color: var(--button-hover-color);
+    background-color: rgb(56, 90, 194);
 }
 
 /*Mensagem de Erro*/
-
-#erro{
+#erro {
     color: #ff1e1e;
     text-align: center;
     width: 75%;
@@ -153,28 +192,38 @@ form label .input:focus {
 ===================== */
 .botoes {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    height: 55%;
+    position: relative;
+    top: -20px;
+    justify-content: space-around;
+    flex-flow: row;
+    gap: 5px;
+    height: 50px;
+    width: 100%;
+    margin-bottom: 40px;
+    margin-top: 100px;
 }
 
 .botoes button {
-    width: 80%;
-    height: 50px;
+    padding: 20px;
+    height: 70px;
     font-size: 20px;
     color: white;
-    background-color: var(--button-color);
-    border: 2px solid var(--button-color);
+    background-color: #007bff;
+    border: 2px solid #007bff;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .botoes button:hover {
-    background-color: var(--button-hover-color);
-    border-color: var(--button-hover-color);
+    background-color: #ffb950;
+    border-color: #ffb950;
     transition: all 0.3s ease;
+}
+
+.botoes .BotãoSelecionado {
+    background-color: #ffb950;
+    border-color: #ffb950;
 }
 
 /* =====================
@@ -184,7 +233,7 @@ footer {
     position: absolute;
     bottom: 0;
     left: 0;
-    background-color: var(--footer-bg-color);
+    background-color: #1C1C1C;
     color: white;
     width: 100%;
     height: 50px;

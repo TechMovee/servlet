@@ -4,13 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bem-Vindo Área Restrita</title>
+    <title>Bem-Vindo Área Transportadores</title>
     <link rel="stylesheet" type="text/css" href="AreaRestrita/CSS/telaGetAll.css">
     <link rel="icon" href="/Imagens/logos2.png">
 </head>
 <body>
 <nav>
-    <a href="index.html"><img id="backAreaRestrita" src="Imagens/icons8-back-arrow-50.png" alt=""></a>
+    <a href="index.html"><img id="backAreaRestrita" src="Imagens/setaAzul.png" alt=""></a>
 </nav>
 
 <section>
@@ -27,67 +27,68 @@
     </div>
 
     <!-- Conteúdo -->
-    <%
-        String erro = (String) request.getAttribute("erro");
-        if (null == erro) {
-    %>
-    <div class="table-container">
-        <table>
-            <thead>
-            <tr>
-                <th class="cabeçalho">Nome Completo</th>
-                <th class="cabeçalho">Email</th>
-                <th class="cabeçalho">Data de Nascimento</th>
-                <th class="cabeçalho">Foto</th>
-            </tr>
-            </thead>
-            <%
-                List<Transportador> transportadores = (List<Transportador>) request.getAttribute("transp");// Obtém a lista do servlet
-                if (transportadores != null && !transportadores.isEmpty()) {
-                    for (Transportador transportador : transportadores) {
-            %>
-            <!-- Conteúdo dentro da div -->
-            <tr class="item">
-                <td><%= transportador.getNome() %>
-                </td>
-                <td><%= transportador.getEmail() %>
-                </td>
-                <td><%= transportador.getDtNascimento() %>
-                </td>
-                <td><%= transportador.getFoto() %>
-                </td>
-            </tr>
-            <%
-                    }
-                }
-            %>
-        </table>
-        <%
-        } else {
-        %>
-        <div>
-            <h1><%=erro%>
-            </h1>
+    <div class="content">
+        <div class="botoes">
+            <a href="AreaRestrita/Transportador/areaRestritaTranspId.jsp">
+                <button>Buscar</button>
+            </a>
+            <a href="AreaRestrita/Transportador/areaRestritaTranspInserir.jsp">
+                <button>Adicionar</button>
+            </a>
+            <a href="AreaRestrita/Transportador/areaRestritaTranspAtualizar.jsp">
+                <button>Atualizar</button>
+            </a>
+            <a href="AreaRestrita/Transportador/areaRestritaTranspDeletar.jsp">
+                <button>Deletar</button>
+            </a>
         </div>
         <%
-            }
+            String erro = (String) request.getAttribute("erro");
+            if (null == erro) {
         %>
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th class="cabeçalho">Nome Completo</th>
+                    <th class="cabeçalho">Email</th>
+                    <th class="cabeçalho">Data de Nascimento</th>
+                    <th class="cabeçalho">Foto</th>
+                </tr>
+                </thead>
+                <%
+                    List<Transportador> transportadores = (List<Transportador>) request.getAttribute("transp");// Obtém a lista do servlet
+                    if (transportadores != null && !transportadores.isEmpty()) {
+                        for (Transportador transportador : transportadores) {
+                %>
+                <!-- Conteúdo dentro da div -->
+                <tr class="item">
+                    <td><%= transportador.getNome() %>
+                    </td>
+                    <td><%= transportador.getEmail() %>
+                    </td>
+                    <td><%= transportador.getDtNascimento() %>
+                    </td>
+                    <td><%= transportador.getFoto() %>
+                    </td>
+                </tr>
+                <%
+                        }
+                    }
+                %>
+            </table>
+            <%
+            } else {
+            %>
+            <div>
+                <h1><%=erro%>
+                </h1>
+            </div>
+            <%
+                }
+            %>
+        </div>
     </div>
-
-    <!-- Opções para o CRUD -->
-    <div class="botoes">
-        <a href="AreaRestrita/Transportador/areaRestritaTranspId.jsp">
-            <button>Buscar</button>
-        </a>
-        <a href="AreaRestrita/Transportador/areaRestritaTranspInserir.jsp">
-            <button>Adicionar</button>
-        </a>
-        <a href="AreaRestrita/Transportador/areaRestritaTranspAtualizar.jsp">
-            <button>Atualizar</button>
-        </a>
-        <a href="AreaRestrita/Transportador/areaRestritaTranspDeletar.jsp">
-            <button>Deletar</button>
-        </a></div>
 </section>
 
 <footer>

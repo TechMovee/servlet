@@ -146,7 +146,7 @@ public class ServletTransportador extends HttpServlet {
 
         try {
             // Chama o método para deletar o transportador
-            resultado = this.crudTransportador.deletarTransportador(cnh);
+            resultado= this.crudTransportador.deletarTransportador(cnh);
             // Verifica o resultado da operação de deleção
             if (resultado > 0) {
                 doGet(req, resp); // Atualiza a lista de transportadores

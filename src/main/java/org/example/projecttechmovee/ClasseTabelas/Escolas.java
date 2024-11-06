@@ -2,7 +2,7 @@ package org.example.projecttechmovee.ClasseTabelas;
 
 public class Escolas{
     // Atributos privados da classe Admin
-    private int id; // Atributo único da Escola
+    private int id; // Atributo identificar da Escola
     private String nome; //Nome da Escola
 
     // Construtor que inicializa todos os atributos da classe Escolas

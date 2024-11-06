@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class EscolaDAO {
     // Atributo que mantém a conexão com o banco de dados
-    private Conexao conexao;
+    private final Conexao conexao;
 
     // Construtor da classe EscolaDAO, que inicializa a conexão
     public EscolaDAO(Conexao conexao) {

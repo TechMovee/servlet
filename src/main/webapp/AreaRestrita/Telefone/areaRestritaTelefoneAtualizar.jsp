@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-Vindo Área de Admins</title>
+    <title>Bem-Vindo Área de Telefones</title>
     <%
         if (request.getAttribute("erro") == null) {
     %>
     <link rel="stylesheet" type="text/css" href="../CSS/telaCrud.css">
-    <link rel="stylesheet" type="text/css" href="../CSS/telaGetAll.css">
     <link rel="icon" href="../../Imagens/logos2.png">
     <%
     } else {
@@ -23,8 +22,8 @@
 <nav>
     <a <%if(request.getAttribute("erro") == null){%>href="../TelaInicial/areaRestrita.jsp"
        <%}else{%>href="AreaRestrita/TelaInicial/areaRestrita.jsp"<%}%>><img id="backAreaRestrita"
-                                                                            <% if (request.getAttribute("erro") == null){%>src="../../Imagens/icons8-back-arrow-50.png"<%}else{%>
-                                                                            src="Imagens/icons8-back-arrow-50.png"
+                                                                            <% if (request.getAttribute("erro") == null){%>src="../../Imagens/setaAzul.png"<%}else{%>
+                                                                            src="Imagens/setaAzul.png"
                                                                             <%}%>alt=""></a>
 </nav>
 <section class="conteudo">
@@ -55,69 +54,73 @@
         }
     %>
 
-    <!-- Conteúdo -->
-    <form class="form" action="../../Telefone" method="post">
-        <%
-            if (request.getAttribute("erro") != null) {
-        %>
-        <h3 id="erro"><%= request.getAttribute("erro")%>
-        </h3>
-        <%
-            }
-        %>
-        <input style="display: none;" type="text" name="method" value="put">
-        <label>
-            <input required placeholder="" type="number" name="idAtualizar" class="input">
-            <span>ID</span>
-        </label>
-        <label>
-            <input required placeholder="" type="tel" name="telefone" class="input">
-            <span>Número</span>
-        </label>
-        <select id="tipo" name="tipo" required>
-            <option value="">Selecione o tipo de usuário</option>
-            <option value="responsavel">Responsável</option>
-            <option value="transportador">Transportador</option>
-        </select>
-        <label>
-            <input required placeholder="" type="text" name="cnhOuCpf" class="input">
-            <span>CPF ou CNH do usuário</span>
-        </label>
-        <br>
-        <input type="submit" class="submit" value="Atualizar">
-    </form>
-    <!-- Opções para o CRUD -->
-    <div class="botoes">
-        <a href="../../Telefone">
-            <button>Mostras todos Telefones</button>
-        </a>
-        <%
-            if (request.getAttribute("erro") == null) {
-        %>
-        <a href="areaRestritaTelefoneId.jsp">
-            <button>Buscar</button>
-        </a>
-        <a href="areaRestritaTelefoneInserir.jsp">
-            <button>Inserir</button>
-        </a>
-        <a href="areaRestritaTelefoneDeletar.jsp">
-            <button>Deletar</button>
-        </a>
-        <%
-        } else {
-        %>
-        <a href="AreaRestrita/Telefone/areaRestritaTelefoneId.jsp">
-            <button>Buscar</button>
-        </a>
-        <a href="AreaRestrita/Telefone/areaRestritaTelefoneInserir.jsp">
-            <button>Inserir</button>
-        </a>
-        <a href="AreaRestrita/Telefone/areaRestritaTelefoneDeletar.jsp">
-            <button>Deletar</button>
-        </a>
-        <%
-            }
-        %>
+    <%--  Conteúdo  --%>
+    <div class="content">
+        <div class="botoes">
+            <%
+                if (request.getAttribute("erro") == null) {
+            %>
+            <a href="areaRestritaTelefoneId.jsp">
+                <button>Buscar</button>
+            </a>
+            <a href="areaRestritaTelefoneInserir.jsp">
+                <button>Inserir</button>
+            </a>
+            <a href="areaRestritaTelefoneAtualizar.jsp">
+                <button class="BotãoSelecionado">Atualizar</button>
+            </a>
+            <a href="areaRestritaTelefoneDeletar.jsp">
+                <button >Deletar</button>
+            </a>
+            <%
+            } else {
+            %>
+            <a href="AreaRestrita/Telefone/areaRestritaTelefoneId.jsp">
+                <button>Buscar</button>
+            </a>
+            <a href="AreaRestrita/Telefone/areaRestritaTelefoneInserir.jsp">
+                <button>Inserir</button>
+            </a>
+            <a href="AreaRestrita/Telefone/areaRestritaTelefoneAtualizar.jsp">
+                <button class="BotãoSelecionado">Atualizar</button>
+            </a>
+            <a href="AreaRestrita/Telefone/areaRestritaTelefoneDeletar.jsp">
+                <button >Deletar</button>
+            </a>
+            <%
+                }
+            %>
+        </div>
+        <form class="form" action="../../Telefone" method="post">
+            <%
+                if (request.getAttribute("erro") != null) {
+            %>
+            <h3 id="erro"><%= request.getAttribute("erro")%>
+            </h3>
+            <%
+                }
+            %>
+            <input style="display: none;" type="text" name="method" value="put">
+            <label>
+                <input required placeholder="" type="number" name="idAtualizar" class="input">
+                <span>ID</span>
+            </label>
+            <label>
+                <input required placeholder="" type="tel" name="telefone" class="input">
+                <span>Número</span>
+            </label>
+            <select id="tipo" name="tipo" required>
+                <option value="">Selecione o tipo de usuário</option>
+                <option value="responsavel">Responsável</option>
+                <option value="transportador">Transportador</option>
+            </select>
+            <label>
+                <input required placeholder="" type="text" name="cnhOuCpf" class="input">
+                <span>CPF ou CNH do usuário</span>
+            </label>
+            <br>
+            <input type="submit" class="submit" value="Atualizar">
+        </form>
     </div>
 </section>
 

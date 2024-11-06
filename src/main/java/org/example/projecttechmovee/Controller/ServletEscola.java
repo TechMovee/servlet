@@ -79,7 +79,7 @@ public class ServletEscola extends HttpServlet {
             }
         } else {
             // Obtém o nome da escola enviado pelo formulário
-            String nome = req.getParameter("nome");
+            String nome= req.getParameter("nome");
 
             // Verifica se o nome da escola é válido
             if (this.validation.verificarNome(nome)) {
