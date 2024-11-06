@@ -11,21 +11,23 @@ import java.util.List;
 
 
 public class TransportadorDAO {
+    // Atributo que armazena a conexão com o banco de dados
     private Conexao conexao;
 
-    //    CONSTRUTOR
+    // Construtor que inicializa a conexão
     public TransportadorDAO(Conexao connection) {
         this.conexao = connection;
     }
 
-    //    ADICIONAR TRANSPORTADOR
+    // Método para adicionar um transportador ao banco de dados
     public int adicionarTransportador(Transportador transportador) {
         DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        if (conexao.conectar()) {
+        if (conexao.conectar()) {  // Verifica se a conexão foi estabelecida
 
             Connection connection = conexao.getConexao();
             try {
                 if (connection != null) {
+                    // Comando SQL para inserir um transportador na tabela 'Transportadores'
                     PreparedStatement pstmt = connection.prepareStatement(
                             "INSERT INTO Transportadores (cnh, nome, cep, email, senha, dt_nascimento, foto) VALUES (?, ?, ?, ?, ?, ?, ?)"
                     );
@@ -40,7 +42,7 @@ public class TransportadorDAO {
                     return pstmt.executeUpdate(); // Retorna o número de linhas afetadas
                 }
             } catch (SQLException se) {
-                se.printStackTrace();
+                se.printStackTrace();  // Exibe a pilha de erros em caso de exceção
             } finally {
                 conexao.desconectar(); // Garantindo que a conexão seja fechada
             }
@@ -48,14 +50,15 @@ public class TransportadorDAO {
         return -1; // Indica que não houve adição
     }
 
-    // Atualizar um transportador
+    // Método para atualizar um transportador no banco de dados
     public int atualizarTransportador(Transportador transportador) {
         DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        if (conexao.conectar()) {
+        if (conexao.conectar()) {  // Verifica se a conexão foi estabelecida
 
             Connection connection = conexao.getConexao();
             try {
                 if (connection != null) {
+                    // Comando SQL para atualizar os dados de um transportador
                     PreparedStatement pstmt = connection.prepareStatement(
                             "UPDATE Transportadores SET nome = ?, cep = ?, email = ?, senha = ?, dt_nascimento = ?, foto = ? WHERE cnh = ?"
                     );
@@ -70,7 +73,7 @@ public class TransportadorDAO {
                     return pstmt.executeUpdate(); // Retorna o número de linhas afetadas
                 }
             } catch (SQLException se) {
-                se.printStackTrace();
+                se.printStackTrace();  // Exibe a pilha de erros em caso de exceção
             } finally {
                 conexao.desconectar(); // Garantindo que a conexão seja fechada
             }
@@ -78,13 +81,14 @@ public class TransportadorDAO {
         return -1; // Indica que não houve atualização
     }
 
-    // Buscar um transportador por CNH
+    // Método para buscar um transportador por CNH
     public Transportador buscarTransportadorPorCnh(String cnh) {
-        if (conexao.conectar()) {
+        if (conexao.conectar()) {  // Verifica se a conexão foi estabelecida
 
             Connection connection = conexao.getConexao();
             try {
                 if (connection != null) {
+                    // Comando SQL para buscar um transportador pela CNH
                     PreparedStatement pstmt = connection.prepareStatement(
                             "SELECT * FROM Transportadores WHERE cnh = ?"
                     );
@@ -92,6 +96,7 @@ public class TransportadorDAO {
                     ResultSet rs = pstmt.executeQuery();
 
                     if (rs.next()) {
+                        // Retorna um objeto Transportador com os dados obtidos
                         return new Transportador(
                                 rs.getString("cnh"),
                                 rs.getString("nome"),
@@ -104,24 +109,26 @@ public class TransportadorDAO {
                     }
                 }
             } catch (SQLException se) {
-                se.printStackTrace();
+                se.printStackTrace();  // Exibe a pilha de erros em caso de exceção
             } finally {
                 conexao.desconectar(); // Garantindo que a conexão seja fechada
             }
         }
-        return null;
+        return null;  // Retorna null se o transportador não for encontrado
     }
 
-    //Ler todos os transportadores
+    // Método para ler todos os transportadores
     public List<Transportador> listarTransportadores() {
         List<Transportador> transportadores = new ArrayList<>();
-        if (conexao.conectar()) {
+        if (conexao.conectar()) {  // Verifica se a conexão foi estabelecida
             Connection connection = conexao.getConexao(); // Obtenha a conexão aqui
             try {
                 if (connection != null) {
+                    // Comando SQL para selecionar todos os transportadores
                     PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM Transportadores");
                     ResultSet rs = pstmt.executeQuery();
                     while (rs.next()) {
+                        // Cria um objeto Transportador e adiciona à lista
                         Transportador transportador = new Transportador(
                                 rs.getString("cnh"),
                                 rs.getString("nome"),
@@ -135,21 +142,22 @@ public class TransportadorDAO {
                     }
                 }
             } catch (SQLException se) {
-                se.printStackTrace();
+                se.printStackTrace();  // Exibe a pilha de erros em caso de exceção
             } finally {
                 conexao.desconectar(); // Garante que a conexão seja fechada
             }
         }
-        return transportadores;
+        return transportadores; // Retorna a lista de transportadores
     }
 
-    // Remover um transportador
+    // Método para remover um transportador
     public int deletarTransportador(String cnh) {
-        if (conexao.conectar()) {
+        if (conexao.conectar()) {  // Verifica se a conexão foi estabelecida
 
             Connection connection = conexao.getConexao();
             try {
                 if (connection != null) {
+                    // Comando SQL para deletar um transportador pela CNH
                     PreparedStatement pstmt = connection.prepareStatement(
                             "DELETE FROM Transportadores WHERE cnh = ?"
                     );
@@ -157,7 +165,7 @@ public class TransportadorDAO {
                     return pstmt.executeUpdate(); // Retorna o número de linhas afetadas
                 }
             } catch (SQLException se) {
-                se.printStackTrace();
+                se.printStackTrace();  // Exibe a pilha de erros em caso de exceção
             } finally {
                 conexao.desconectar(); // Garantindo que a conexão seja fechada
             }

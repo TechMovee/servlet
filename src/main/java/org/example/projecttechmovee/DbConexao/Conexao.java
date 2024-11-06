@@ -3,48 +3,61 @@ package org.example.projecttechmovee.DbConexao;
 import java.sql.*;
 public class Conexao {
 
-    private Connection conexao;
-    private PreparedStatement pstmt;
-    private ResultSet rs;
+    private Connection conexao; // Objeto para gerenciar a conexão com o banco de dados
+    private PreparedStatement pstmt; // Objeto para preparar e executar comandos SQL
+    private ResultSet rs; // Objeto para armazenar o resultado de uma consulta SQL
 
+    // Método para estabelecer a conexão com o banco de dados
     public boolean conectar() {
-
         try {
+            // Obtém as credenciais do banco de dados a partir das variáveis de ambiente
             String dbUrl = System.getenv("DB_URL");
             String dbUser = System.getenv("DB_USER");
             String dbPassword = System.getenv("DB_PASSWORD");
+
+            // Registra o driver do PostgreSQL
             Class.forName("org.postgresql.Driver");
+
+            // Estabelece a conexão com o banco de dados
             conexao = DriverManager.getConnection(
                     dbUrl,
                     dbUser,
                     dbPassword
             );
-            return true;
+            return true; // Retorna true se a conexão for bem-sucedida
         } catch (ClassNotFoundException cnfe) {
-            cnfe.printStackTrace();
+            cnfe.printStackTrace(); // Imprime a stack trace se o driver não for encontrado
         } catch (SQLException sql) {
-            sql.printStackTrace();
+            sql.printStackTrace(); // Imprime a stack trace se ocorrer um erro de SQL
         }
-        return false;
+        return false; // Retorna false se a conexão falhar
     }
+
+    // Método para fechar a conexão com o banco de dados
     public boolean desconectar() {
-        try {if (conexao != null && !conexao.isClosed()) {
-            conexao.close();
-            return true;
-        }
-        } catch (SQLException sqle) {
-            sqle.printStackTrace();
-        }
-        return false;
-    }
-    public Connection getConexao(){
-        if (this.conexao!=null) {
-            return this.conexao;
-        }else {
-            if (conectar()){
-                return this.conexao;
+        try {
+            // Verifica se a conexão não é nula e não está fechada
+            if (conexao != null && !conexao.isClosed()) {
+                conexao.close(); // Fecha a conexão
+                return true; // Retorna true se a desconexão for bem-sucedida
             }
-            return null;
+        } catch (SQLException sqle) {
+            sqle.printStackTrace(); // Imprime a stack trace se ocorrer um erro ao fechar a conexão
+        }
+        return false; // Retorna false se a desconexão falhar
+    }
+
+    // Método para obter a conexão com o banco de dados
+    public Connection getConexao() {
+        // Verifica se a conexão já foi estabelecida
+        if (this.conexao != null) {
+            return this.conexao; // Retorna a conexão existente
+        } else {
+            // Tenta conectar se a conexão não estiver estabelecida
+            if (conectar()) {
+                return this.conexao; // Retorna a nova conexão
+            }
+            return null; // Retorna null se não for possível conectar
         }
     }
 }

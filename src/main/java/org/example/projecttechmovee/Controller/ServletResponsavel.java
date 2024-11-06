@@ -5,12 +5,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.example.projecttechmovee.ClasseTabelas.Escolas;
 import org.example.projecttechmovee.ClasseTabelas.Responsaveis;
 import org.example.projecttechmovee.ClasseTabelasDAO.ResponsavelDAO;
 import org.example.projecttechmovee.DbConexao.Conexao;
 import org.example.projecttechmovee.Regex.Regex;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,18 +31,14 @@ public class ServletResponsavel extends HttpServlet {
             }
             req.getRequestDispatcher("/AreaRestrita/Responsaveis/areaRestritaResponsavel.jsp").forward(req, resp);
         }else{
-            if (this.validation.verificarCPF(cpf)) {
-                List<Responsaveis> responsaveis = new ArrayList<>();
-                if (this.crudResponsavel.buscarResponsavelPorCpf(cpf) != null) {
-                    responsaveis.add(this.crudResponsavel.buscarResponsavelPorCpf(cpf));
-                    req.setAttribute("resps", responsaveis);
-                } else {
-                    req.setAttribute("erro", "Não foi encontrado nenhum responsável com esse CPF.");
-                }
-            }else{
-                req.setAttribute("erro", "CPF inválido.");
+            List<Responsaveis> responsaveis = new ArrayList<>();
+            if (this.crudResponsavel.buscarResponsavelPorCpf(cpf) != null) {
+                responsaveis.add(this.crudResponsavel.buscarResponsavelPorCpf(cpf));
+                req.setAttribute("responsaveis", responsaveis);
+            } else {
+                req.setAttribute("erro", "Não foi encontrado nenhum responsável com esse CPF.");
             }
-            req.getRequestDispatcher("/AreaRestrita/Responsaveis/areaRestritaResponsavelId.jsp").forward(req, resp);
+            req.getRequestDispatcher("/AreaRestrita/Responsaveis/areaRestritaResponsavel.jsp").forward(req, resp);
         }
     }
 
@@ -65,7 +63,8 @@ public class ServletResponsavel extends HttpServlet {
 
             if (this.validation.verificarCPF(cpf) && this.validation.verificarData(dtNascimento) && this.validation.verificarEmail(email) && this.validation.verificarNome(nome) && this.validation.verificarFoto(foto) && this.validation.verificarPassword(senha)) {
                 Responsaveis responsaveisAdicionar = new Responsaveis(cpf, nome, dtNascimento, foto, senha, email);
-                int resultado = this.crudResponsavel.adicionarResponsavel(responsaveisAdicionar);
+                int resultado = 0;
+                resultado = this.crudResponsavel.adicionarResponsavel(responsaveisAdicionar);
                 if (resultado > 0) {
                     doGet(req, resp);
                 } else {
@@ -101,12 +100,15 @@ public class ServletResponsavel extends HttpServlet {
         req.getRequestDispatcher("/AreaRestrita/Responsaveis/areaRestritaResponsavelAtualizar.jsp").forward(req, resp);
     }
 
+
+
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String cpf = req.getParameter("cpfDeletar");
+        int resultado;
 
         // Verifica se é um CPF válido
         if (this.validation.verificarCPF(cpf)) {
-            int resultado = this.crudResponsavel.deletarResponsavel(cpf);
+            resultado = this.crudResponsavel.deletarResponsavel(cpf);
             if (resultado > 0) {
                 doGet(req, resp);
             } else if (resultado == 0) {
