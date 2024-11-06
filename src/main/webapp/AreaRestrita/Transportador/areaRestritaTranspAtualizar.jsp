@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-Vindo Área de Admins</title>
+    <title>Bem-Vindo Área de Transportadores</title>
     <%
         if (request.getAttribute("erro") == null){
     %>
     <link rel="stylesheet" type="text/css" href="../CSS/telaCrud.css">
-    <link rel="stylesheet" type="text/css" href="../CSS/telaGetAll.css">
     <link rel="icon" href="../../Imagens/logos2.png">
     <%
     }else{
@@ -26,7 +25,7 @@
 </head>
 <body>
     <nav>
-        <a <%if(request.getAttribute("erro") == null){%>href="../TelaInicial/areaRestrita.jsp"<%}else{%>href="AreaRestrita/TelaInicial/areaRestrita.jsp"<%}%>><img id="backAreaRestrita" <% if (request.getAttribute("erro") == null){%>src="../../Imagens/icons8-back-arrow-50.png"<%}else{%> src="Imagens/icons8-back-arrow-50.png"<%}%>alt=""></a>
+        <a <%if(request.getAttribute("erro") == null){%>href="../TelaInicial/areaRestrita.jsp"<%}else{%>href="AreaRestrita/TelaInicial/areaRestrita.jsp"<%}%>><img id="backAreaRestrita" <% if (request.getAttribute("erro") == null){%>src="../../Imagens/setaAzul.png"<%}else{%> src="Imagens/setaAzul.png"<%}%>alt=""></a>
     </nav>
     <section class="conteudo">
 
@@ -57,64 +56,82 @@
         %>
 
 
-        <!-- Conteúdo -->
-        <form class="form" action="../../Transp" method="post">
-            <%
-                if (request.getAttribute("erro") != null){
-            %>
-            <h3 id="erro"><%= request.getAttribute("erro")%></h3>
-            <%
-                }
-            %>
-            <input style="display: none;" type="text" name="method" value="put">
-            <label>
-                <input required placeholder="" type="text" name="cnhAtualizar" class="input">
-                <span>CNH</span>
-            </label>
-            <label>
-                <input required placeholder="" type="text" name="nome" class="input">
-                <span>Nome</span>
-            </label>
-            <label>
-                <input required placeholder="" type="text" name="cep" class="input" >
-                <span>CEP</span>
-            </label>
-            <label>
-                <input required placeholder="" type="email" name="email" class="input">
-                <span>Email</span>
-            </label>
-            <label>
-                <input required placeholder="" type="date" name="dtNascimento" class="input">
-                <span>Data de Nascimento</span>
-            </label>
-            <label>
-                <input required placeholder="" type="password" name="senha" class="input" >
-                <span>Senha</span>
-            </label>
-            <label>
-                <input required placeholder="" type="text" name="foto" class="input">
-                <span>Foto</span>
-            </label>
-            <input type="submit" class="submit" value="Cadastrar">
-        </form>
-        <!-- Opções para o CRUD -->
-        <div class="botoes">
-            <a href="../../Transp"><button>Mostrar todos Transportadores</button></a>
-            <%
-                if (request.getAttribute("erro") == null){
-            %>
-                <a href="areaRestritaTranspId.jsp"><button>Buscar</button></a>
-                <a href="areaRestritaTranspInserir.jsp"><button>Inserir</button></a>
-                <a href="areaRestritaTranspDeletar.jsp"><button>Deletar</button></a>
-            <%
-            }else{
-            %>
-                <a href="AreaRestrita/Transportador/areaRestritaTranspId.jsp"><button>Buscar</button></a>
-                <a href="AreaRestrita/Transportador/areaRestritaTranspInserir.jsp"><button>Inserir</button></a>
-                <a href="AreaRestrita/Transportador/areaRestritaTranspDeletar.jsp"><button>Deletar</button></a>
-            <%
-                }
-            %>
+        <%--  Conteúdo  --%>
+        <div class="content">
+            <div class="botoes">
+                <%
+                    if (request.getAttribute("erro") == null) {
+                %>
+                <a href="areaRestritaTranspId.jsp">
+                    <button>Buscar</button>
+                </a>
+                <a href="areaRestritaTranspInserir.jsp">
+                    <button>Inserir</button>
+                </a>
+                <a href="areaRestritaTranspAtualizar.jsp">
+                    <button class="BotãoSelecionado">Atualizar</button>
+                </a>
+                <a href="areaRestritaTranspDeletar.jsp">
+                    <button >Deletar</button>
+                </a>
+                <%
+                } else {
+                %>
+                <a href="AreaRestrita/Transportador/areaRestritaTranspId.jsp">
+                    <button>Buscar</button>
+                </a>
+                <a href="AreaRestrita/Transportador/areaRestritaTranspInserir.jsp">
+                    <button>Inserir</button>
+                </a>
+                <a href="AreaRestrita/Transportador/areaRestritaTranspAtualizar.jsp">
+                    <button class="BotãoSelecionado">Atualizar</button>
+                </a>
+                <a href="AreaRestrita/Transportador/areaRestritaTranspDeletar.jsp">
+                    <button >Deletar</button>
+                </a>
+                <%
+                    }
+                %>
+            </div>
+            <form class="form" action="../../Transp" method="post">
+                <%
+                    if (request.getAttribute("erro") != null){
+                %>
+                <h3 id="erro"><%= request.getAttribute("erro")%></h3>
+                <%
+                    }
+                %>
+                <input style="display: none;" type="text" name="method" value="put">
+                <label>
+                    <input required placeholder="" type="text" name="cnhAtualizar" class="input">
+                    <span>CNH</span>
+                </label>
+                <label>
+                    <input required placeholder="" type="text" name="nome" class="input">
+                    <span>Nome</span>
+                </label>
+                <label>
+                    <input required placeholder="" type="text" name="cep" class="input" >
+                    <span>CEP</span>
+                </label>
+                <label>
+                    <input required placeholder="" type="email" name="email" class="input">
+                    <span>Email</span>
+                </label>
+                <label>
+                    <input required placeholder="" type="date" name="dtNascimento" class="input">
+                    <span>Data de Nascimento</span>
+                </label>
+                <label>
+                    <input required placeholder="" type="password" name="senha" class="input" >
+                    <span>Senha</span>
+                </label>
+                <label>
+                    <input required placeholder="" type="text" name="foto" class="input">
+                    <span>Foto</span>
+                </label>
+                <input type="submit" class="submit" value="Cadastrar">
+            </form>
         </div>
     </section>
 

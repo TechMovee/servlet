@@ -23,23 +23,23 @@
     <%
         if (request.getAttribute("erro") == null){
     %>
-        <a href="../../index.html"><img src="../../Imagens/icons8-back-arrow-50.png" class="backLogin" alt="Voltar"></a>
+        <a href="../../index.html"><img src="../../Imagens/setaAzul.png" class="backLogin" alt="Voltar"></a>
     <%
         }else{
     %>
-        <a href="index.html"><img src="Imagens/icons8-back-arrow-50.png" class="backLogin" alt="Voltar"></a>
+        <a href="index.html"><img src="Imagens/setaAzul.png" class="backLogin" alt="Voltar"></a>
     <%
         }
     %>
 
-    <form class="formulario" action="../../loginAdm" method="post">
+    <form class="formulario" <% if (request.getAttribute("erro") == null){%> action="../../loginAdm"<%}else{%>action="loginAdm"<%}%> method="post">
         <p class="tituloFormulario" id="title">Área do Admin</p>
         <p class="mensagem">Faça seu login para acessar a Área do Admin.</p>
 
         <%
             if (request.getAttribute("erro") != null){
         %>
-            <h3 id="messageError"><%= request.getAttribute("erro")%></h3>
+            <h3 id="erro"><%= request.getAttribute("erro")%></h3>
         <%
             }
         %>

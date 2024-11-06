@@ -4,13 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bem-Vindo Área Restrita</title>
+    <title>Bem-Vindo Área de Telefones</title>
     <link rel="stylesheet" type="text/css" href="AreaRestrita/CSS/telaGetAll.css">
     <link rel="icon" href="/Imagens/logos2.png">
 </head>
 <body>
 <nav>
-    <a href="index.html"><img id="backAreaRestrita" src="Imagens/icons8-back-arrow-50.png" alt=""></a>
+    <a href="index.html"><img id="backAreaRestrita" src="Imagens/setaAzul.png" alt=""></a>
 </nav>
 
 <section>
@@ -27,73 +27,73 @@
     </div>
 
     <!-- Conteúdo -->
-    <%
-        String erro = (String) request.getAttribute("erro");
-        if (null == erro) {
-    %>
-    <div class="table-container">
-        <table>
-            <thead>
-            <tr>
-                <th class="cabeçalho">ID</th>
-                <th class="cabeçalho">Número</th>
-                <th class="cabeçalho">Tipo de usuário</th>
-                <th class="cabeçalho">CNH ou CPF</th>
-            </tr>
-            </thead>
-            <%
-                List<Telefone> telefones = (List<Telefone>) request.getAttribute("telefones");// Obtém a lista do servlet
-                if (telefones != null && !telefones.isEmpty()) {
-                    for (Telefone telefone : telefones) {
-            %>
-            <!-- Conteúdo dentro da div -->
-            <tr class="item">
-                <td><%= telefone.getId() %>
-                </td>
-                <td><%= telefone.getNumero() %>
-                </td>
-                <% if (telefone.getId_resp() == null) {%>
-                <td>Transportador</td>
-                <td><%= telefone.getId_transp() %>
-                </td>
-                <%} else {%>
-                <td>Responsável</td>
-                <td><%= telefone.getId_resp()%>
-                </td>
-                <%}%>
-            </tr>
-            <%
-                    }
-                }
-            %>
-        </table>
-        <%
-        } else {
-        %>
-        <div>
-            <h1><%=erro%>
-            </h1>
+
+    <div class="content">
+        <div class="botoes">
+            <a href="AreaRestrita/Telefone/areaRestritaTelefoneId.jsp">
+                <button>Buscar por ID</button>
+            </a>
+            <a href="AreaRestrita/Telefone/areaRestritaTelefoneInserir.jsp">
+                <button>Adicionar</button>
+            </a>
+            <a href="AreaRestrita/Telefone/areaRestritaTelefoneAtualizar.jsp">
+                <button>Atualizar</button>
+            </a>
+            <a href="AreaRestrita/Telefone/areaRestritaTelefoneDeletar.jsp">
+                <button>Deletar</button>
+            </a>
         </div>
         <%
-            }
+            String erro = (String) request.getAttribute("erro");
+            if (null == erro) {
         %>
-    </div>
-
-    <!-- Opções para o CRUD -->
-
-    <div class="botoes">
-        <a href="AreaRestrita/Telefone/areaRestritaTelefoneId.jsp">
-            <button>Buscar por ID</button>
-        </a>
-        <a href="AreaRestrita/Telefone/areaRestritaTelefoneInserir.jsp">
-            <button>Adicionar</button>
-        </a>
-        <a href="AreaRestrita/Telefone/areaRestritaTelefoneAtualizar.jsp">
-            <button>Atualizar</button>
-        </a>
-        <a href="AreaRestrita/Telefone/areaRestritaTelefoneDeletar.jsp">
-            <button>Deletar</button>
-        </a>
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th class="cabeçalho">ID</th>
+                    <th class="cabeçalho">Número</th>
+                    <th class="cabeçalho">Tipo de usuário</th>
+                    <th class="cabeçalho">CNH ou CPF</th>
+                </tr>
+                </thead>
+                <%
+                    List<Telefone> telefones = (List<Telefone>) request.getAttribute("telefones");// Obtém a lista do servlet
+                    if (telefones != null && !telefones.isEmpty()) {
+                        for (Telefone telefone : telefones) {
+                %>
+                <!-- Conteúdo dentro da div -->
+                <tr class="item">
+                    <td><%= telefone.getId() %>
+                    </td>
+                    <td><%= telefone.getNumero() %>
+                    </td>
+                    <% if (telefone.getId_resp() == null) {%>
+                    <td>Transportador</td>
+                    <td><%= telefone.getId_transp() %>
+                    </td>
+                    <%} else {%>
+                    <td>Responsável</td>
+                    <td><%= telefone.getId_resp()%>
+                    </td>
+                    <%}%>
+                </tr>
+                <%
+                        }
+                    }
+                %>
+            </table>
+            <%
+            } else {
+            %>
+            <div>
+                <h1><%=erro%>
+                </h1>
+            </div>
+            <%
+                }
+            %>
+        </div>
     </div>
 </section>
 

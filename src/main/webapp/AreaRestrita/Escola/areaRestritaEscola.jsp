@@ -4,13 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bem-Vindo Área Restrita</title>
+    <title>Bem-Vindo Área de Escolas</title>
     <link rel="stylesheet" type="text/css" href="AreaRestrita/CSS/telaGetAll.css">
     <link rel="icon" href="Imagens/logos2.png">
 </head>
 <body>
 <nav>
-    <a href="index.html"><img id="backAreaRestrita" src="Imagens/icons8-back-arrow-50.png" alt=""></a>
+    <a href="index.html"><img id="backAreaRestrita" src="Imagens/setaAzul.png" alt=""></a>
 </nav>
 <section>
     <!-- Sidebar -->
@@ -25,62 +25,61 @@
 
     <!-- Conteúdo -->
 
-    <%
-        String erro = (String) request.getAttribute("erro");
-        if (null == erro) {
-    %>
-    <div class="table-container">
-        <table>
-            <thead>
-            <tr>
-                <th class="cabeçalho">ID</th>
-                <th class="cabeçalho">Nome Completo</th>
-            </tr>
-            </thead>
-            <%
-                List<Escolas> escolas = (List<Escolas>) request.getAttribute("escolas");// Obtém a lista do servlet
-                if (escolas != null && !escolas.isEmpty()) {
-                    for (Escolas escola : escolas) {
-            %>
-            <!-- Conteúdo dentro da div -->
-            <tr class="item">
-                <td><%= escola.getId() %>
-                </td>
-                <td><%= escola.getNome() %>
-                </td>
-            </tr>
-            <%
-                    }
-                }
-            %>
-        </table>
-        <%
-        } else {
-        %>
-        <div>
-            <h1><%=erro%>
-            </h1>
+    <div class="content">
+        <div class="botoes">
+            <a href="AreaRestrita/Escola/areaRestritaEscolaId.jsp">
+                <button>Buscar</button>
+            </a>
+            <a href="AreaRestrita/Escola/areaRestritaEscolaInserir.jsp">
+                <button>Inserir</button>
+            </a>
+            <a href="AreaRestrita/Escola/areaRestritaEscolaAtualizar.jsp">
+                <button class="BotãoSelecionado">Atualizar</button>
+            </a>
+            <a href="AreaRestrita/Escola/areaRestritaEscolaDeletar.jsp">
+                <button >Deletar</button>
+            </a>
         </div>
         <%
-            }
+            String erro = (String) request.getAttribute("erro");
+            if (null == erro) {
         %>
-    </div>
-
-    <!-- Opções para o CRUD -->
-
-    <div class="botoes">
-        <a href="AreaRestrita/Escola/areaRestritaEscolaId.jsp">
-            <button>Buscar</button>
-        </a>
-        <a href="AreaRestrita/Escola/areaRestritaEscolaInserir.jsp">
-            <button>Adicionar</button>
-        </a>
-        <a href="AreaRestrita/Escola/areaRestritaEscolaAtualizar.jsp">
-            <button>Atualizar</button>
-        </a>
-        <a href="AreaRestrita/Escola/areaRestritaEscolaDeletar.jsp">
-            <button>Deletar</button>
-        </a>
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th class="cabeçalho">ID</th>
+                    <th class="cabeçalho">Nome Completo</th>
+                </tr>
+                </thead>
+                <%
+                    List<Escolas> escolas = (List<Escolas>) request.getAttribute("escolas");// Obtém a lista do servlet
+                    if (escolas != null && !escolas.isEmpty()) {
+                        for (Escolas escola : escolas) {
+                %>
+                <!-- Conteúdo dentro da div -->
+                <tr class="item">
+                    <td><%= escola.getId() %>
+                    </td>
+                    <td><%= escola.getNome() %>
+                    </td>
+                </tr>
+                <%
+                        }
+                    }
+                %>
+            </table>
+            <%
+            } else {
+            %>
+            <div>
+                <h1><%=erro%>
+                </h1>
+            </div>
+            <%
+                }
+            %>
+        </div>
     </div>
 </section>
 <div class="botoes">

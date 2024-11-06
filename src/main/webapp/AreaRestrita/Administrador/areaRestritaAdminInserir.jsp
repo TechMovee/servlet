@@ -9,7 +9,6 @@
         if (request.getAttribute("erro") == null) {
     %>
     <link rel="stylesheet" type="text/css" href="../CSS/telaCrud.css">
-    <link rel="stylesheet" type="text/css" href="../CSS/telaGetAll.css">
     <link rel="icon" href="../../Imagens/logos2.png">
     <%
     } else {
@@ -24,8 +23,8 @@
 <nav>
     <a <%if(request.getAttribute("erro") == null){%>href="../TelaInicial/areaRestrita.jsp"
        <%}else{%>href="AreaRestrita/TelaInicial/areaRestrita.jsp"<%}%>><img id="backAreaRestrita"
-                                                                            <% if (request.getAttribute("erro") == null){%>src="../../Imagens/icons8-back-arrow-50.png"<%}else{%>
-                                                                            src="Imagens/icons8-back-arrow-50.png"
+                                                                            <% if (request.getAttribute("erro") == null){%>src="../../Imagens/setaAzul.png"<%}else{%>
+                                                                            src="Imagens/setaAzul.png"
                                                                             <%}%>alt=""></a>
 </nav>
 <section>
@@ -57,66 +56,70 @@
     %>
 
     <!-- Conteúdo -->
-    <form class="form" action="../../Admin" method="post">
-        <%
-            if (request.getAttribute("erro") != null) {
-        %>
-        <h3 id="erro"><%= request.getAttribute("erro")%>
-        </h3>
-        <%
-            }
-        %>
-        <label>
-            <input required placeholder="" type="text" name="nome" class="input">
-            <span>Nome</span>
-        </label>
-        <label>
-            <input required placeholder="" type="email" name="email" class="input">
-            <span>Email</span>
-        </label>
-        <label>
-            <input required placeholder="" type="password" name="senha" class="input">
-            <span>Senha</span>
-        </label>
-        <label>
-            <input required placeholder="" type="password" name="confirmar" class="input">
-            <span>Confirmar a Senha</span>
-        </label>
-        <br>
-        <input type="submit" class="submit" value="Cadastrar">
-    </form>
-    <!-- Opções para o CRUD -->
-    <div class="botoes">
-        <a href="../../Admin">
-            <button>Mostrar todos Admins</button>
-        </a>
-        <%
-            if (request.getAttribute("erro") == null) {
-        %>
-        <a href="areaRestritaAdminId.jsp">
-            <button>Buscar</button>
-        </a>
-        <a href="areaRestritaAdminAtualizar.jsp">
-            <button>Atualizar</button>
-        </a>
-        <a href="areaRestritaAdminDeletar.jsp">
-            <button>Deletar</button>
-        </a>
-        <%
-        } else {
-        %>
-        <a href="AreaRestrita/Administrador/areaRestritaAdminId.jsp">
-            <button>Buscar</button>
-        </a>
-        <a href="AreaRestrita/Administrador/areaRestritaAdminAtualizar.jsp">
-            <button>Atualizar</button>
-        </a>
-        <a href="AreaRestrita/Administrador/areaRestritaAdminDeletar.jsp">
-            <button>Deletar</button>
-        </a>
-        <%
-            }
-        %>
+    <div class="content">
+        <div class="botoes">
+            <%
+                if (request.getAttribute("erro") == null) {
+            %>
+            <a href="areaRestritaAdminId.jsp">
+                <button>Buscar</button>
+            </a>
+            <a href="areaRestritaAdminInserir.jsp">
+                <button class="BotãoSelecionado">Inserir</button>
+            </a>
+            <a href="areaRestritaAdminAtualizar.jsp">
+                <button>Atualizar</button>
+            </a>
+            <a href="areaRestritaAdminDeletar.jsp">
+                <button>Deletar</button>
+            </a>
+            <%
+            } else {
+            %>
+            <a href="AreaRestrita/Administrador/areaRestritaAdminId.jsp">
+                <button>Buscar</button>
+            </a>
+            <a href="AreaRestrita/Administrador/areaRestritaAdminInserir.jsp">
+                <button class="BotãoSelecionado">Inserir</button>
+            </a>
+            <a href="AreaRestrita/Administrador/areaRestritaAdminAtualizar.jsp">
+                <button>Atualizar</button>
+            </a>
+            <a href="AreaRestrita/Administrador/areaRestritaAdminDeletar.jsp">
+                <button >Deletar</button>
+            </a>
+            <%
+                }
+            %>
+        </div>
+        <form class="form" action="../../Admin" method="post">
+            <%
+                if (request.getAttribute("erro") != null) {
+            %>
+            <h3 id="erro"><%= request.getAttribute("erro")%>
+            </h3>
+            <%
+                }
+            %>
+            <label>
+                <input required placeholder="" type="text" name="nome" class="input">
+                <span>Nome</span>
+            </label>
+            <label>
+                <input required placeholder="" type="email" name="email" class="input">
+                <span>Email</span>
+            </label>
+            <label>
+                <input required placeholder="" type="password" name="senha" class="input">
+                <span>Senha</span>
+            </label>
+            <label>
+                <input required placeholder="" type="password" name="confirmar" class="input">
+                <span>Confirmar a Senha</span>
+            </label>
+            <br>
+            <input type="submit" class="submit" value="Cadastrar">
+        </form>
     </div>
 </section>
 
