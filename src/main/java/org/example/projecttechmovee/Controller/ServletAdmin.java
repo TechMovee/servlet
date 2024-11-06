@@ -39,6 +39,7 @@ public class ServletAdmin extends HttpServlet {
                 Admin admin = crudAdmin.buscarAdmin(Integer.parseInt(id));
                 if (admin != null) {
                     req.setAttribute("admins", List.of(admin));
+                    req.getRequestDispatcher("AreaRestrita/Administrador/areaRestritaAdmin.jsp").forward(req, resp);
                 } else {
                     req.setAttribute("erro", "Não tem nenhum administrador com esse ID.");
                 }

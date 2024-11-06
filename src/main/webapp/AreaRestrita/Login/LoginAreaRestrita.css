@@ -75,6 +75,17 @@ nav img {
     margin-left: 10px;
 }
 
+#erro {
+    color: #ff1e1e;
+    text-align: center;
+    width: 75%;
+    height: auto;
+    font-size: 1.3rem;
+    background-color: #f8b3b3;
+    margin: -15px;
+    border: 1px solid red;
+}
+
 .flex {
     display: flex;
     gap: 40px;

@@ -34,19 +34,17 @@ public class ServletLoginAdmin extends HttpServlet {
                 if (admin != null && admin.getSenha().equals(password)) {
                     //            Redireciona o usuário para a Área Restrita
                     req.setAttribute("passouPorServlet", "Passou pelo Servlet.");
-                    RequestDispatcher dispatcher = req.getRequestDispatcher("/AreaRestrita/TelaInicial/areaRestrita.jsp");
-                    dispatcher.forward(req, resp);
+                    req.getRequestDispatcher("/AreaRestrita/TelaInicial/areaRestrita.jsp").forward(req, resp);
                 } else {
                     //          Redireciona o usuário para a página de erro.
                     req.setAttribute("erro", "Email e/ou Senha incorretos");
-                    req.getRequestDispatcher("/AreaRestrita/Login/LoginAreaRestrita.jsp").forward(req, resp);
                 }
             }else{
                 req.setAttribute("erro", "Email e/ou Senha inválidos.");
             }
         }catch (NullPointerException npe){
             req.setAttribute("erro", "Email e/ou Senha incorretos");
-            req.getRequestDispatcher("/AreaRestrita/Login/LoginAreaRestrita.jsp").forward(req, resp);
         }
+        req.getRequestDispatcher("/AreaRestrita/Login/LoginAreaRestrita.jsp").forward(req, resp);
     }
 }
