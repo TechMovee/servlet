@@ -28,7 +28,7 @@ public class ServletLoginAdmin extends HttpServlet {
 
 
         //Verificando se os dados inserios pelo usuário são validos.
-        try {
+       try {
             if (this.validation.verificarEmail(email) && this.validation.verificarPassword(password)) {
                 Admin admin = crudAdmin.buscarAdmin(email);
                 if (admin != null && admin.getSenha().equals(password)) {
