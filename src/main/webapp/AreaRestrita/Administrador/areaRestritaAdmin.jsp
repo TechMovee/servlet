@@ -13,6 +13,7 @@
 <body>
 <nav>
     <a href="index.html"><img id="backAreaRestrita" src="Imagens/setaAzul.png" alt=""></a>
+    <span class="email_session"></span>
 </nav>
 <section class="conteudo">
 
@@ -107,8 +108,12 @@
 
 <script>
     const bi = document.getElementsByClassName("bi")[0]
+    const email_session = document.getElementsByClassName("email_session")[0]
     bi.addEventListener('click', () => {
         window.location.replace("BI");
+    })
+    window.addEventListener("load", () => {
+        email_session.innerText = "Olá, "+sessionStorage.getItem("email")+"!"
     })
 </script>
 </body>

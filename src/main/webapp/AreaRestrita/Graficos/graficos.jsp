@@ -8,7 +8,12 @@
 </head>
 <body>
 <nav>
-    <a href="index.html"><img id="backAreaRestrita" src="Imagens/icons8-back-arrow-50.png" alt=""></a>
+    <a <%if(request.getAttribute("erro") == null){%>href="../TelaInicial/areaRestrita.jsp"
+       <%}else{%>href="AreaRestrita/TelaInicial/areaRestrita.jsp"<%}%>><img id="backAreaRestrita"
+                                                                            <% if (request.getAttribute("erro") == null){%>src="../../Imagens/setaAzul.png"<%}else{%>
+                                                                            src="Imagens/setaAzul.png"
+                                                                            <%}%>alt=""></a>
+    <span class="email_session"></span>
 </nav>
 <section class="conteudo">
     <div class="sidebar">
@@ -39,5 +44,11 @@
         </div>
     </div>
 </footer>
+<script>
+    const email_session = document.getElementsByClassName("email_session")[0]
+    window.addEventListener("load", () => {
+        email_session.innerText = "Olá, " + sessionStorage.getItem("email") + "!"
+    })
+</script>
 </body>
 </html>

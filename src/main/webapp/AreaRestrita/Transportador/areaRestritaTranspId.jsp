@@ -25,6 +25,7 @@
                                                                             <% if (request.getAttribute("erro") == null){%>src="../../Imagens/setaAzul.png"<%}else{%>
                                                                             src="Imagens/setaAzul.png"
                                                                             <%}%>alt=""></a>
+    <span class="email_session"></span>
 </nav>
 <section>
 
@@ -142,7 +143,6 @@
         <%
             }
         %>
-<<<<<<< Updated upstream
 
         <!-- Forms -->
         <form class="form" action="/ProjectTechMovee_war_exploded/Transp" method="get">
@@ -214,16 +214,17 @@
             %>
         </div>
     </footer>
-=======
     </div>
 </footer>
 <script>
+    const email_session = document.getElementsByClassName("email_session")[0]
+    window.addEventListener("load", () => {
+        email_session.innerText = "Olá, " + sessionStorage.getItem("email") + "!"
+    })
     const bi = document.getElementsByClassName("bi")[0]
     bi.addEventListener('click', () => {
         window.location.replace("BI");
     })
 </script>
->>>>>>> Stashed changes
-
 </body>
 </html>  

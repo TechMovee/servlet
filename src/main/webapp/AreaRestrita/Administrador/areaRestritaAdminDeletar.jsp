@@ -25,6 +25,7 @@
                                                                             <% if (request.getAttribute("erro") == null){%>src="../../Imagens/setaAzul.png"<%}else{%>
                                                                             src="Imagens/setaAzul.png"
                                                                             <%}%>alt=""></a>
+    <span class="email_session"></span>
 </nav>
 <section>
 
@@ -60,33 +61,33 @@
             <%
                 if (request.getAttribute("erro") == null) {
             %>
-                <a href="areaRestritaAdminId.jsp">
-                    <button>Buscar</button>
-                </a>
-                <a href="areaRestritaAdminInserir.jsp">
-                    <button>Inserir</button>
-                </a>
-                <a href="areaRestritaAdminAtualizar.jsp">
-                    <button>Atualizar</button>
-                </a>
-                <a href="areaRestritaAdminDeletar.jsp">
-                    <button class="BotãoSelecionado" >Deletar</button>
-                </a>
+            <a href="areaRestritaAdminId.jsp">
+                <button>Buscar</button>
+            </a>
+            <a href="areaRestritaAdminInserir.jsp">
+                <button>Inserir</button>
+            </a>
+            <a href="areaRestritaAdminAtualizar.jsp">
+                <button>Atualizar</button>
+            </a>
+            <a href="areaRestritaAdminDeletar.jsp">
+                <button class="BotãoSelecionado">Deletar</button>
+            </a>
             <%
             } else {
             %>
-                <a href="AreaRestrita/Administrador/areaRestritaAdminId.jsp">
-                    <button>Buscar</button>
-                </a>
-                <a href="AreaRestrita/Administrador/areaRestritaAdminInserir.jsp">
-                    <button>Inserir</button>
-                </a>
-                <a href="AreaRestrita/Administrador/areaRestritaAdminAtualizar.jsp">
-                    <button>Atualizar</button>
-                </a>
-                <a href="AreaRestrita/Administrador/areaRestritaAdminDeletar.jsp">
-                    <button class="BotãoSelecionado" >Deletar</button>
-                </a>
+            <a href="AreaRestrita/Administrador/areaRestritaAdminId.jsp">
+                <button>Buscar</button>
+            </a>
+            <a href="AreaRestrita/Administrador/areaRestritaAdminInserir.jsp">
+                <button>Inserir</button>
+            </a>
+            <a href="AreaRestrita/Administrador/areaRestritaAdminAtualizar.jsp">
+                <button>Atualizar</button>
+            </a>
+            <a href="AreaRestrita/Administrador/areaRestritaAdminDeletar.jsp">
+                <button class="BotãoSelecionado">Deletar</button>
+            </a>
             <%
                 }
             %>
@@ -95,7 +96,8 @@
             <%
                 if (request.getAttribute("erro") != null) {
             %>
-            <h3 id="erro"><%= request.getAttribute("erro")%></h3>
+            <h3 id="erro"><%= request.getAttribute("erro")%>
+            </h3>
             <%
                 }
             %>
@@ -147,6 +149,10 @@
 </footer>
 
 <script>
+    const email_session = document.getElementsByClassName("email_session")[0]
+    window.addEventListener("load", () => {
+        email_session.innerText = "Olá, " + sessionStorage.getItem("email") + "!"
+    })
     const bi = document.getElementsByClassName("bi")[0]
     bi.addEventListener('click', () => {
         window.location.replace("BI");

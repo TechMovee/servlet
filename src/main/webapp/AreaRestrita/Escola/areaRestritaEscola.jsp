@@ -11,6 +11,7 @@
 <body>
 <nav>
     <a href="index.html"><img id="backAreaRestrita" src="Imagens/setaAzul.png" alt=""></a>
+    <span class="email_session"></span>
 </nav>
 <section>
     <!-- Sidebar -->
@@ -116,6 +117,10 @@
 </footer>
 
 <script>
+    const email_session = document.getElementsByClassName("email_session")[0]
+    window.addEventListener("load", () => {
+        email_session.innerText = "Olá, " + sessionStorage.getItem("email") + "!"
+    })
     const bi = document.getElementsByClassName("bi")[0]
     bi.addEventListener('click', () => {
         window.location.replace("BI");

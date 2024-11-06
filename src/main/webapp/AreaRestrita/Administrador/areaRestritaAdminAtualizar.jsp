@@ -8,7 +8,8 @@
         if (request.getAttribute("erro") == null) {
     %>
     <link rel="stylesheet" type="text/css" href="../CSS/telaCrud.css">
-    <link rel="icon" href="../../Imagens/logos2[.png">
+    <link rel="stylesheet" type="text/css" href="../CSS/telaGetAll.css">
+    <link rel="icon" href="../../Imagens/logos2.png">
     <%
     } else {
     %>
@@ -25,6 +26,7 @@
                                                                             <% if (request.getAttribute("erro") == null){%>src="../../Imagens/setaAzul.png"<%}else{%>
                                                                             src="Imagens/setaAzul.png"
                                                                             <%}%>alt=""></a>
+    <span class="email_session"></span>
 </nav>
 <section>
 
@@ -71,7 +73,7 @@
                 <button class="BotãoSelecionado">Atualizar</button>
             </a>
             <a href="areaRestritaAdminDeletar.jsp">
-                <button >Deletar</button>
+                <button>Deletar</button>
             </a>
             <%
             } else {
@@ -86,7 +88,7 @@
                 <button class="BotãoSelecionado">Atualizar</button>
             </a>
             <a href="AreaRestrita/Administrador/areaRestritaAdminDeletar.jsp">
-                <button >Deletar</button>
+                <button>Deletar</button>
             </a>
             <%
                 }
@@ -160,6 +162,10 @@
 </footer>
 
 <script>
+    const email_session = document.getElementsByClassName("email_session")[0]
+    window.addEventListener("load", () => {
+        email_session.innerText = "Olá, " + sessionStorage.getItem("email") + "!"
+    })
     const bi = document.getElementsByClassName("bi")[0]
     bi.addEventListener('click', () => {
         window.location.replace("BI");

@@ -25,6 +25,7 @@
                                                                             <% if (request.getAttribute("erro") == null){%>src="../../Imagens/setaAzul.png"<%}else{%>
                                                                             src="Imagens/setaAzul.png"
                                                                             <%}%>alt=""></a>
+    <span class="email_session"></span>
 </nav>
 <section>
 
@@ -70,7 +71,7 @@
                 <button>Atualizar</button>
             </a>
             <a href="areaRestritaAdminDeletar.jsp">
-                <button >Deletar</button>
+                <button>Deletar</button>
             </a>
             <%
             } else {
@@ -85,7 +86,7 @@
                 <button>Atualizar</button>
             </a>
             <a href="AreaRestrita/Administrador/areaRestritaAdminDeletar.jsp">
-                <button >Deletar</button>
+                <button>Deletar</button>
             </a>
             <%
                 }
@@ -147,10 +148,15 @@
 </footer>
 
 <script>
+    const email_session = document.getElementsByClassName("email_session")[0]
+    window.addEventListener("load", () => {
+        email_session.innerText = "Olá, " + sessionStorage.getItem("email") + "!"
+    })
     const bi = document.getElementsByClassName("bi")[0]
     bi.addEventListener('click', () => {
         window.location.replace("BI");
     })
+
 </script>
 </body>
 </html>  
