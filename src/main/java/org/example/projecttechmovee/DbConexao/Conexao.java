@@ -1,5 +1,7 @@
 package org.example.projecttechmovee.DbConexao;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 import java.sql.*;
 public class Conexao {
 
@@ -11,9 +13,12 @@ public class Conexao {
     public boolean conectar() {
         try {
             // Obtém as credenciais do banco de dados a partir das variáveis de ambiente
-            String dbUrl = System.getenv("DB_URL");
-            String dbUser = System.getenv("DB_USER");
-            String dbPassword = System.getenv("DB_PASSWORD");
+            Dotenv dotenv = Dotenv.load();
+
+            String dbUrl = dotenv.get("DB_URL");
+            String dbUser = dotenv.get("DB_USER");
+            String dbPassword = dotenv.get("DB_PASSWORD");
+
 
             // Registra o driver do PostgreSQL
             Class.forName("org.postgresql.Driver");
