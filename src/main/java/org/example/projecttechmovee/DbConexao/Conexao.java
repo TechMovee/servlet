@@ -6,8 +6,6 @@ import java.sql.*;
 public class Conexao {
 
     private Connection conexao; // Objeto para gerenciar a conexão com o banco de dados
-    private PreparedStatement pstmt; // Objeto para preparar e executar comandos SQL
-    private ResultSet rs; // Objeto para armazenar o resultado de uma consulta SQL
 
     // Método para estabelecer a conexão com o banco de dados
     public boolean conectar() {
@@ -18,10 +16,11 @@ public class Conexao {
             String dbUrl = dotenv.get("DB_URL");
             String dbUser = dotenv.get("DB_USER");
             String dbPassword = dotenv.get("DB_PASSWORD");
+            String driver = dotenv.get("DB_DRIVER");
 
 
             // Registra o driver do PostgreSQL
-            Class.forName("org.postgresql.Driver");
+            Class.forName(driver);
 
             // Estabelece a conexão com o banco de dados
             conexao = DriverManager.getConnection(
