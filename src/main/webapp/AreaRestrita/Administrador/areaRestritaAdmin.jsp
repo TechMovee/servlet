@@ -12,7 +12,7 @@
 </head>
 <body>
 <nav>
-    <a href="index.html"><img id="backAreaRestrita" src="Imagens/setaAzul.png" alt=""></a>
+    <a href="AreaRestrita/TelaInicial/areaRestrita.jsp"><img id="backAreaRestrita" src="Imagens/setaAzul.png" alt=""></a>
 </nav>
 <section class="conteudo">
 
