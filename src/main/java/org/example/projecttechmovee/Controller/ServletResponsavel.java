@@ -33,17 +33,23 @@ public class ServletResponsavel extends HttpServlet {
             } else {
                 req.setAttribute("erro", "Não foi encontrado nenhum responsável.");
             }
+            req.getRequestDispatcher("/AreaRestrita/Responsaveis/areaRestritaResponsavel.jsp").forward(req, resp);
         } else {
             // Caso tenha um CPF, busca o responsável correspondente
-            responsaveis = new ArrayList<>();
-            if (this.crudResponsavel.buscarResponsavelPorCpf(cpf) != null) {
-                responsaveis.add(this.crudResponsavel.buscarResponsavelPorCpf(cpf));
-                req.setAttribute("responsaveis", responsaveis);
-            } else {
-                req.setAttribute("erro", "Não foi encontrado nenhum responsável com esse CPF.");
+            if (this.validation.verificarCPF(cpf)) {
+                responsaveis = new ArrayList<>();
+                if (this.crudResponsavel.buscarResponsavelPorCpf(cpf) != null) {
+                    responsaveis.add(this.crudResponsavel.buscarResponsavelPorCpf(cpf));
+                    req.setAttribute("responsaveis", responsaveis);
+                    req.getRequestDispatcher("/AreaRestrita/Responsaveis/areaRestritaResponsavel.jsp").forward(req, resp);
+                } else {
+                    req.setAttribute("erro", "Não foi encontrado nenhum responsável com esse CPF.");
+                }
+            }else{
+                req.setAttribute("erro", "O CPF é inválido.");
             }
+            req.getRequestDispatcher("/AreaRestrita/Responsaveis/areaRestritaResponsavelId.jsp").forward(req, resp);
         }
-        req.getRequestDispatcher("/AreaRestrita/Responsaveis/areaRestritaResponsavel.jsp").forward(req, resp);
     }
 
     // Lida com requisições POST para inserir ou executar PUT/DELETE

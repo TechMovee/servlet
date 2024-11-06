@@ -31,25 +31,29 @@ public class ServletTransportador extends HttpServlet {
             if (transportadores != null) {
                 // Adiciona a lista de transportadores à requisição e encaminha para a página JSP
                 req.setAttribute("transp", transportadores);
-                req.getRequestDispatcher("/AreaRestrita/Transportador/areaRestritaTransp.jsp").forward(req, resp);
             } else {
                 // Se não houver transportadores, define uma mensagem de erro
                 req.setAttribute("erro", "Não foi encontrado nenhum transportador.");
             }
+            req.getRequestDispatcher("/AreaRestrita/Transportador/areaRestritaTransp.jsp").forward(req, resp);
         } else {
             // Caso contrário, busca o transportador pela CNH
-            if (this.crudTransportador.buscarTransportadorPorCnh(cnh) != null) {
-                List<Transportador> transportadores = new ArrayList<>();
-                transportadores.add(this.crudTransportador.buscarTransportadorPorCnh(cnh));
-                req.setAttribute("transp", transportadores);
-                req.getRequestDispatcher("/AreaRestrita/Transportador/areaRestritaTransp.jsp").forward(req, resp);
-            } else {
-                // Se não encontrar, define uma mensagem de erro
-                req.setAttribute("erro", "Não tem nenhum transportador com essa CNH.");
+            if (this.validation.verificarCNH(cnh)) {
+                if (this.crudTransportador.buscarTransportadorPorCnh(cnh) != null) {
+                    List<Transportador> transportadores = new ArrayList<>();
+                    transportadores.add(this.crudTransportador.buscarTransportadorPorCnh(cnh));
+                    req.setAttribute("transp", transportadores);
+                    req.getRequestDispatcher("/AreaRestrita/Transportador/areaRestritaTransp.jsp").forward(req, resp);
+                } else {
+                    // Se não encontrar, define uma mensagem de erro
+                    req.setAttribute("erro", "Não tem nenhum transportador com essa CNH.");
+                }
+            }else{
+                req.setAttribute("erro", "A CNH é inválida.");
             }
+            // Encaminha novamente para a página JSP, mesmo que não tenha encontrado um transportador
+            req.getRequestDispatcher("/AreaRestrita/Transportador/areaRestritaTranspId.jsp").forward(req, resp);
         }
-        // Encaminha novamente para a página JSP, mesmo que não tenha encontrado um transportador
-        req.getRequestDispatcher("/AreaRestrita/Transportador/areaRestritaTransp.jsp").forward(req, resp);
     }
 
     // Método que trata requisições do tipo POST
