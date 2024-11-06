@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.example.projecttechmovee.ClasseTabelas.Admin;
 import org.example.projecttechmovee.ClasseTabelasDAO.AdminDAO;
 import org.example.projecttechmovee.DbConexao.Conexao;
+import org.example.projecttechmovee.Regex.Regex;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,6 +18,8 @@ import java.util.List;
 public class ServletAdmin extends HttpServlet {
 
     private final AdminDAO crudAdmin = new AdminDAO(new Conexao());
+
+    private final Regex validation = new Regex();
 
     // Lida com requisições GET para listar ou buscar admins por ID
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -66,7 +69,7 @@ public class ServletAdmin extends HttpServlet {
             String confirmar = req.getParameter("confirmar");
 
             // Verifica se a senha e a confirmação correspondem
-            if (password.equals(confirmar)) {
+            if (this.validation.verificarNome(nome) && this.validation.verificarPassword(password) && this.validation.verificarEmail(email) && password.equals(confirmar)) {
                 // Verifica se já existe um admin com o email fornecido
                 if (crudAdmin.buscarAdmin(email) == null) {
                     Admin adminAdicionado = new Admin(nome, email, password);
@@ -95,20 +98,24 @@ public class ServletAdmin extends HttpServlet {
 
         try {
             // Busca admin pelo ID e atualiza os dados
-            Admin adminAtualizado = crudAdmin.buscarAdmin(Integer.parseInt(id));
-            if (adminAtualizado != null) {
-                adminAtualizado.setEmail(email);
-                adminAtualizado.setName(nome);
-                adminAtualizado.setSenha(senha);
+            if (this.validation.verificarNome(nome) && this.validation.verificarPassword(senha) && this.validation.verificarEmail(email)) {
+                Admin adminAtualizado = crudAdmin.buscarAdmin(Integer.parseInt(id));
+                if (adminAtualizado != null) {
+                    adminAtualizado.setEmail(email);
+                    adminAtualizado.setName(nome);
+                    adminAtualizado.setSenha(senha);
 
-                // Executa atualização e verifica o resultado
-                if (crudAdmin.atualizarAdmin(adminAtualizado) > 0) {
-                    doGet(req, resp);
+                    // Executa atualização e verifica o resultado
+                    if (crudAdmin.atualizarAdmin(adminAtualizado) > 0) {
+                        doGet(req, resp);
+                    } else {
+                        req.setAttribute("erro", "Não foi possível atualizar o administrador.");
+                    }
                 } else {
-                    req.setAttribute("erro", "Não foi possível atualizar o administrador.");
+                    req.setAttribute("erro", "Não foi possível achar um administrador com esse ID.");
                 }
-            } else {
-                req.setAttribute("erro", "Não foi possível achar um administrador com esse ID.");
+            }else{
+                req.setAttribute("erro","Informações Incorretas.");
             }
         } catch (NumberFormatException e) {
             req.setAttribute("erro", "O ID deve ser um número.");
