@@ -18,5 +18,5 @@ COPY --from=build /app/target/ProjectTechMovee-1.0-SNAPSHOT.war /usr/local/tomca
 # Expõe a porta 8080 para acesso ao aplicativo
 EXPOSE 8080
 
-# Define o comando para iniciar o Tomcat
-CMD ["catalina.sh", "run"]
+# Define o comando correto para iniciar o Tomcat
+ENTRYPOINT ["/usr/local/tomcat/bin/catalina.sh", "run"]
