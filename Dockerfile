@@ -1,28 +1,15 @@
-FROM maven:3.8.3-openjdk-17 AS build
-
-# Define o diretório de trabalho
-WORKDIR /app
-
-# Copia o arquivo pom.xml e as dependências necessárias para o diretório de trabalho
-COPY pom.xml .
-RUN mvn dependency:go-offline -B
-
-# Copia todo o conteúdo do projeto
-COPY . .
-
-# Executa o comando Maven para construir o projeto em formato .war
 RUN mvn clean package -DskipTests
 
-# Etapa 2: Configuração do servidor de aplicação
-FROM tomcat:10.1-jdk17
+# Etapa 2: Imagem de execução com Tomcat
+FROM tomcat:10.0.12-jdk17-openjdk-slim
 
-# Define o diretório de trabalho
-WORKDIR /usr/local/tomcat/webapps/
+# Remove o aplicativo padrão do Tomcat
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copia o arquivo .war gerado para o diretório webapps do Tomcat
-COPY --from=build /app/target/*.war ./
+# Copia o arquivo WAR do build para o diretório webapps do Tomcat
+COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
 
-# Expõe a porta 8080
+# Exponha a porta padrão do Tomcat
 EXPOSE 8080
 
 # Inicia o Tomcat
