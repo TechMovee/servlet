@@ -13,7 +13,7 @@ RUN mvn clean package -DskipTests
 FROM tomcat:10.1.19-jdk11
 
 # Copia o arquivo WAR gerado para o diretório de deploy do Tomcat
-COPY --from=build /app/target/ServletsIndespensa-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/app.war
+COPY --from=build /app/target/ProjectTechMovee-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/app.war
 
 # Expõe a porta 8080 para acesso ao aplicativo
 EXPOSE 8080
