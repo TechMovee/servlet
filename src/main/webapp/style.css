@@ -312,8 +312,7 @@ footer {
     gap: 43px;
     flex-direction: column;
     align-items: center;
-
-
+    margin-top: 5px;
 }
 
 .icons {
@@ -359,7 +358,6 @@ footer p {
     height: 100%;
     transform: translateY(5%);
     margin-top: -100%;
-
 }
 
 

@@ -1,6 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
-    overflow: hidden;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
 }
 
 /* NAVBAR */
@@ -69,69 +69,63 @@ section {
 }
 
 .sidebar a:hover {
-    background-color: #ffb950;
-    color: white;
-    transition: all 0.3s ease;
+  background-color: #ffb950;
+  color: white;
+  transition: all 0.3s ease;
 }
 
-.sidebar a.active {
-    background-color: #d78217;
-    color: white;
-    font-weight: bold;
+.sidebar a.active{
+  background-color: #d78217;
+  color: white;
+  font-weight: bold;
 }
 
-.sidebar .selecionado {
-    background-color: #ffb950;
-    color: white;
-    font-weight: bold;
-}
-
-.content {
-    text-align: center;
+.content{
+  text-align: center;
 }
 
 h1 {
-    color: #FFA500;
-    font-size: 3em;
-    margin-top: 30%;
-    margin-bottom: 1em;
+  color: #FFA500;
+  font-size: 3em;
+  margin-top: 30%;
+  margin-bottom: 1em;
 }
 
 p {
-    font-size: 1.2em;
-    color: #666;
+  font-size: 1.2em;
+  color: #666;
 }
 
 /* Footer */
 footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: #1C1C1C;
-    color: white;
-    padding: 20px;
-    width: 100%;
-    text-align: center;
-    height: 50px;
-    margin-bottom: -20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #1C1C1C;
+  color: white;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  height: 50px;
+  margin-bottom: -20px;
 }
 
 .footer-content {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 #bus {
-    position: absolute;
-    bottom: 40px;
-    transform: scaleX(-100%) translateX(-60%);
-    width: 18%;
+  position: absolute;
+  bottom: 40px;
+  transform: scaleX(-100%) translateX(-60%);
+  width: 18%;
 }
 
-.estrada {
-    display: flex;
-    gap: 10px;
-    height: 42px;
-    width: 100%;
+.estrada{
+  display: flex;
+  gap: 10px;
+  height: 42px;
+  width:  100%;
 }
 
 .estrada .listra {

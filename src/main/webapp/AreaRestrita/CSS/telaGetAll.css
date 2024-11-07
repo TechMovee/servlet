@@ -75,7 +75,7 @@ section {
     padding: 15px;
     height: 4%;
     width: 80%;
-    margin: 10px auto;
+    margin: 10px auto auto 10px;
     cursor: pointer;
 }
 
