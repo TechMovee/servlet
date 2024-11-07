@@ -40,6 +40,7 @@
         <a href="../../Telefone">Telefone</a>
         <a class="selecionado" href="../../Escola">Escola</a>
         <a href="../../BI">Gráficos</a>
+        <p><span>Use <strong>keyUp</strong> e <strong>keyDown</strong> para navegar entre áreas</span> <img class="setas" src="../../Imagens/keys.webp" alt=""></p>
     </div>
     <%
     } else {
@@ -51,6 +52,7 @@
         <a href="Telefone">Telefone</a>
         <a class="selecionado" href="Escola">Escola</a>
         <a class="bi">Gráficos</a>
+        <p><span>Use <strong>keyUp</strong> e <strong>keyDown</strong> para navegar entre áreas</span> <img class="setas" src="../../Imagens/keys.webp" alt=""></p>
     </div>
     <%
         }
@@ -152,7 +154,7 @@
     window.addEventListener("load", () => {
         email_session.innerText = "Olá, " + sessionStorage.getItem("email") + "!"
     })
-    window.addEventListener("click", (e) => {
+    window.addEventListener("keydown", (e) => {
         if (e.key == "ArrowUp") {
             window.location.replace("../../Telefone");
         } else if (e.key == "ArrowDown") {

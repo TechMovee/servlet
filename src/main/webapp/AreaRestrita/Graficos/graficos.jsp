@@ -23,6 +23,7 @@
         <a href="Telefone">Telefone</a>
         <a href="Escola">Escola</a>
         <a class="selecionado" id="bi">Gráficos</a>
+        <p><span>Use <strong>keyUp</strong> e <strong>keyDown</strong> para navegar entre áreas</span> <img class="setas" src="Imagens/keys.webp" alt=""></p>
     </div>
 
     <iframe title="dashbord_responsaveis" width="90%" height="80%" style="grid-column: 2/4"
@@ -49,7 +50,7 @@
     window.addEventListener("load", () => {
         email_session.innerText = "Olá, " + sessionStorage.getItem("email") + "!"
     })
-    window.addEventListener("click", (e) => {
+    window.addEventListener("keydown", (e) => {
         if (e.key == "ArrowUp") {
             window.location.replace("Escola");
         } else if (e.key == "ArrowDown") {

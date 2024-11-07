@@ -40,6 +40,7 @@
         <a href="../../Telefone">Telefone</a>
         <a href="../../Escola">Escola</a>
         <a href="../../BI">Gráficos</a>
+        <p><span>Use <strong>keyUp</strong> e <strong>keyDown</strong> para navegar entre áreas</span> <img class="setas" src="../../Imagens/keys.webp" alt=""></p>
     </div>
     <%
     } else {
@@ -51,6 +52,7 @@
         <a href="Telefone">Telefone</a>
         <a href="Escola">Escola</a>
         <a class="bi">Gráficos</a>
+        <p><span>Use <strong>keyUp</strong> e <strong>keyDown</strong> para navegar entre áreas</span> <img class="setas" src="../../Imagens/keys.webp" alt=""></p>
     </div>
     <%
         }
