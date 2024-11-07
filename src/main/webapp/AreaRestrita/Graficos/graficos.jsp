@@ -8,9 +8,9 @@
 </head>
 <body>
 <nav>
-    <a <%if(request.getAttribute("erro") == null){%>href="../TelaInicial/areaRestrita.jsp"
+    <a <%if(request.getAttribute("erro") == null){%>href="AreaRestrita/TelaInicial/areaRestrita.jsp"
        <%}else{%>href="AreaRestrita/TelaInicial/areaRestrita.jsp"<%}%>><img id="backAreaRestrita"
-                                                                            <% if (request.getAttribute("erro") == null){%>src="../../Imagens/setaAzul.png"<%}else{%>
+                                                                            <% if (request.getAttribute("erro") == null){%>src="Imagens/setaAzul.png"<%}else{%>
                                                                             src="Imagens/setaAzul.png"
                                                                             <%}%>alt=""></a>
     <span class="email_session"></span>
@@ -48,6 +48,13 @@
     const email_session = document.getElementsByClassName("email_session")[0]
     window.addEventListener("load", () => {
         email_session.innerText = "Olá, " + sessionStorage.getItem("email") + "!"
+    })
+    window.addEventListener("click", (e) => {
+        if (e.key == "ArrowUp") {
+            window.location.replace("Escola");
+        } else if (e.key == "ArrowDown") {
+            window.location.replace("Admin");
+        }
     })
 </script>
 </body>

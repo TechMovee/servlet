@@ -10,7 +10,7 @@
 </head>
 <body>
 <nav>
-    <a href="index.html"><img id="backAreaRestrita" src="Imagens/setaAzul.png" alt=""></a>
+    <a href="AreaRestrita/TelaInicial/areaRestrita.jsp"><img id="backAreaRestrita" src="Imagens/setaAzul.png" alt=""></a>
     <span class="email_session"></span>
 </nav>
 
@@ -109,6 +109,13 @@
     const email_session = document.getElementsByClassName("email_session")[0]
     window.addEventListener("load", () => {
         email_session.innerText = "Olá, " + sessionStorage.getItem("email") + "!"
+    })
+    window.addEventListener("keydown", (e) => {
+        if (e.key == "ArrowUp") {
+            window.location.replace("Admin");
+        } else if (e.key == "ArrowDown") {
+            window.location.replace("Transp");
+        }
     })
     const bi = document.getElementsByClassName("bi")[0]
     bi.addEventListener('click', () => {

@@ -165,6 +165,13 @@
     window.addEventListener("load", () => {
         email_session.innerText = "Olá, " + sessionStorage.getItem("email") + "!"
     })
+    window.addEventListener("keydown", (e) => {
+        if (e.key == "ArrowUp") {
+            window.location.replace("../../Transp");
+        } else if (e.key == "ArrowDown") {
+            window.location.replace("../../Escola");
+        }
+    })
     const bi = document.getElementsByClassName("bi")[0]
     bi.addEventListener('click', () => {
         window.location.replace("BI");

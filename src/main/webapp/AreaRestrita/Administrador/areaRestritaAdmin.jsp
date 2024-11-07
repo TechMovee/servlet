@@ -12,7 +12,7 @@
 </head>
 <body>
 <nav>
-    <a href="index.html"><img id="backAreaRestrita" src="Imagens/setaAzul.png" alt=""></a>
+    <a href="AreaRestrita/TelaInicial/areaRestrita.jsp"><img id="backAreaRestrita" src="Imagens/setaAzul.png" alt=""></a>
     <span class="email_session"></span>
 </nav>
 <section class="conteudo">
@@ -41,7 +41,7 @@
                 <button class="BotãoSelecionado">Atualizar</button>
             </a>
             <a href="AreaRestrita/Administrador/areaRestritaAdminDeletar.jsp">
-                <button >Deletar</button>
+                <button>Deletar</button>
             </a>
         </div>
         <%
@@ -109,11 +109,18 @@
 <script>
     const bi = document.getElementsByClassName("bi")[0]
     const email_session = document.getElementsByClassName("email_session")[0]
-    bi.addEventListener('click', () => {
-        window.location.replace("BI");
+    window.addEventListener("load", () => {
+        email_session.innerText = "Olá, " + sessionStorage.getItem("email") + "!"
+    })
+    window.addEventListener("keydown", (e) => {
+        if (e.key == "ArrowUp") {
+            window.location.replace("BI");
+        } else if (e.key == "ArrowDown") {
+            window.location.replace("Respon");
+        }
     })
     window.addEventListener("load", () => {
-        email_session.innerText = "Olá, "+sessionStorage.getItem("email")+"!"
+        email_session.innerText = "Olá, " + sessionStorage.getItem("email") + "!"
     })
 </script>
 </body>
